@@ -15,16 +15,16 @@ namespace wd
 {
     class IGameObject {
         public:
-            IGameObject();
-            ~IGameObject();
+            IGameObject() = delete;
+            virtual ~IGameObject();
 
             // members getters
-            virtual const wd::ID        getID() = 0 const;
-            virtual const std::string   getName() = 0 const;
-            virtual wd::Layer           getLayer() = 0 const;
-            virtual wd::ITransform      getTransform() = 0 const;
-            virtual wd::ICollider       getCollider() = 0 const;
-            virtual wd::ISprite         getSprite() = 0 const;
+            virtual const wd::ID        getID() const = 0;
+            virtual const std::string   getName() const = 0;
+            virtual wd::Layer           getLayer() const  = 0;
+            virtual wd::ITransform      getTransform() const = 0;
+            virtual wd::ICollider       getCollider() const = 0;
+            virtual wd::ISprite         getSprite() const = 0;
 
             // members setters
             virtual void    setLayer(const wd::Layer &layer) = 0;
