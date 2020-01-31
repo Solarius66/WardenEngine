@@ -1,6 +1,6 @@
 # WardenEngine
 
-![logo](./icon/Warden.png)
+![logo](.icon/Warden.png)
 
 An engine using SFML to create 2D Games.
 
