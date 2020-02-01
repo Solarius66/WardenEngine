@@ -15,8 +15,8 @@
 #include "IDisplay.hpp"
 #include "ICore.hpp"
 #include "IData.hpp"
-#include "INetwork.hpp"
-#include "IArtificialIntelligence.hpp"
+// #include "INetwork.hpp"
+// #include "IArtificialIntelligence.hpp"
 
 #pragma pack(push, 1)
 
@@ -36,8 +36,8 @@ namespace wd
             std::unique_ptr<wd::IDisplay>                   _display;
             std::unique_ptr<wd::ICore>                      _core;
             std::unique_ptr<wd::IData>                      _data;
-            std::unique_ptr<wd::INetwork>                   _network;
-            std::unique_ptr<wd::IArtificialIntelligence>    _ai;
+            // std::unique_ptr<wd::INetwork>                   _network = nullptr;
+            // std::unique_ptr<wd::IArtificialIntelligence>    _ai = nullptr;
             sf::Mutex                                       _mutex;
             sf::Thread                                      _displayThread;
             sf::Thread                                      _coreThread;

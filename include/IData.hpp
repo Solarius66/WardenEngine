@@ -10,6 +10,8 @@
 #include <string>
 #include <exception>
 
+#include "Data.hpp"
+
 namespace wd
 {
     class IData

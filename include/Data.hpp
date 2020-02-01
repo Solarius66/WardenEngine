@@ -19,18 +19,18 @@ namespace wd
 {
     class Data : public wd::IData
     {
-        public:
-            Data();
-            ~Data() = default;
+    public:
+        Data();
+        ~Data() = default;
 
-            void sceneSwap(const std::string &);
-            void addScene(const wd::IScene &);
-            void removeScene(const std::string &);
-            wd::IScene &getActiveScene() {return this->_scene[this->_activeScene];};
+        void sceneSwap(const std::string &);
+        void addScene(const wd::IScene &);
+        void removeScene(const std::string &);
+        wd::IScene &getActiveScene() {return this->_scene[this->_activeScene];};
 
-        private:
-            std::map<std::string, wd::IScene>   _scene;
-            std::string                         _activeScene;
+    private:
+        std::map<std::string, wd::IScene>   _scene;
+        std::string                         _activeScene;
     };
 }
 

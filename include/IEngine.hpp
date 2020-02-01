@@ -7,6 +7,8 @@
 
 #pragma once
 
+#include "Engine.hpp"
+
 namespace wd
 {
     class IEngine

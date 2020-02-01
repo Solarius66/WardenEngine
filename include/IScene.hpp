@@ -31,6 +31,6 @@ namespace wd
     };
 }
 
-std::ostream operator<<(std::ostream &, const IScene &);
+std::ostream operator<<(std::ostream &, const wd::IScene &);
 
 #endif /* end of include guard: ISCENE_HPP_ */
