@@ -12,13 +12,15 @@
 
 #pragma pack(push, 1)
 
-namespace wd {
-    class Core : public wd::ICore {
+namespace wd 
+{
+    class Core : public wd::ICore 
+    {
         public:
             Core();
             ~Core();
 
-            void Update(wd::IScene activeScene);
+            void Update(wd::IScene &);
             void Stop();
 
         private:

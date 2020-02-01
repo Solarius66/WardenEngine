@@ -10,8 +10,10 @@
 
 #include "IScene.hpp"
 
-namespace wd {
-    class ICore {
+namespace wd 
+{
+    class ICore 
+    {
         public:
         ICore();
         virtual ~ICore() = 0;
