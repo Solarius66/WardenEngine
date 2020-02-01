@@ -33,7 +33,7 @@ namespace wd
 
 // overload << on std::cout to print x and y
 
-std::ostream &operator<<(std::ostream &os, const wd::Vector2 &vector) {return os << "x:" << vector.x << " y:" << vector.y << std::endl;}
+std::ostream &operator<<(std::ostream &os, const wd::Vector2 &vector) {return os << "x:" << vector.x << " y:" << vector.y;}
 
 #pragma pack(pop)
 

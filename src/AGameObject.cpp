@@ -5,7 +5,6 @@
 ** AGameObject member functions implementation
 */
 
-#include <iostream>
 #include <ostream>
 #include <string>
 #include "AGameObject.hpp"
@@ -76,7 +75,7 @@ wd::AGameObject &wd::AGameObject::operator=(const wd::AGameObject &ref)
 
 // Overload << operator on std::cout to print GameObject _name
 
-std:ostream &operator<<(std::ostream &os, const wd::AGameObject &object)
+std::ostream &operator<<(std::ostream &os, const wd::AGameObject &object)
 {
-    return os << object.getName() << std::endl;
+    return os << object.getName();
 }

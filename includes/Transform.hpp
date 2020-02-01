@@ -50,6 +50,6 @@ namespace wd
 #pragma pack(pop)
 
 template<typename T>
-std::ostream &operator<<(std::ostream &os, const wd::Transform<T> &transform) {return os << "Position: " << transform.getPosition() << "Scale: " << transform.getScale() << "Rotation: " << transform.getRotation() << std::endl;}
+std::ostream &operator<<(std::ostream &os, const wd::Transform<T> &transform) {return os << "Position: " << transform.getPosition() << std::endl << "Scale: " << transform.getScale() << std::endl << "Rotation: " << transform.getRotation();}
 
 #endif /* !TRANSFORM_HPP */
