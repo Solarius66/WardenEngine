@@ -8,6 +8,8 @@
 #ifndef ISPRITE_HPP_
 #define ISPRITE_HPP_
 
+#include "ITransform.hpp"
+
 namespace wd
 {
     class ISprite
@@ -22,7 +24,7 @@ namespace wd
         virtual void createSprite(const sf::Texture &, const sf::IntRect &) = 0;
         virtual void setIsActive(bool) = 0;
 
-        virtual void Update() = 0;
+        virtual void Update(const wd::ITransform &) = 0;
     };
 }
 
