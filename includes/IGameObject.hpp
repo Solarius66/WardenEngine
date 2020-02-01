@@ -21,13 +21,13 @@ namespace wd
             // members getters
             virtual const wd::ID        getID() const = 0;
             virtual const std::string   getName() const = 0;
-            virtual wd::Layer           getLayer() const  = 0;
+            virtual wd::LAYER           getLayer() const  = 0;
             virtual wd::ITransform      getTransform() const = 0;
             virtual wd::ICollider       getCollider() const = 0;
             virtual wd::ISprite         getSprite() const = 0;
 
             // members setters
-            virtual void    setLayer(const wd::Layer &layer) = 0;
+            virtual void    setLayer(const wd::LAYER &layer) = 0;
             virtual void    setTransform(const wd::ITransform &transform) = 0;
             virtual void    setCollider(const wd::ICollider &collider) = 0;
             virtual void    setSprite(const wd::ISprite &sprite) = 0;
