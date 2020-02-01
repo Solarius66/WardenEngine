@@ -16,40 +16,38 @@
 
 namespace wd
 {
-    template<typename T>
     class Transform : public ITransform
     {
         public:
             Transform();
-            Transform(const wd::Transform &ref) : _position(ref._position), _scale(ref._scale), _rotation(ref._rotation)
+            Transform(const wd::Transform &);
             ~Transform();
 
             // members getters
-            virtual wd::Vector2<T>  getPosition() const {return _position;}
-            virtual wd::Vector2<T>  getScale() const {return _scale;}
+            virtual wd::Vector2  getPosition() const {return _position;}
+            virtual wd::Vector2  getScale() const {return _scale;}
             virtual float           getRotation() const {return _rotation;}
 
             // members setters
-            void    setPosition(wd::Vector2<T> position) {_position = position;}
-            void    setScale(wd::Vector2<T> scale) {_scale = scale;}
-            float   setRotation(float rotation) {_rotation = rotation;}
+            void    setPosition(const wd::Vector2 &);
+            void    setScale(const wd::Vector2 &);
+            float   setRotation(const float &);
 
             // update member function
-            void    update() {}
+            void    update();
 
             // overloads on operators
-            wd::Transform &operator=(const wd::Transform &ref) {_position = ref._position; _scale = ref._scale; _rotation = ref._rotation;}
+            wd::Transform &operator=(const wd::Transform &);
 
         private:
-            wd::Vector2<T>  _position;
-            wd::Vector2<T>  _scale;
-            float           _rotation
+            wd::Vector2     _position;
+            wd::Vector2     _scale;
+            float           _rotation;
     };
 }
 
 #pragma pack(pop)
 
-template<typename T>
-std::ostream &operator<<(std::ostream &os, const wd::Transform<T> &transform) {return os << "Position: " << transform.getPosition() << std::endl << "Scale: " << transform.getScale() << std::endl << "Rotation: " << transform.getRotation();}
+std::ostream &operator<<(std::ostream &, const wd::Transform &);
 
 #endif /* !TRANSFORM_HPP */

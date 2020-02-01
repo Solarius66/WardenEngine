@@ -14,27 +14,26 @@
 
 namespace wd
 {
-    template<typename T>
     class Vector2
     {
         public:
-            Vector2();
-            Vector2(const Vector2 &ref) : x(ref.x), y(ref.y)
+            Vector2(const int &xRef = 0, const int &yRef = 0);
+            Vector2(const Vector2 &);
             ~Vector2();
 
             // operator overload to assign memebers
-            Vector2 &operator=(const Vector2 &ref) {x = ref.x; y = ref.y; return *this;}
+            Vector2 &operator=(const Vector2 &);
 
             // public member
-            T   x;
-            T   y;
+            int x;
+            int y;
     };
 }
 
+#pragma pack(pop)
+
 // overload << on std::cout to print x and y
 
-std::ostream &operator<<(std::ostream &os, const wd::Vector2 &vector) {return os << "x:" << vector.x << " y:" << vector.y;}
-
-#pragma pack(pop)
+std::ostream &operator<<(std::ostream &, const wd::Vector2 &);
 
 #endif /* !VECTOR2_HPP */
