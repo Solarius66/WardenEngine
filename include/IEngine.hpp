@@ -14,10 +14,11 @@ namespace wd
     class IEngine
     {
         public:
-            IEngine() = delete;
+            IEngine();
             virtual ~IEngine();
 
-            virtual void Start() const = 0;
-            virtual void Stop() const = 0;
+            virtual void Start() = 0;
+            virtual void displayLoop() = 0;
+            virtual void coreLoop() = 0;
     };
 }

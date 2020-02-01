@@ -9,12 +9,13 @@
 
 #include <iostream>
 #include <memory>
-#include <SFML/System.hpp>
 
 #include "IEngine.hpp"
 #include "IDisplay.hpp"
 #include "ICore.hpp"
 #include "IData.hpp"
+#include "IScene.hpp"
+#include "Mutex.hpp"
 // #include "INetwork.hpp"
 // #include "IArtificialIntelligence.hpp"
 
@@ -29,18 +30,15 @@ namespace wd
             ~Engine();
 
             // Member functions
-            void Start() const;
-            void Stop() const;
+            void Start();
+            void displayLoop() final;
+            void coreLoop() final;
 
         private:
-            std::unique_ptr<wd::IDisplay>                   _display;
             std::unique_ptr<wd::ICore>                      _core;
-            std::unique_ptr<wd::IData>                      _data;
+            mutex_t                                         _mutex;
             // std::unique_ptr<wd::INetwork>                   _network = nullptr;
             // std::unique_ptr<wd::IArtificialIntelligence>    _ai = nullptr;
-            sf::Mutex                                       _mutex;
-            sf::Thread                                      _displayThread;
-            sf::Thread                                      _coreThread;
     };
 }
 

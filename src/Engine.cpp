@@ -5,31 +5,48 @@
 ** Engine
 */
 
-#include <SFML/System.hpp>
+#include <functional>
+#include <thread>
 
 #include "Engine.hpp"
+#include "IScene.hpp"
 
 wd::Engine::Engine()
-: _displayThread(_display.draw()), _coreThread(_core.Update())
 {
     // _network = nullptr;
     // _ai = nullptr;
 }
 
 wd::Engine::~Engine()
+{}
+
+void wd::Engine::Start()
 {
-    _displayThread.terminate();
-    _coreThread.terminate();
+    std::thread displayThread(&wd::Engine::displayLoop, this);
+    std::thread coreThread(&wd::Engine::coreLoop, this);
+
+    displayThread.join();
+    coreThread.join();
 }
 
-void wd::Engine::Start() const
+void wd::Engine::displayLoop()
 {
-    _displayThread.launch();
-    _coreThread.launch();
+    while (1) {
+        if (_mutex._mutex.try_lock()) {
+            _mutex._mutex.lock();
+            _mutex._display->draw(_mutex._data->getActiveScene());
+            _mutex._mutex.unlock();
+        }
+    }
 }
 
-void wd::Engine::Stop() const
+void wd::Engine::coreLoop()
 {
-    _displayThread.stop();
-    _coreThread.stop();
+    while (1) {
+        if (_mutex._mutex.try_lock()) {
+            _mutex._mutex.lock();
+            _mutex._core->Update(_mutex._data->getActiveScene());
+            _mutex._mutex.unlock();
+        }
+    }
 }

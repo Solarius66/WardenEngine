@@ -17,15 +17,15 @@ namespace wd
 {
     class IDisplay
     {
-    public:
-        IDisplay() = delete;
-        virtual ~IDisplay();
+        public:
+            IDisplay() = delete;
+            virtual ~IDisplay();
 
-        virtual void    draw(wd::IScene &) = 0;
-        virtual void    drawGameObject(wd::IGameObject &) = 0;
+            virtual void    draw(wd::IScene &) = 0;
+            virtual void    drawGameObject(wd::IGameObject &) = 0;
 
-    protected:
-        virtual void    drawLayer(std::vector<wd::IGameObject>);
+        protected:
+            virtual void    drawLayer(std::vector<wd::IGameObject>);
     };
 }
 
