@@ -58,7 +58,9 @@ void wd::AGameObject::setSprite(const wd::ISprite &sprite)
 
 void wd::AGameObject::update()
 {
-    // TO-DO : define what will be called in this function
+    _transform.update();
+    _collider.update();
+    _sprite.update(_transform);
 }
 
 // Overload on = operator to assign ref members to the current AGameObject
