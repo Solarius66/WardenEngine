@@ -17,7 +17,7 @@ wd::AGameObject::AGameObject(const std::string &name, const wd::ID &id) : _name(
 {
 }
 
-wd::AGameObject::AGameObject(const wd::AGameObject &ref) : _id(ref._id), _name(ref._name), _layer(ref._layer), _transform(ref._transform), _collider(ref._collider), _sprite(ref.sprite)
+wd::AGameObject::AGameObject(const wd::AGameObject &ref) : _id(ref._id), _name(ref._name), _layer(ref._layer), _transform(ref._transform), _collider(ref._collider), _sprite(ref._sprite)
 {
 }
 
