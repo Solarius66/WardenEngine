@@ -9,7 +9,7 @@ SHELL		=	bash
 
 CXX			=	g++
 
-SRC			=	src/test.cpp
+SRC			=	src/Engine.cpp
 
 CXXFLAGS	=	-W -Wall -Wextra -Wpedantic -Wpadded -std=c++17 -I include -fms-extensions -O3 -fPIC
 
