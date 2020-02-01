@@ -9,13 +9,13 @@
 
 #include "IScene.hpp"
 
-namespace wd 
+namespace wd
 {
-    class ICore 
+    class ICore
     {
         public:
         ICore() = delete;
-        virtual ~ICore() = 0;
+        virtual ~ICore();
 
         virtual void Update(wd::IScene) = 0;
         virtual void Stop() = 0;

@@ -11,14 +11,10 @@ wd::Core::Core()
 {
 }
 
-wd::Core::~Core()
-{
-}
-
 // update scene in core
 void wd::CoreUpdate(wd::IScene &scene)
 {
-    scene->update();
+    scene->Update();
 }
 
 //
