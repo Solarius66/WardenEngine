@@ -9,6 +9,9 @@
 #define IGAMEOBJECT_HPP
 
 #include <string>
+#include "ITransform.hpp"
+#include "ICollider.hpp"
+#include "ISprite.hpp"
 #include "Enums.hpp"
 
 namespace wd
@@ -32,9 +35,6 @@ namespace wd
             virtual void    setTransform(const wd::ITransform &) = 0;
             virtual void    setCollider(const wd::ICollider &) = 0;
             virtual void    setSprite(const wd::ISprite &) = 0;
-
-        protected:
-        private:
     };
 }
 
