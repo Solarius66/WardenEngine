@@ -5,20 +5,19 @@
 ** ICore
 */
 
-#ifndef ICORE_HPP_
-#define ICORE_HPP_
+#pragma once
 
 #include "IScene.hpp"
 
-namespace wd {
-    class ICore {
+namespace wd
+{
+    class ICore
+    {
         public:
-        ICore();
+        ICore() = delete;
         virtual ~ICore() = 0;
 
-        virtual void Update(wd::IScene activeScene) = 0;
+        virtual void Update(wd::IScene) = 0;
         virtual void Stop() = 0;
     };
 }
-
-#endif /* !ICORE_HPP_ */
