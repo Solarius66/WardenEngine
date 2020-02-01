@@ -28,6 +28,9 @@ namespace wd
             virtual void    setPosition(wd::Vector2<T>) = 0;
             virtual void    setScale(wd::Vector2<T>) = 0;
             virtual float   setRotation(float) = 0;
+
+            // update member function
+            virtual void    update() = 0;
     };
 }
 

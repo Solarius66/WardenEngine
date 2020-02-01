@@ -46,7 +46,7 @@ namespace wd
             // overloads on operators
             wd::AGameObject &operator=(const wd::AGameObject &);
 
-        private:
+        protected:
             const wd::ID        _id;
             const std::string   _name;
             wd::LAYER           _layer;
@@ -56,8 +56,8 @@ namespace wd
     }
 }
 
-std::ostream &operator<<(std::ostream &, const wd::AGameObject &);
-
 #pragma pack(pop)
+
+std::ostream &operator<<(std::ostream &, const wd::AGameObject &);
 
 #endif /* !AGAMEOBJECT_HPP */
