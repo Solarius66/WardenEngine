@@ -69,11 +69,12 @@ wd::AGameObject &wd::AGameObject::operator=(const wd::AGameObject &ref)
     _transform = ref._transform;
     _collider = ref._collider;
     _sprite = ref._sprite;
+    return *this;
 }
 
 // Overload << operator on std::cout to print GameObject _name
 
 std:ostream &operator<<(std::ostream &os, const wd::AGameObject &object)
 {
-    std::cout << object.getName() << std::endl;
+    return os << object.getName() << std::endl;
 }
