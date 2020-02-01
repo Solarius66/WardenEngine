@@ -13,7 +13,8 @@
 
 namespace wd
 {
-    class IGameObject {
+    class IGameObject
+    {
         public:
             IGameObject() = delete;
             virtual ~IGameObject();
@@ -27,10 +28,10 @@ namespace wd
             virtual wd::ISprite         getSprite() const = 0;
 
             // members setters
-            virtual void    setLayer(const wd::LAYER &layer) = 0;
-            virtual void    setTransform(const wd::ITransform &transform) = 0;
-            virtual void    setCollider(const wd::ICollider &collider) = 0;
-            virtual void    setSprite(const wd::ISprite &sprite) = 0;
+            virtual void    setLayer(const wd::LAYER &) = 0;
+            virtual void    setTransform(const wd::ITransform &) = 0;
+            virtual void    setCollider(const wd::ICollider &) = 0;
+            virtual void    setSprite(const wd::ISprite &) = 0;
 
         protected:
         private:
