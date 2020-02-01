@@ -9,7 +9,10 @@ SHELL		=	bash
 
 CXX			=	g++
 
-SRC			=	src/Engine.cpp
+<<<<<<< HEAD
+SRC			=	src/Engine.cpp\
+				src/Data.cpp
+>>>>>>> Data
 
 CXXFLAGS	=	-W -Wall -Wextra -Wpedantic -Wpadded -std=c++17 -I include -fms-extensions -O3 -fPIC
 
