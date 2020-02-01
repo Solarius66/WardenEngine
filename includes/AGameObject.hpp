@@ -8,6 +8,7 @@
 #ifndef AGAMEOBJECT_HPP
 #define AGAMEOBJECT_HPP
 
+#include <ostream>
 #include <string>
 #include "ITransform.hpp"
 #include "ICollider.hpp"
@@ -22,6 +23,7 @@ namespace wd
     {
         public:
             AGameObject(const std::string &, const wd::ID &);
+            AGameObject(const wd::AGameObject &)
             ~AGameObject();
 
             // members getters
@@ -39,7 +41,10 @@ namespace wd
             void    setSprite(const wd::ISprite &);
 
             // update member function called each frame
-            void    update();
+            virtual void    update();
+
+            // overloads on operators
+            wd::AGameObject &operator=(const wd::AGameObject &);
 
         private:
             const wd::ID        _id;
@@ -48,7 +53,10 @@ namespace wd
             wd::ITransform      _transform;
             wd::ICollider       _collider;
             wd::ISprite         _sprite;
+    }
 }
+
+std::ostream &operator<<(std::ostream &, const wd::AGameObject &);
 
 #pragma pack(pop)
 
