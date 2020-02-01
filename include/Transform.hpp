@@ -24,13 +24,13 @@ namespace wd
             ~Transform();
 
             // members getters
-            virtual wd::Vector2  getPosition() const {return _position;}
-            virtual wd::Vector2  getScale() const {return _scale;}
+            virtual wd::Vector2int  getPosition() const {return _position;}
+            virtual wd::Vector2int  getScale() const {return _scale;}
             virtual float           getRotation() const {return _rotation;}
 
             // members setters
-            void    setPosition(const wd::Vector2 &);
-            void    setScale(const wd::Vector2 &);
+            void    setPosition(const wd::Vector2int &);
+            void    setScale(const wd::Vector2int &);
             float   setRotation(const float &);
 
             // update member function
@@ -40,8 +40,8 @@ namespace wd
             wd::Transform &operator=(const wd::Transform &);
 
         private:
-            wd::Vector2     _position;
-            wd::Vector2     _scale;
+            wd::Vector2int     _position;
+            wd::Vector2int     _scale;
             float           _rotation;
     };
 }

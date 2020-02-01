@@ -8,6 +8,8 @@
 #ifndef ISPRITE_HPP_
 #define ISPRITE_HPP_
 
+#include <SFML/Graphics.hpp>
+
 #include "ITransform.hpp"
 
 namespace wd

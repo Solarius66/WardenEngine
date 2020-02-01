@@ -11,7 +11,6 @@
 #include <map>
 
 #include "IData.hpp"
-#include "IScene.hpp"
 
 #pragma pack(push, 1)
 

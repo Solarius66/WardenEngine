@@ -10,7 +10,7 @@
 #include <string>
 #include <exception>
 
-#include "Data.hpp"
+#include "IScene.hpp"
 
 namespace wd
 {
