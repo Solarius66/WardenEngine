@@ -56,7 +56,12 @@ void wd::AGameObject::setCollider(std::shared_ptr<wd::ICollider> collider)
 
 void wd::AGameObject::setSprite(std::shared_ptr<wd::ISprite> sprite)
 {
+    wd::Vector2int size;
+
     _sprite = sprite;
+    size.x = sprite->getSprite().getTextureRect().width * sprite->getSprite().getScale().x;
+    size.y = sprite->getSprite().getTextureRect().height * sprite->getSprite().getScale().y;
+    _transform->setSize(size);
 }
 
 // Update GameObject each frame
