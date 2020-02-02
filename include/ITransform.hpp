@@ -21,11 +21,13 @@ namespace wd
             // members getters
             virtual wd::Vector2int  getPosition() const = 0;
             virtual wd::Vector2int  getScale() const = 0;
+            virtual wd::Vector2int  getsize () const = 0;
             virtual float           getRotation() const = 0;
 
             // members setters
-            virtual void    setPosition(wd::Vector2int) = 0;
-            virtual void    setScale(wd::Vector2int) = 0;
+            virtual void    setPosition(const wd::Vector2int &) = 0;
+            virtual void    setScale(const wd::Vector2int&) = 0;
+            virtual void    setSize(const wd::Vector2int &) = 0;
             virtual void    setRotation(float) = 0;
 
             // Update member function

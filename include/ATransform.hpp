@@ -26,11 +26,13 @@ namespace wd
             // members getters
             wd::Vector2int  getPosition() const {return _position;}
             wd::Vector2int  getScale() const {return _scale;}
+            wd::Vector2int  getSize() const {return _size;}
             float           getRotation() const {return _rotation;}
 
             // members setters
             void    setPosition(const wd::Vector2int &);
             void    setScale(const wd::Vector2int &);
+            void    setSize(const wd::Vector2int &);
             void    setRotation(const float &);
 
             // Update member function
@@ -42,6 +44,7 @@ namespace wd
         protected:
             wd::Vector2int  _position;
             wd::Vector2int  _scale;
+            wd::Vector2int  _size;
             float           _rotation;
     };
 }

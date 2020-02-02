@@ -35,6 +35,13 @@ void wd::ATransform::setScale(const wd::Vector2int &scale)
     _scale = scale;
 }
 
+// Set _size from a wd::Vector2int passed as parameter
+
+void wd::ATransform::setSize(const wd::Vector2int &size)
+{
+    _size = size;
+}
+
 // Set _rotation from a float passed as parameter
 
 void wd::ATransform::setRotation(const float &rotation)
