@@ -19,16 +19,16 @@ wd::Transform::~Transform()
 {
 }
 
-// Set _position from a wd::Vector2 passed as parameter
+// Set _position from a wd::Vector2int passed as parameter
 
-void wd::Transform::setPosition(const wd::Vector2 &position)
+void wd::Transform::setPosition(const wd::Vector2int &position)
 {
     _position = position;
 }
 
-// Set _scale from a wd::Vector2 passed as parameter
+// Set _scale from a wd::Vector2int passed as parameter
 
-void wd::Transform::setScale(const wd::Vector2 &scale)
+void wd::Transform::setScale(const wd::Vector2int &scale)
 {
     _scale = scale;
 }

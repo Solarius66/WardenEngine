@@ -9,7 +9,16 @@ SHELL		=	bash
 
 CXX			=	g++
 
-SRC			=	src/test.cpp
+SRC			=	src/Engine.cpp		\
+				src/Data.cpp		\
+				src/AGameObject.cpp	\
+				src/Collider.cpp	\
+				src/Core.cpp		\
+				src/Display.cpp		\
+				src/main.cpp		\
+				src/Scene.cpp		\
+				src/Sprite.cpp		\
+				src/Window.cpp
 
 CXXFLAGS	=	-W -Wall -Wextra -Wpedantic -Wpadded -std=c++17 -I include -fms-extensions -O3 -fPIC
 
