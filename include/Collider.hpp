@@ -32,8 +32,8 @@ namespace wd
             void    onTriggerExit();
             void    onTriggerStay();
 
-            // update member function
-            void    update();
+            // Update member function
+            void    Update();
 
             // overloads on operators
             wd::Collider    &operator=(const wd::Collider &);

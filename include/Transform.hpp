@@ -33,8 +33,8 @@ namespace wd
             void    setScale(const wd::Vector2 &);
             float   setRotation(const float &);
 
-            // update member function
-            void    update();
+            // Update member function
+            void    Update();
 
             // overloads on operators
             wd::Transform &operator=(const wd::Transform &);

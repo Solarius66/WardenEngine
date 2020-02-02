@@ -55,11 +55,11 @@ void wd::AGameObject::setSprite(const wd::ISprite &sprite)
 
 // Update GameObject each frame
 
-void wd::AGameObject::update()
+void wd::AGameObject::Update(const std::vector<wd::IGameObject > & objects)
 {
-    _transform.update();
-    _collider.update();
-    _sprite.update(_transform);
+    _transform.Update();
+    _collider.Update(objects);
+    _sprite.Update(_transform);
 }
 
 // Overload on = operator to assign ref members to the current AGameObject

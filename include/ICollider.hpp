@@ -27,8 +27,8 @@ namespace wd
             virtual void    onTriggerExit() = 0;
             virtual void    onTriggerStay() = 0;
 
-            // update member function
-            virtual void    update() = 0;
+            // Update member function
+            virtual void    Update(const std::vector<wd::IGameObject> &) = 0;
     };
 }
 
