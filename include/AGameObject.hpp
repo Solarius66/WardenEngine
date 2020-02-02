@@ -23,22 +23,22 @@ namespace wd
     {
         public:
             AGameObject(const std::string &, const wd::ID &);
-            AGameObject(const wd::AGameObject &)
+            AGameObject(const wd::AGameObject &);
             ~AGameObject();
 
             // members getters
-            const wd::ID        getID() const {return _id;}
-            const std::string   getName() const {return _name;}
-            wd::LAYER           getLayer() const {return _layer;}
-            wd::ITransform      getTransform() const {return _transform;}
-            wd::ICollider       getCollider() const {return _collider;}
-            wd::ISprite         getSprite() const {return _sprite;}
+            wd::ID                  getID() const {return _id;}
+            const std::string &     getName() const {return _name;}
+            wd::LAYER               getLayer() const {return _layer;}
+            const wd::ITransform &  getTransform() const {return _transform;}
+            const wd::ICollider &   getCollider() const {return _collider;}
+            const wd::ISprite &     getSprite() const {return _sprite;}
 
             // members setters
             void    setLayer(const wd::LAYER &);
-            void    setTransform(const wd::ITransform &);
-            void    setCollider(const wd::ICollider &);
-            void    setSprite(const wd::ISprite &);
+            void    setTransform(std::shared_ptr<wd::ITransform>);
+            void    setCollider(std::shared_ptr<wd::ICollider>);
+            void    setSprite(std::shared_ptr<wd::ISprite>);
 
             // Update member function called each frame
             virtual void    Update(const std::vector<wd::IGameObject> &);
@@ -47,13 +47,13 @@ namespace wd
             wd::AGameObject &operator=(const wd::AGameObject &);
 
         protected:
-            const wd::ID        _id;
-            const std::string   _name;
-            wd::LAYER           _layer;
-            wd::ITransform      _transform;
-            wd::ICollider       _collider;
-            wd::ISprite         _sprite;
-    }
+            const std::string                   _name;
+            wd::ID                              _id;
+            wd::LAYER                           _layer;
+            std::shared_ptr<wd::ITransform>     _transform;
+            std::shared_ptr<wd::ICollider>      _collider;
+            std::shared_ptr<wd::ISprite>        _sprite;
+    };
 }
 
 #pragma pack(pop)

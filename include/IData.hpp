@@ -17,7 +17,7 @@ namespace wd
     class IData
     {
     public:
-        IData() = delete;
+        IData();
         virtual ~IData();
 
         virtual void sceneSwap(const std::string &name) = 0;

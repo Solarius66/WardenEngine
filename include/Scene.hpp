@@ -26,9 +26,9 @@ namespace wd
         IGameObject &               getFromName(const std::string &) const;
         const std::string &         getName() const {return _name;}
 
-        void                        Update();
-        Iscene &                    operator+(const IGameObject &);
-        void                        destroyIGameObjectFromName(const std::string &);
+        void        Update();
+        Iscene &    operator+(const IGameObject &);
+        void        destroyIGameObjectFromName(const std::string &);
 
     private:
         const std::string               _name;

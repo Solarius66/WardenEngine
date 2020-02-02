@@ -18,25 +18,23 @@ wd::Data::Data()
 void wd::Data::sceneSwap(const std::string &name)
 {
     if (name.empty() == true || this->_scene.count(name) == 0)
-        throw std::invalid_argument("invalide name in sceneSwap");
+        throw std::invalid_argument("invalid name in sceneSwap");
     else
         this->_activeScene = name;
 }
 
 // add scene in map scene
-void wd::Data::addScene(const wd::IScene &scene)
+void wd::Data::addScene(wd::IScene &scene)
 {
-    if (scene == nullptr)
-        throw std::invalid_argument("invalide scene in addScene");
-    else
-        this->_scene.insert(scene->getName(), scene);
+    _scene[scene.getName()] = &scene;
+    // _scene[scene.getName()] = std::make_shared<wd::IScene>(&scene);
 }
 
 // remove scene in map scene
 void wd::Data::removeScene(const std::string &name)
 {
     if (name.empty() == true || this->_scene.count(name) == 0)
-        throw std::invalid_argument("invalide name in removeScene");
+        throw std::invalid_argument("invalid name in removeScene");
     else
         this->_scene.erase(name);
 }

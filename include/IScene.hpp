@@ -11,17 +11,19 @@
 #include <vector>
 #include <string>
 
+#include "IGameObject.hpp"
+
 namespace wd
 {
     class IScene
     {
     public:
-        IScene() = delete;
+        IScene();
         virtual ~IScene();
 
         // Members getter
-        virtual std::vector<IGameObject>    getFromLayer(wd::LAYER) const = 0;
-        virtual std::vector<IGameObject>    getFromID(wd::ID) const = 0;
+        virtual std::vector<wd::IGameObject>    getFromLayer(wd::LAYER) const = 0;
+        virtual std::vector<wd::IGameObject>    getFromID(wd::ID) const = 0;
         virtual IGameObject &               getFromName(const std::string &) const = 0;
         virtual const std::string &         getName() const = 0;
 

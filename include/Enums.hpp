@@ -25,6 +25,7 @@ namespace wd
         PLAYER,
         ENEMY,
         ITEM,
+        WALL,
         SYSTEM
     };
 }

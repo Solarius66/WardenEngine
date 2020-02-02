@@ -13,16 +13,20 @@
 #include "ISprite.hpp"
 #include "Enums.hpp"
 
-wd::AGameObject::AGameObject(const std::string &name, const wd::ID &id) : _name(name), _id(id)
+wd::AGameObject::AGameObject(const std::string &name, const wd::ID &id) : _name(name)
 {
+    _id = id;
+    _transform = nullptr;
 }
 
-wd::AGameObject::AGameObject(const wd::AGameObject &ref) : _id(ref._id), _name(ref._name), _layer(ref._layer), _transform(ref._transform), _collider(ref._collider), _sprite(ref._sprite)
+wd::AGameObject::AGameObject(const wd::AGameObject &ref) : _name(ref._name), _id(ref._id), _layer(ref._layer), _transform(ref._transform), _collider(ref._collider), _sprite(ref._sprite)
 {
+
 }
 
 wd::AGameObject::~AGameObject()
 {
+
 }
 
 // Set _layer from LAYER enum passed as parameter
@@ -34,21 +38,21 @@ void wd::AGameObject::setLayer(const wd::LAYER &layer)
 
 // Set _transform from an ITransform passed as parameter
 
-void wd::AGameObject::setTransform(const wd::ITransform &transform)
+void wd::AGameObject::setTransform(std::shared_ptr<wd::ITransform> transform)
 {
     _transform = transform;
 }
 
 // Set _collider from an ICollider passed as parameter
 
-void wd::AGameObject::setCollider(const wd::ICollider &collider)
+void wd::AGameObject::setCollider(std::shared_ptr<wd::ICollider> collider)
 {
     _collider = collider;
 }
 
 // Set _sprite from and Isprite passed as parameter
 
-void wd::AGameObject::setSprite(const wd::ISprite &sprite)
+void wd::AGameObject::setSprite(std::shared_ptr<wd::ISprite> sprite)
 {
     _sprite = sprite;
 }

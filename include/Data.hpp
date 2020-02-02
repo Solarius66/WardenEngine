@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <map>
+#include <memory>
 
 #include "IData.hpp"
 
@@ -23,13 +24,14 @@ namespace wd
             ~Data() = default;
 
             void sceneSwap(const std::string &);
-            void addScene(const wd::IScene &);
+            void addScene(wd::IScene &);
             void removeScene(const std::string &);
-            wd::IScene &getActiveScene() {return this->_scene[this->_activeScene];};
+            wd::IScene &getActiveScene() {return *this->_scene[this->_activeScene];}
 
         private:
-            std::map<std::string, wd::IScene>   _scene;
-            std::string                         _activeScene;
+            std::map<std::string, wd::IScene *>   _scene;
+            // std::map<std::string, std::shared_ptr<wd::IScene>>   _scene;
+            std::string                               _activeScene;
     };
 }
 
