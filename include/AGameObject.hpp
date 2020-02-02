@@ -40,8 +40,8 @@ namespace wd
             void    setCollider(const wd::ICollider &);
             void    setSprite(const wd::ISprite &);
 
-            // update member function called each frame
-            virtual void    update();
+            // Update member function called each frame
+            virtual void    Update(const std::vector<wd::IGameObject> &);
 
             // overloads on operators
             wd::AGameObject &operator=(const wd::AGameObject &);

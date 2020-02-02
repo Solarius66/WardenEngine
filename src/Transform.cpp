@@ -40,7 +40,7 @@ float wd::Transform::setRotation(const float &rotation)
     _rotation = rotation;
 }
 
-void wd::Transform::update()
+void wd::Transform::Update()
 {
 }
 

@@ -19,7 +19,7 @@ namespace wd
     class IGameObject
     {
         public:
-            IGameObject() = delete;
+            IGameObject();
             virtual ~IGameObject();
 
             // members getters
@@ -35,6 +35,8 @@ namespace wd
             virtual void    setTransform(const wd::ITransform &) = 0;
             virtual void    setCollider(const wd::ICollider &) = 0;
             virtual void    setSprite(const wd::ISprite &) = 0;
+
+            virtual void    Update(const std::vector<wd::IGameObject> &) = 0;
     };
 }
 

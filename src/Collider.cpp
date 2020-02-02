@@ -44,7 +44,7 @@ void wd::Collider::onTriggerStay()
 
 // Update Collider member function
 
-void wd::Collider::update()
+void wd::Collider::Update(const std::vector<wd::IGameObject> &objects)
 {
 }
 
