@@ -1,9 +1,4 @@
-/*
-** EPITECH PROJECT, 2018
-** IWindow.hpp
-** File description:
-** header
-*/
+
 /*
 ** EPITECH PROJECT, 2019
 ** IWindow.hpp
