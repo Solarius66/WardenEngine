@@ -67,5 +67,6 @@ wd::ATransform &wd::ATransform::operator=(const wd::ATransform &ref)
 
 std::ostream &operator<<(std::ostream &os, const wd::ATransform &transform)
 {
-    return os << "Position: " << transform.getPosition() << std::endl << "Scale: " << transform.getScale() << std::endl << "Rotation: " << transform.getRotation();
+    os << "Position: " << transform.getPosition().x << ", " << transform.getPosition().y << std::endl << "Scale: " << transform.getScale().x << transform.getScale().y << std::endl << "Size: " << transform.getSize().x << transform.getSize().y << std::endl << "Rotation: " << transform.getRotation();
+    return os;
 }

@@ -31,25 +31,30 @@ void wd::ACollider::setIsCollide(const bool &isCollide)
 
 // Trigger collider member functions
 
-void wd::ACollider::onTriggerEnter(std::shared_ptr<wd::IGameObject> other, std::shared_ptr<wd::IGameObject> obj)
+void wd::ACollider::onTriggerEnter(std::shared_ptr<wd::IGameObject> other, wd::IGameObject *obj)
 {
-
+    static_cast<void>(other);
+    static_cast<void>(obj);
 }
 
-void wd::ACollider::onTriggerExit(std::shared_ptr<wd::IGameObject> other, std::shared_ptr<wd::IGameObject> obj)
+void wd::ACollider::onTriggerExit(std::shared_ptr<wd::IGameObject> other, wd::IGameObject *obj)
 {
+    static_cast<void>(other);
+    static_cast<void>(obj);
 }
 
-void wd::ACollider::onTriggerStay(std::shared_ptr<wd::IGameObject> other, std::shared_ptr<wd::IGameObject> obj)
+void wd::ACollider::onTriggerStay(std::shared_ptr<wd::IGameObject> other, wd::IGameObject *obj)
 {
+    static_cast<void>(other);
+    static_cast<void>(obj);
 }
 
 // Update Collider member function
 
-void wd::ACollider::Update(const std::vector<std::shared_ptr<wd::IGameObject>> &objects, std::shared_ptr<wd::IGameObject> obj)
+void wd::ACollider::Update(const std::vector<std::shared_ptr<wd::IGameObject>> &objects, wd::IGameObject *obj)
 {
     for (auto &p : objects) {
-        if (obj == p)
+        if (obj->getName() == p->getName())
             continue;
         if ((obj->getTransform()->getPosition().x <= p->getTransform()->getPosition().x + p->getTransform()->getSize().x)
         && (obj->getTransform()->getPosition().y <= p->getTransform()->getPosition().y + p->getTransform()->getSize().y)

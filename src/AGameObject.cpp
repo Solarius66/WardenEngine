@@ -69,7 +69,7 @@ void wd::AGameObject::setSprite(std::shared_ptr<wd::ISprite> sprite)
 void wd::AGameObject::Update(const std::vector<std::shared_ptr<wd::IGameObject>> & objects)
 {
     _transform->Update();
-    _collider->Update(objects);
+    _collider->Update(objects, this);
     _sprite->Update(_transform);
 }
 

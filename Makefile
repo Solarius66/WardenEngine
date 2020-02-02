@@ -18,7 +18,6 @@ SRC			=	src/Engine.cpp		\
 				src/Scene.cpp		\
 				src/Window.cpp		\
 				src/ATransform.cpp	\
-				src/Vector2int.cpp	\
 				src/ASprite.cpp
 
 CXXFLAGS	=	-W -Wall -Wextra -Wpedantic -Wpadded -std=c++17 -I include -fms-extensions -O3 -fPIC

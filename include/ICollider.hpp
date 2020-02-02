@@ -28,12 +28,12 @@ namespace wd
         virtual void    setIsCollide(bool) = 0;
 
         // trigger collider functions
-        virtual void    onTriggerEnter(std::shared_ptr<wd::IGameObject>, std::shared_ptr<wd::IGameObject>) = 0;
-        virtual void    onTriggerExit(std::shared_ptr<wd::IGameObject>, std::shared_ptr<wd::IGameObject>) = 0;
-        virtual void    onTriggerStay(std::shared_ptr<wd::IGameObject>, std::shared_ptr<wd::IGameObject>) = 0;
+        virtual void    onTriggerEnter(std::shared_ptr<wd::IGameObject>, wd::IGameObject *) = 0;
+        virtual void    onTriggerExit(std::shared_ptr<wd::IGameObject>, wd::IGameObject *) = 0;
+        virtual void    onTriggerStay(std::shared_ptr<wd::IGameObject>, wd::IGameObject *) = 0;
 
         // Update member function
-        virtual void    Update(const std::vector<std::shared_ptr<wd::IGameObject>> &, std::shared_ptr<wd::IGameObject>) = 0;
+        virtual void    Update(const std::vector<std::shared_ptr<wd::IGameObject>> &, wd::IGameObject *) = 0;
     };
 }
 
