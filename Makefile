@@ -46,6 +46,8 @@ mac_lib: CXX = clang++ ## Build a static lib for mac
 mac_lib: lib
 
 mac: CXX = clang++ ## Build for mac
+mac: NAME = libwarden.dylib
+mac: LDFLAGS = $(LDLIBS) -dynamiclib
 mac: all
 
 debeug: CXXFLAGS += -g3 ## Build with debeug symbols
