@@ -13,7 +13,6 @@ SRC			=	src/Engine.cpp		\
 				src/Data.cpp		\
 				src/AGameObject.cpp	\
 				src/ACollider.cpp	\
-				src/Core.cpp		\
 				src/Display.cpp		\
 				src/Scene.cpp		\
 				src/Window.cpp		\
