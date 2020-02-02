@@ -22,14 +22,15 @@ namespace wd
 {
     class IWindow
     {
-        IWindow() = delete;
+    public:
+        IWindow();
         virtual ~IWindow();
 
         // members getter
         virtual const std::string & getTitle() const = 0;
 
-        virtual void    setFrameRate(int) = 0;
-        virtual void    draw(const wd::IGameObject &) const = 0;
+        virtual void    setFrameRate(unsigned int) = 0;
+        virtual void    draw(const std::shared_ptr<wd::IGameObject> &) = 0;
     };
 }
 

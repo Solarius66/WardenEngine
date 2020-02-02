@@ -17,6 +17,8 @@ wd::AGameObject::AGameObject(const std::string &name, const wd::ID &id) : _name(
 {
     _id = id;
     _transform = nullptr;
+    _collider = nullptr;
+    _sprite = nullptr;
 }
 
 wd::AGameObject::AGameObject(const wd::AGameObject &ref) : _name(ref._name), _id(ref._id), _layer(ref._layer), _transform(ref._transform), _collider(ref._collider), _sprite(ref._sprite)
@@ -59,11 +61,11 @@ void wd::AGameObject::setSprite(std::shared_ptr<wd::ISprite> sprite)
 
 // Update GameObject each frame
 
-void wd::AGameObject::Update(const std::vector<wd::IGameObject > & objects)
+void wd::AGameObject::Update(const std::vector<std::shared_ptr<wd::IGameObject>> & objects)
 {
-    _transform.Update();
-    _collider.Update(objects);
-    _sprite.Update(_transform);
+    _transform->Update();
+    _collider->Update(objects);
+    _sprite->Update(_transform);
 }
 
 // Overload on = operator to assign ref members to the current AGameObject

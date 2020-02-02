@@ -14,7 +14,7 @@ namespace wd
     class ICore
     {
         public:
-        ICore() = delete;
+        ICore();
         virtual ~ICore();
 
         virtual void Update(wd::IScene &) = 0;

@@ -13,7 +13,7 @@ wd::ATransform::ATransform()
     _scale.y = 1;
 }
 
-wd::ATransform::ATransform(const wd::Transform &ref) : _position(ref._position), _scale(ref._scale), _rotation(ref._rotation)
+wd::ATransform::ATransform(const wd::ATransform &ref) : _position(ref._position), _scale(ref._scale), _rotation(ref._rotation)
 {
 }
 
@@ -37,7 +37,7 @@ void wd::ATransform::setScale(const wd::Vector2int &scale)
 
 // Set _rotation from a float passed as parameter
 
-float wd::ATransform::setRotation(const float &rotation)
+void wd::ATransform::setRotation(const float &rotation)
 {
     _rotation = rotation;
 }
@@ -53,6 +53,7 @@ wd::ATransform &wd::ATransform::operator=(const wd::ATransform &ref)
     _position = ref._position;
     _scale = ref._scale;
     _rotation = ref._rotation;
+    return *this;
 }
 
 // Overload << operator on std::cout to print Transform members : _position, _scale and _rotation

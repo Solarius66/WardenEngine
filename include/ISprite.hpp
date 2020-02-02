@@ -9,6 +9,7 @@
 #define ISPRITE_HPP_
 
 #include <SFML/Graphics.hpp>
+#include <memory>
 
 #include "ITransform.hpp"
 
@@ -17,7 +18,7 @@ namespace wd
     class ISprite
     {
     public:
-        ISprite() = delete;
+        ISprite();
         virtual ~ISprite();
 
         virtual const sf::Sprite &  getSprite() const = 0;
@@ -26,7 +27,7 @@ namespace wd
         virtual void createSprite(const sf::Texture &, const sf::IntRect &) = 0;
         virtual void setIsActive(bool) = 0;
 
-        virtual void Update(const wd::ITransform &) = 0;
+        virtual void Update(std::shared_ptr<wd::ITransform>) = 0;
     };
 }
 

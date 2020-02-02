@@ -5,21 +5,21 @@
 ** Vector2 member functions immplementation
 */
 
-#include "Vector2.hpp"
+#include "Vector2int.hpp"
 
-wd::Vector2int::Vector2(const int &xRef, const int &yRef) : x(xRef), y(yRef)
+wd::Vector2int::Vector2int(const int &xRef, const int &yRef) : x(xRef), y(yRef)
 {
 }
 
-wd::Vector2int::Vector2(const Vector2 &ref) : x(ref.x), y(ref.y)
+wd::Vector2int::Vector2int(const Vector2int &ref) : x(ref.x), y(ref.y)
 {
 }
 
-wd::Vector2int::~Vector2()
+wd::Vector2int::~Vector2int()
 {
 }
 
-wd::Vector2int &wd::Vector2int::operator=(const Vector2 &ref)
+wd::Vector2int &wd::Vector2int::operator=(const Vector2int &ref)
 {
     x = ref.x;
     y = ref.y;

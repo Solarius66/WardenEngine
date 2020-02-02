@@ -17,20 +17,20 @@ namespace wd
     class Window : public wd::IWindow
     {
     public:
-        Window(const std::string &);
+        Window(const std::string &, int x = 0, int y = 0);
         ~Window() = default;
 
         // Members getter
-        const std::string &getTitle() const {return _title}
+        const std::string &getTitle() const {return _title;}
 
         // Members setter
-        void setFrameRate(int);
+        void setFrameRate(unsigned int);
 
-        void draw(const wd::IGameObject &) const;
+        void draw(const std::shared_ptr<wd::IGameObject> &);
 
     private:
-        sf::RenderWindow    _window;
         sf::VideoMode       _mode;
+        sf::RenderWindow    _window;
         std::string         _title;
         unsigned int        _frameRate = 60;
     };

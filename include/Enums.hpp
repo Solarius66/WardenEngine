@@ -11,12 +11,14 @@
 namespace wd
 {
     // Layer enum declaration for display order, could be HUD, FOREGROUND or BACKGROUND
-    enum LAYER
+    enum LAYER : int
     {
         HUD,
         FOREGROUND,
         BACKGROUND
     };
+
+    wd::LAYER &operator--(wd::LAYER &layer);
 
     // ID enum declaration for object type definition, could be NOTHING, PLAYER, ENEMY, ITEM or SYSTEM
     enum ID

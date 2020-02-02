@@ -5,8 +5,8 @@
 ** ACollider abstract class declaration
 */
 
-#ifndef COLLIDER_HPP
-#define COLLIDER_HPP
+#ifndef ACOLLIDER_HPP
+#define ACOLLIDER_HPP
 
 #include <ostream>
 #include "ICollider.hpp"
@@ -15,11 +15,11 @@
 
 namespace wd
 {
-    class Collider : public wd::ICollider {
+    class ACollider : public wd::ICollider {
         public:
-            Collider();
-            Collider(const wd::Collider &);
-            ~Collider();
+            ACollider();
+            ACollider(const wd::ACollider &);
+            ~ACollider();
 
             // members getters
             bool    getIsCollide() const {return _isCollide;}
@@ -33,10 +33,10 @@ namespace wd
             virtual void    onTriggerStay();
 
             // Update member function
-            virtual void    Update();
+            virtual void    Update(const std::vector<std::shared_ptr<wd::IGameObject>> &);
 
             // overloads on operators
-            virtual wd::Collider    &operator=(const wd::Collider &);
+            virtual wd::ACollider    &operator=(const wd::ACollider &);
 
         private:
             bool    _isCollide;
@@ -45,6 +45,6 @@ namespace wd
 
 #pragma pack(pop)
 
-std::ostream &operator<<(std::ostream &, const wd::Collider &);
+std::ostream &operator<<(std::ostream &, const wd::ACollider &);
 
 #endif /* !COLLIDER_HPP */

@@ -9,6 +9,7 @@
 #define IGAMEOBJECT_HPP
 
 #include <string>
+#include <memory>
 
 #include "ITransform.hpp"
 #include "ICollider.hpp"
@@ -25,12 +26,12 @@ namespace wd
         virtual ~IGameObject();
 
         // members getters
-        virtual wd::ID                  getID() const = 0;
-        virtual const std::string &     getName() const = 0;
-        virtual wd::LAYER               getLayer() const  = 0;
-        virtual const wd::ITransform &  getTransform() const = 0;
-        virtual const wd::ICollider &   getCollider() const = 0;
-        virtual const wd::ISprite &     getSprite() const = 0;
+        virtual wd::ID                          getID() const = 0;
+        virtual const std::string &             getName() const = 0;
+        virtual wd::LAYER                       getLayer() const  = 0;
+        virtual std::shared_ptr<wd::ITransform> getTransform() const = 0;
+        virtual std::shared_ptr<wd::ICollider>  getCollider() const = 0;
+        virtual std::shared_ptr<wd::ISprite>    getSprite() const = 0;
 
         // members setters
         virtual void    setLayer(const wd::LAYER &);
@@ -38,7 +39,7 @@ namespace wd
         virtual void    setCollider(std::shared_ptr<wd::ICollider>);
         virtual void    setSprite(std::shared_ptr<wd::ISprite>);
 
-        virtual void    Update(const std::vector<wd::IGameObject> &) = 0;
+        virtual void    Update(const std::vector<std::shared_ptr<wd::IGameObject>> &) = 0;
     };
 }
 

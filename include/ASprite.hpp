@@ -28,7 +28,7 @@ namespace wd
         void createSprite(const sf::Texture &, const sf::IntRect &);
         void setIsActive(bool);
 
-        void Update(const wd::ITransform &);
+        void Update(std::shared_ptr<wd::ITransform>);
 
     private:
         sf::Sprite _sprite;

@@ -10,7 +10,7 @@
 
 #include <ostream>
 #include "ITransform.hpp"
-#include "Vector2.hpp"
+#include "Vector2int.hpp"
 
 #pragma pack(push, 1)
 
@@ -31,13 +31,13 @@ namespace wd
             // members setters
             void    setPosition(const wd::Vector2int &);
             void    setScale(const wd::Vector2int &);
-            float   setRotation(const float &);
+            void    setRotation(const float &);
 
             // Update member function
             virtual void    Update();
 
             // overloads on operators
-            virtual wd::ATransform  &operator=(const wd::ATransform &);
+            virtual wd::ATransform &operator=(const wd::ATransform &);
 
         protected:
             wd::Vector2int  _position;

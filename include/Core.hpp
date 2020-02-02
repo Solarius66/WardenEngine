@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include <Event.hpp>
+#include <SFML/Graphics.hpp>
 
 #include "ICore.hpp"
 

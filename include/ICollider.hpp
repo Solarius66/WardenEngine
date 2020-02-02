@@ -33,7 +33,7 @@ namespace wd
         virtual void    onTriggerStay() = 0;
 
         // Update member function
-        virtual void    Update(const std::vector<wd::IGameObject> &) = 0;
+        virtual void    Update(const std::vector<std::shared_ptr<wd::IGameObject>> &) = 0;
     };
 }
 

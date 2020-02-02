@@ -8,6 +8,8 @@
 #ifndef DISPLAY_HPP_
 #define DISPLAY_HPP_
 
+#include "IDisplay.hpp"
+
 #pragma pack(push, 1)
 
 namespace wd
@@ -19,10 +21,10 @@ namespace wd
         ~Display() = default;
 
         void    draw(const wd::IScene &);
-        void    drawGameObject(const wd::IGameObject &);
+        void    drawGameObject(const std::shared_ptr<wd::IGameObject> &);
 
     private:
-        void    drawLayer(const std::vector<wd::IGameObject> &)
+        void    drawLayer(const std::vector<std::shared_ptr<wd::IGameObject>> &);
 
         std::unique_ptr<IWindow> _window;
     };

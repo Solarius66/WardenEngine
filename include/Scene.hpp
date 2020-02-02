@@ -21,18 +21,19 @@ namespace wd
         ~Scene() = default;
 
         // Members getter
-        std::vector<IGameObject>    getFromLayer(wd::LAYER) const;
-        std::vector<IGameObject>    getFromID(wd::ID) const;
-        IGameObject &               getFromName(const std::string &) const;
-        const std::string &         getName() const {return _name;}
+        std::vector<std::shared_ptr<wd::IGameObject>>    getFromLayer(wd::LAYER) const;
+        std::vector<std::shared_ptr<wd::IGameObject>>    getFromID(wd::ID) const;
+        std::vector<std::shared_ptr<wd::IGameObject>>    getObjects() const {return _objects;}
+        const std::shared_ptr<wd::IGameObject> &         getFromName(const std::string &) const;
+        const std::string &             getName() const {return _name;}
 
         void        Update();
-        Iscene &    operator+(const IGameObject &);
+        wd::IScene &    operator+(const std::shared_ptr<wd::IGameObject> &);
         void        destroyIGameObjectFromName(const std::string &);
 
     private:
-        const std::string               _name;
-        std::vector<wd::IGameObject>    _objects;
+        const std::string                               _name;
+        std::vector<std::shared_ptr<wd::IGameObject>>   _objects;
     };
 }
 

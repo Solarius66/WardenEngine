@@ -7,13 +7,14 @@
 
 #include <iostream>
 #include <ostream>
+
 #include "ACollider.hpp"
 
 wd::ACollider::ACollider()
 {
 }
 
-wd::ACollider::ACollider(const wd::Collider &ref) : _isCollide(ref._isCollide)
+wd::ACollider::ACollider(const wd::ACollider &ref) : _isCollide(ref._isCollide)
 {
 }
 
@@ -44,8 +45,9 @@ void wd::ACollider::onTriggerStay()
 
 // Update Collider member function
 
-void wd::ACollider::Update(const std::vector<wd::IGameObject> &objects)
+void wd::ACollider::Update(const std::vector<std::shared_ptr<wd::IGameObject>> &objects)
 {
+
 }
 
 // Overload on = operator to assign ref members to the current Collider

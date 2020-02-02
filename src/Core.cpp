@@ -12,12 +12,12 @@ wd::Core::Core()
 }
 
 // update scene in core
-void wd::CoreUpdate(wd::IScene &scene)
+void wd::Core::Update(wd::IScene &scene)
 {
-    scene->Update();
+    scene.Update();
 }
 
 //
-void wd::CoreStop()
+void wd::Core::Stop()
 {
 }

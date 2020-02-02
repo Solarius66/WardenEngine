@@ -10,6 +10,7 @@
 
 #include <vector>
 
+#include "Enums.hpp"
 #include "IWindow.hpp"
 #include "IData.hpp"
 
@@ -18,14 +19,14 @@ namespace wd
     class IDisplay
     {
         public:
-            IDisplay() = delete;
+            IDisplay();
             virtual ~IDisplay();
 
-            virtual void    draw(wd::IScene &) = 0;
-            virtual void    drawGameObject(wd::IGameObject &) = 0;
+            virtual void    draw(const wd::IScene &) = 0;
+            virtual void    drawGameObject(const std::shared_ptr<wd::IGameObject> &) = 0;
 
         protected:
-            virtual void    drawLayer(std::vector<wd::IGameObject>);
+            virtual void    drawLayer(const std::vector<std::shared_ptr<wd::IGameObject>> &);
     };
 }
 

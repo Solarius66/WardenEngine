@@ -15,7 +15,7 @@ namespace wd
     class ITransform
     {
         public:
-            ITransform() = delete;
+            ITransform();
             virtual ~ITransform();
 
             // members getters
@@ -26,7 +26,7 @@ namespace wd
             // members setters
             virtual void    setPosition(wd::Vector2int) = 0;
             virtual void    setScale(wd::Vector2int) = 0;
-            virtual float   setRotation(float) = 0;
+            virtual void    setRotation(float) = 0;
 
             // Update member function
             virtual void    Update() = 0;
