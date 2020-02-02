@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2019
-** Sprite.hpp
+** ASprite.hpp
 ** File description:
-** Declaration of Sprite Class
+** Declaration of Sprite Abstract Class
 */
 
 #ifndef SPRITE_HPP_
@@ -14,11 +14,11 @@
 
 namespace wd
 {
-    class Sprite : public wd::ISprite
+    class ASprite : public wd::ISprite
     {
     public:
-        Sprite();
-        ~Sprite() = default;
+        ASprite();
+        ~ASprite() = default;
 
         //members getter
         const sf::Sprite &  getSprite() const {return _sprite;}

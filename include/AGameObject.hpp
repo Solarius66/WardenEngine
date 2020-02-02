@@ -10,6 +10,7 @@
 
 #include <ostream>
 #include <string>
+#include "IGameObject.hpp"
 #include "ITransform.hpp"
 #include "ICollider.hpp"
 #include "ISprite.hpp"
@@ -23,7 +24,7 @@ namespace wd
     {
         public:
             AGameObject(const std::string &, const wd::ID &);
-            AGameObject(const wd::AGameObject &)
+            AGameObject(const wd::AGameObject &);
             ~AGameObject();
 
             // members getters
@@ -44,7 +45,7 @@ namespace wd
             virtual void    Update(const std::vector<wd::IGameObject> &);
 
             // overloads on operators
-            wd::AGameObject &operator=(const wd::AGameObject &);
+            virtual wd::AGameObject &operator=(const wd::AGameObject &);
 
         protected:
             const wd::ID        _id;
@@ -53,7 +54,7 @@ namespace wd
             wd::ITransform      _transform;
             wd::ICollider       _collider;
             wd::ISprite         _sprite;
-    }
+    };
 }
 
 #pragma pack(pop)
