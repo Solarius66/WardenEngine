@@ -30,5 +30,6 @@ void wd::Display::drawGameObject(const std::shared_ptr<wd::IGameObject> &obj)
 void wd::Display::drawLayer(const std::vector<std::shared_ptr<wd::IGameObject>> &vector)
 {
     for (unsigned int x = 0; x < vector.size(); x++)
-        drawGameObject(vector[x]);
+        if (vector[x]->getSprite()->getIsActive() == 1)
+            drawGameObject(vector[x]);
 }
