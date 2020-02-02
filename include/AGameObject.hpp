@@ -10,6 +10,7 @@
 
 #include <ostream>
 #include <string>
+#include "IGameObject.hpp"
 #include "ITransform.hpp"
 #include "ICollider.hpp"
 #include "ISprite.hpp"
@@ -44,7 +45,7 @@ namespace wd
             virtual void    Update(const std::vector<wd::IGameObject> &);
 
             // overloads on operators
-            wd::AGameObject &operator=(const wd::AGameObject &);
+            virtual wd::AGameObject &operator=(const wd::AGameObject &);
 
         protected:
             const std::string                   _name;

@@ -1,52 +1,54 @@
 /*
 ** EPITECH PROJECT, 2020
-** Transform
+** ATransform
 ** File description:
-** Transform member functions implementation
+** ATransform abstract class member functions implementation
 */
 
-#include "Transform.hpp"
+#include "ATransform.hpp"
 
-wd::Transform::Transform()
+wd::ATransform::ATransform()
+{
+    _scale.x = 1;
+    _scale.y = 1;
+}
+
+wd::ATransform::ATransform(const wd::Transform &ref) : _position(ref._position), _scale(ref._scale), _rotation(ref._rotation)
 {
 }
 
-wd::Transform::Transform(const wd::Transform &ref) : _position(ref._position), _scale(ref._scale), _rotation(ref._rotation)
-{
-}
-
-wd::Transform::~Transform()
+wd::ATransform::~ATransform()
 {
 }
 
 // Set _position from a wd::Vector2int passed as parameter
 
-void wd::Transform::setPosition(const wd::Vector2int &position)
+void wd::ATransform::setPosition(const wd::Vector2int &position)
 {
     _position = position;
 }
 
 // Set _scale from a wd::Vector2int passed as parameter
 
-void wd::Transform::setScale(const wd::Vector2int &scale)
+void wd::ATransform::setScale(const wd::Vector2int &scale)
 {
     _scale = scale;
 }
 
 // Set _rotation from a float passed as parameter
 
-float wd::Transform::setRotation(const float &rotation)
+float wd::ATransform::setRotation(const float &rotation)
 {
     _rotation = rotation;
 }
 
-void wd::Transform::Update()
+void wd::ATransform::Update()
 {
 }
 
 // Overload on = operator to assign ref members to the current Transform
 
-wd::Transform &wd::Transform::operator=(const wd::Transform &ref)
+wd::ATransform &wd::ATransform::operator=(const wd::ATransform &ref)
 {
     _position = ref._position;
     _scale = ref._scale;
@@ -55,7 +57,7 @@ wd::Transform &wd::Transform::operator=(const wd::Transform &ref)
 
 // Overload << operator on std::cout to print Transform members : _position, _scale and _rotation
 
-std::ostream &operator<<(std::ostream &os, const wd::Transform &transform)
+std::ostream &operator<<(std::ostream &os, const wd::ATransform &transform)
 {
     return os << "Position: " << transform.getPosition() << std::endl << "Scale: " << transform.getScale() << std::endl << "Rotation: " << transform.getRotation();
 }

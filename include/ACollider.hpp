@@ -1,8 +1,8 @@
 /*
 ** EPITECH PROJECT, 2020
-** Collider
+** ACollider
 ** File description:
-** Collider class declaration
+** ACollider abstract class declaration
 */
 
 #ifndef COLLIDER_HPP
@@ -28,15 +28,15 @@ namespace wd
             void    setIsCollide(const bool &);
 
             // trigger collider functions
-            void    onTriggerEnter();
-            void    onTriggerExit();
-            void    onTriggerStay();
+            virtual void    onTriggerEnter();
+            virtual void    onTriggerExit();
+            virtual void    onTriggerStay();
 
             // Update member function
-            void    Update();
+            virtual void    Update();
 
             // overloads on operators
-            wd::Collider    &operator=(const wd::Collider &);
+            virtual wd::Collider    &operator=(const wd::Collider &);
 
         private:
             bool    _isCollide;
