@@ -31,23 +31,33 @@ void wd::ACollider::setIsCollide(const bool &isCollide)
 
 // Trigger collider member functions
 
-void wd::ACollider::onTriggerEnter()
+void wd::ACollider::onTriggerEnter(std::shared_ptr<wd::IGameObject> other, std::shared_ptr<wd::IGameObject> obj)
+{
+
+}
+
+void wd::ACollider::onTriggerExit(std::shared_ptr<wd::IGameObject> other, std::shared_ptr<wd::IGameObject> obj)
 {
 }
 
-void wd::ACollider::onTriggerExit()
-{
-}
-
-void wd::ACollider::onTriggerStay()
+void wd::ACollider::onTriggerStay(std::shared_ptr<wd::IGameObject> other, std::shared_ptr<wd::IGameObject> obj)
 {
 }
 
 // Update Collider member function
 
-void wd::ACollider::Update(const std::vector<std::shared_ptr<wd::IGameObject>> &objects)
+void wd::ACollider::Update(const std::vector<std::shared_ptr<wd::IGameObject>> &objects, std::shared_ptr<wd::IGameObject> obj)
 {
-
+    for (auto &p : objects) {
+        if (obj == p)
+            continue;
+        if ((obj->getTransform()->getPosition().x <= p->getTransform()->getPosition().x + p->getTransform()->getSize().x)
+        && (obj->getTransform()->getPosition().y <= p->getTransform()->getPosition().y + p->getTransform()->getSize().y)
+        && (obj->getTransform()->getPosition().x + obj->getTransform()->getSize().x >= p->getTransform()->getPosition().x)
+        && (obj->getTransform()->getPosition().y + obj->getTransform()->getSize().y >= p->getTransform()->getPosition().y)) {
+            this->onTriggerEnter(p, obj);
+        }
+    }
 }
 
 // Overload on = operator to assign ref members to the current Collider
