@@ -9,7 +9,16 @@ SHELL		=	bash
 
 CXX			=	g++
 
-SRC			=	src/test.cpp
+SRC			=	src/Engine.cpp		\
+				src/Data.cpp		\
+				src/AGameObject.cpp	\
+				src/ACollider.cpp	\
+				src/Core.cpp		\
+				src/Display.cpp		\
+				src/Scene.cpp		\
+				src/Window.cpp		\
+				src/ATransform.cpp	\
+				src/ASprite.cpp
 
 CXXFLAGS	=	-W -Wall -Wextra -Wpedantic -Wpadded -std=c++17 -I include -fms-extensions -O3 -fPIC
 
@@ -36,6 +45,8 @@ mac_lib: CXX = clang++ ## Build a static lib for mac
 mac_lib: lib
 
 mac: CXX = clang++ ## Build for mac
+mac: NAME = libwarden.dylib
+mac: LDFLAGS = $(LDLIBS) -dynamiclib
 mac: all
 
 debeug: CXXFLAGS += -g3 ## Build with debeug symbols
