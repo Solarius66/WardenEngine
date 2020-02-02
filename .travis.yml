@@ -4,7 +4,6 @@ git:
     depth: false
 
 compiler:
-    - clang++
     - g++
 
 services:
@@ -22,9 +21,5 @@ notifications:
     on_success: never
     on_failure: always
 
-jobs:
-    include:
-        - stage: build
-          name: "Build"
-          script:
-            - docker run -v $PWD:/project epitechcontent/epitest-docker bash -c "cd project && make"
+script:
+    - docker run -v $PWD:/project epitechcontent/epitest-docker bash -c "cd project && make"
