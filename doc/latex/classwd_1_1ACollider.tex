@@ -1,0 +1,94 @@
+\hypertarget{classwd_1_1ACollider}{}\doxysection{wd\+::A\+Collider Class Reference}
+\label{classwd_1_1ACollider}\index{wd::ACollider@{wd::ACollider}}
+
+
+{\ttfamily \#include $<$A\+Collider.\+hpp$>$}
+
+Inheritance diagram for wd\+::A\+Collider\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classwd_1_1ACollider}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classwd_1_1ACollider_a291ddc3c8adff20d847a98c79ebd4bdd}{A\+Collider}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}} $>$, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1IScene}{wd\+::\+I\+Scene}} $>$ \&)
+\item 
+\mbox{\hyperlink{classwd_1_1ACollider_a79dca649c5993fde00ac1ce36b896f5f}{$\sim$\+A\+Collider}} ()
+\item 
+void \mbox{\hyperlink{classwd_1_1ACollider_a7c2202b51675fc011e7928aa48d2c536}{update}} (wd\+::event) final
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classwd_1_1ACollider_ab6f57fe4af40520372a7819a2cd2c665}{on\+Trigger\+Enter}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}} $>$)
+\item 
+virtual void \mbox{\hyperlink{classwd_1_1ACollider_ab3165c8baf2224652d61eda193b9359a}{on\+Trigger\+Stay}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}} $>$)
+\item 
+virtual void \mbox{\hyperlink{classwd_1_1ACollider_a1a4863ff6abbf023878805a1f408f92a}{on\+Trigger\+Exit}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}} $>$)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classwd_1_1ACollider_a1e0652867536cf6765057f4fafd28970}\label{classwd_1_1ACollider_a1e0652867536cf6765057f4fafd28970}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}} $>$ {\bfseries \+\_\+this}
+\item 
+\mbox{\Hypertarget{classwd_1_1ACollider_a4080526b2d1199b73e8c2607aaad9434}\label{classwd_1_1ACollider_a4080526b2d1199b73e8c2607aaad9434}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1IScene}{wd\+::\+I\+Scene}} $>$ {\bfseries \+\_\+scene}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classwd_1_1ACollider}{A\+Collider}} Class, contain a vector of \mbox{\hyperlink{classwd_1_1AGameObject}{A\+Game\+Object}} in the Scene~\newline
+To create a Collider, create a class which inherit from this one, and implement your own version of on\+Trigger$\ast$ member functions 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classwd_1_1ACollider_a291ddc3c8adff20d847a98c79ebd4bdd}\label{classwd_1_1ACollider_a291ddc3c8adff20d847a98c79ebd4bdd}} 
+\index{wd::ACollider@{wd::ACollider}!ACollider@{ACollider}}
+\index{ACollider@{ACollider}!wd::ACollider@{wd::ACollider}}
+\doxysubsubsection{\texorpdfstring{ACollider()}{ACollider()}}
+{\footnotesize\ttfamily wd\+::\+A\+Collider\+::\+A\+Collider (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}} $>$}]{,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1IScene}{wd\+::\+I\+Scene}} $>$ \&}]{ }\end{DoxyParamCaption})}
+
+Constructor, take a shared\+\_\+ptr to \mbox{\hyperlink{classwd_1_1AGameObject}{A\+Game\+Object}} and a vector as Parameter, corresponding at \textquotesingle{}This\textquotesingle{} \& the \mbox{\hyperlink{classwd_1_1AGameObject}{A\+Game\+Object}} vector of the Scene \mbox{\Hypertarget{classwd_1_1ACollider_a79dca649c5993fde00ac1ce36b896f5f}\label{classwd_1_1ACollider_a79dca649c5993fde00ac1ce36b896f5f}} 
+\index{wd::ACollider@{wd::ACollider}!````~ACollider@{$\sim$ACollider}}
+\index{````~ACollider@{$\sim$ACollider}!wd::ACollider@{wd::ACollider}}
+\doxysubsubsection{\texorpdfstring{$\sim$ACollider()}{~ACollider()}}
+{\footnotesize\ttfamily wd\+::\+A\+Collider\+::$\sim$\+A\+Collider (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classwd_1_1ACollider_a7c2202b51675fc011e7928aa48d2c536}\label{classwd_1_1ACollider_a7c2202b51675fc011e7928aa48d2c536}} 
+\index{wd::ACollider@{wd::ACollider}!update@{update}}
+\index{update@{update}!wd::ACollider@{wd::ACollider}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void wd\+::\+A\+Collider\+::update (\begin{DoxyParamCaption}\item[{wd\+::event}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [final]}, {\ttfamily [virtual]}}
+
+Call the update function 
+
+Reimplemented from \mbox{\hyperlink{classwd_1_1AComponent_af744de396710c214870b88e8ebe71b3e}{wd\+::\+A\+Component}}.
+
+\mbox{\Hypertarget{classwd_1_1ACollider_ab6f57fe4af40520372a7819a2cd2c665}\label{classwd_1_1ACollider_ab6f57fe4af40520372a7819a2cd2c665}} 
+\index{wd::ACollider@{wd::ACollider}!onTriggerEnter@{onTriggerEnter}}
+\index{onTriggerEnter@{onTriggerEnter}!wd::ACollider@{wd::ACollider}}
+\doxysubsubsection{\texorpdfstring{onTriggerEnter()}{onTriggerEnter()}}
+{\footnotesize\ttfamily virtual void wd\+::\+A\+Collider\+::on\+Trigger\+Enter (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}} $>$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Called when a \mbox{\hyperlink{classwd_1_1AGameObject}{A\+Game\+Object}} Collide the \mbox{\hyperlink{classwd_1_1AGameObject}{A\+Game\+Object}} containing this component \mbox{\Hypertarget{classwd_1_1ACollider_ab3165c8baf2224652d61eda193b9359a}\label{classwd_1_1ACollider_ab3165c8baf2224652d61eda193b9359a}} 
+\index{wd::ACollider@{wd::ACollider}!onTriggerStay@{onTriggerStay}}
+\index{onTriggerStay@{onTriggerStay}!wd::ACollider@{wd::ACollider}}
+\doxysubsubsection{\texorpdfstring{onTriggerStay()}{onTriggerStay()}}
+{\footnotesize\ttfamily virtual void wd\+::\+A\+Collider\+::on\+Trigger\+Stay (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}} $>$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Called when a \mbox{\hyperlink{classwd_1_1AGameObject}{A\+Game\+Object}} is Colliding the \mbox{\hyperlink{classwd_1_1AGameObject}{A\+Game\+Object}} containing this component \mbox{\Hypertarget{classwd_1_1ACollider_a1a4863ff6abbf023878805a1f408f92a}\label{classwd_1_1ACollider_a1a4863ff6abbf023878805a1f408f92a}} 
+\index{wd::ACollider@{wd::ACollider}!onTriggerExit@{onTriggerExit}}
+\index{onTriggerExit@{onTriggerExit}!wd::ACollider@{wd::ACollider}}
+\doxysubsubsection{\texorpdfstring{onTriggerExit()}{onTriggerExit()}}
+{\footnotesize\ttfamily virtual void wd\+::\+A\+Collider\+::on\+Trigger\+Exit (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}} $>$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Called when a \mbox{\hyperlink{classwd_1_1AGameObject}{A\+Game\+Object}} stop to Collide the \mbox{\hyperlink{classwd_1_1AGameObject}{A\+Game\+Object}} containing this component 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/engine/data/\mbox{\hyperlink{ACollider_8hpp}{A\+Collider.\+hpp}}\end{DoxyCompactItemize}

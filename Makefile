@@ -1,74 +1,64 @@
 ##
-## EPITECH PROJECT, 2019
-## Makefile
+## EPITECH PROJECT, 2020
+## OOP_arcade_2019
 ## File description:
 ## Makefile
 ##
 
-SHELL		=	bash
+NAME	=	arcade
 
-CXX			=	g++
+LOAD	=	-ldl -lstdc++fs -lsfml-system -lsfml-graphics -lsfml-window -lsfml-system
 
-SRC			=	src/Engine.cpp		\
-				src/Data.cpp		\
-				src/AGameObject.cpp	\
-				src/ACollider.cpp	\
-				src/Display.cpp		\
-				src/Scene.cpp		\
-				src/Window.cpp		\
-				src/ATransform.cpp	\
-				src/ASprite.cpp
+INC	=	 -Iinclude/engine -Iinclude/engine/data -Iinclude/engine/core -Iinclude/engine/display -Iinclude/engine/error -Iinclude/Menu
 
-CXXFLAGS	=	-W -Wall -Wextra -Wpedantic -Wpadded -std=c++17 -I include -fms-extensions -O3 -fPIC
+SRC	=	src/engine/main.cpp \
+				src/engine/GameEngine.cpp	\
+				\
+				src/engine/data/SceneManager.cpp	\
+				src/engine/data/AScene.cpp	\
+				src/engine/data/AGameObject.cpp	\
+				src/engine/data/ACollider.cpp	\
+				src/engine/data/MeshRenderer.cpp	\
+				src/engine/data/TextRenderer.cpp	\
+				src/engine/data/Transform.cpp	\
+				\
+				src/engine/core/Core.cpp	\
+				\
+				src/engine/display/Display.cpp	\
+				src/engine/display/SFMLModule.cpp	\
+				\
+				src/Menu/MenuEntity.cpp	\
+				src/Menu/MenuScene.cpp	\
+				src/Menu/MoveMenuEntity.cpp	\
+				src/Menu/TextBox.cpp	\
+				src/Menu/FillNameField.cpp	\
+				src/Menu/ScoreManager.cpp
 
-LDLIBS		=	-lsfml-system -lsfml-graphics -lsfml-window
+OBJ	=	$(SRC:.cpp=.o)
 
-LDFLAGS		=	$(LDLIBS) -shared
+DIROBJ	=	$($(OBJ))
 
-OBJ			=	$(SRC:.cpp=.o)
+CC		=	g++
 
-NAME		=	libwarden.so
+CXXFLAGS	+=	-W -Wall -Wextra -pedantic -std=gnu++14 -rdynamic
 
-all:    $(NAME) ## Build
+all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CXX) -o $(NAME) $(OBJ) $(LDFLAGS)
 
-lib: $(OBJ)
-lib: LDFLAGS = $(LDLIBS) ## Build a static lib (.a)
-lib: NAME = worden.a
-lib:
-	ar rc $(NAME) $(OBJ)
+%.o:		%.cpp
+	$(CC) $(INC) $(CXXFLAGS) $< -c -o $@
 
-mac_lib: CXX = clang++ ## Build a static lib for mac
-mac_lib: lib
+$(NAME):		$(OBJ)
+	$(CC) $(CXXFLAGS) $(INC) $(OBJ) -o $(NAME) $(LOAD)
 
-mac: CXX = clang++ ## Build for mac
-mac: NAME = libwarden.dylib
-mac: LDFLAGS = $(LDLIBS) -dynamiclib
-mac: all
+clean:
+	rm -rf $(OBJ)
 
-debeug: CXXFLAGS += -g3 ## Build with debeug symbols
-debeug: all
+fclean:	clean
+	rm -rf $(NAME)
 
-mac_debeug: CXX = clang++
-mac_debeug: debeug
+re:	fclean all
 
-clean: ## Remove useless files
-	rm -f *~
-	rm -f $(OBJ)
+default:	all
 
-fclean: clean ## Restart to 0
-	rm -f $(NAME)
-
-re:     fclean all
-
-tests_run: ## Run unit tests
-
-docker_test: fclean ## Run a docker for testing
-	docker run --rm -v `pwd`:/project -it epitech zsh
-
-help: ## Display help
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
-
-.PHONY: all clean fclean
+.PHONY: all clean fclean re

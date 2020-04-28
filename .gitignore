@@ -1,20 +1,6 @@
-# Backup files #
-################
-*~
-*#*
-
-# Illegal/useless  files #
-#########################
-.DS_Store
-.vscode
-vgcore*
-.notifier
-*.o
+*.o*
+*.a*
+*.pdf
+arcade
 *.so
-*.a
-*.out
-
-# GDB files #
-#############
-*peda*
-*gdb*
+*vgcore*

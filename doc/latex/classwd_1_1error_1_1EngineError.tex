@@ -1,0 +1,75 @@
+\hypertarget{classwd_1_1error_1_1EngineError}{}\doxysection{wd\+::error\+::Engine\+Error Class Reference}
+\label{classwd_1_1error_1_1EngineError}\index{wd::error::EngineError@{wd::error::EngineError}}
+
+
+{\ttfamily \#include $<$Engine\+Error.\+hpp$>$}
+
+Inheritance diagram for wd\+::error\+::Engine\+Error\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.608248cm]{classwd_1_1error_1_1EngineError}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classwd_1_1error_1_1EngineError_ab9b97351da14c45be87302137ec22970}{Engine\+Error}} (const std\+::string \&message, const std\+::string \&type=\char`\"{}Engine\char`\"{})
+\item 
+\mbox{\hyperlink{classwd_1_1error_1_1EngineError_a38b21201198e2d81a52e951e01ce907a}{$\sim$\+Engine\+Error}} ()=default
+\item 
+const std\+::string \& \mbox{\hyperlink{classwd_1_1error_1_1EngineError_a90f8a4983e5cebb37594065893848174}{get\+Msg}} () const
+\item 
+const std\+::string \& \mbox{\hyperlink{classwd_1_1error_1_1EngineError_a9b9260e2bef24a3bbdf278bad6c66d4a}{get\+Type}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classwd_1_1error_1_1EngineError_aecf3181e86cfeee72763c5bfa1f8c8d7}\label{classwd_1_1error_1_1EngineError_aecf3181e86cfeee72763c5bfa1f8c8d7}} 
+std\+::string {\bfseries \+\_\+message}
+\item 
+\mbox{\Hypertarget{classwd_1_1error_1_1EngineError_ab9a1a11f74b7015c5e636f0a2d1e3eed}\label{classwd_1_1error_1_1EngineError_ab9a1a11f74b7015c5e636f0a2d1e3eed}} 
+std\+::string {\bfseries \+\_\+type}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Engine Error Class, Contain a message and a type of error 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classwd_1_1error_1_1EngineError_ab9b97351da14c45be87302137ec22970}\label{classwd_1_1error_1_1EngineError_ab9b97351da14c45be87302137ec22970}} 
+\index{wd::error::EngineError@{wd::error::EngineError}!EngineError@{EngineError}}
+\index{EngineError@{EngineError}!wd::error::EngineError@{wd::error::EngineError}}
+\doxysubsubsection{\texorpdfstring{EngineError()}{EngineError()}}
+{\footnotesize\ttfamily wd\+::error\+::\+Engine\+Error\+::\+Engine\+Error (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{const std\+::string \&}]{type = {\ttfamily \char`\"{}Engine\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Constructor, take 2 strings as parameters, first used as error message, second used as error type \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classwd_1_1error_1_1EngineError_a38b21201198e2d81a52e951e01ce907a}\label{classwd_1_1error_1_1EngineError_a38b21201198e2d81a52e951e01ce907a}} 
+\index{wd::error::EngineError@{wd::error::EngineError}!````~EngineError@{$\sim$EngineError}}
+\index{````~EngineError@{$\sim$EngineError}!wd::error::EngineError@{wd::error::EngineError}}
+\doxysubsubsection{\texorpdfstring{$\sim$EngineError()}{~EngineError()}}
+{\footnotesize\ttfamily wd\+::error\+::\+Engine\+Error\+::$\sim$\+Engine\+Error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classwd_1_1error_1_1EngineError_a90f8a4983e5cebb37594065893848174}\label{classwd_1_1error_1_1EngineError_a90f8a4983e5cebb37594065893848174}} 
+\index{wd::error::EngineError@{wd::error::EngineError}!getMsg@{getMsg}}
+\index{getMsg@{getMsg}!wd::error::EngineError@{wd::error::EngineError}}
+\doxysubsubsection{\texorpdfstring{getMsg()}{getMsg()}}
+{\footnotesize\ttfamily const std\+::string\& wd\+::error\+::\+Engine\+Error\+::get\+Msg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the error Message \mbox{\Hypertarget{classwd_1_1error_1_1EngineError_a9b9260e2bef24a3bbdf278bad6c66d4a}\label{classwd_1_1error_1_1EngineError_a9b9260e2bef24a3bbdf278bad6c66d4a}} 
+\index{wd::error::EngineError@{wd::error::EngineError}!getType@{getType}}
+\index{getType@{getType}!wd::error::EngineError@{wd::error::EngineError}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily const std\+::string\& wd\+::error\+::\+Engine\+Error\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return the error Type 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/engine/error/\mbox{\hyperlink{EngineError_8hpp}{Engine\+Error.\+hpp}}\end{DoxyCompactItemize}

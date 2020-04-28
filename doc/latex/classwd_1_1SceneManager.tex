@@ -1,0 +1,105 @@
+\hypertarget{classwd_1_1SceneManager}{}\doxysection{wd\+::Scene\+Manager Class Reference}
+\label{classwd_1_1SceneManager}\index{wd::SceneManager@{wd::SceneManager}}
+
+
+{\ttfamily \#include $<$Scene\+Manager.\+hpp$>$}
+
+Inheritance diagram for wd\+::Scene\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classwd_1_1SceneManager}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classwd_1_1SceneManager_a7c2aa59ed0c00ec25b92b88c29881a0a}{Scene\+Manager}} ()
+\item 
+\mbox{\hyperlink{classwd_1_1SceneManager_a50fd0a0d54c6cd06d003406031419178}{$\sim$\+Scene\+Manager}} ()
+\item 
+void \mbox{\hyperlink{classwd_1_1SceneManager_a6572d95b319b8a70d5b0e384652e3574}{scene\+Swap}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{classwd_1_1SceneManager_acae95d1e982473f4d97c223ed885b0f3}{add\+Scene}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1IScene}{wd\+::\+I\+Scene}} $>$ \&)
+\item 
+void \mbox{\hyperlink{classwd_1_1SceneManager_a0b03cdd9bf48c969cf86c85ce2b3e55e}{remove\+Scene}} (const std\+::string \&)
+\item 
+const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1IScene}{wd\+::\+I\+Scene}} $>$ \& \mbox{\hyperlink{classwd_1_1SceneManager_acc82795c94dc1b0d8149f336eacb4ecd}{get\+Active\+Scene}} ()
+\item 
+void \mbox{\hyperlink{classwd_1_1SceneManager_aa5437958565ff7aeaffe3e4fabbbbd25}{switch\+Scene}} (int)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classwd_1_1SceneManager}{Scene\+Manager}} Class, contain the Scenes Map and a key to access to the Active Scene 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classwd_1_1SceneManager_a7c2aa59ed0c00ec25b92b88c29881a0a}\label{classwd_1_1SceneManager_a7c2aa59ed0c00ec25b92b88c29881a0a}} 
+\index{wd::SceneManager@{wd::SceneManager}!SceneManager@{SceneManager}}
+\index{SceneManager@{SceneManager}!wd::SceneManager@{wd::SceneManager}}
+\doxysubsubsection{\texorpdfstring{SceneManager()}{SceneManager()}}
+{\footnotesize\ttfamily wd\+::\+Scene\+Manager\+::\+Scene\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructor \mbox{\Hypertarget{classwd_1_1SceneManager_a50fd0a0d54c6cd06d003406031419178}\label{classwd_1_1SceneManager_a50fd0a0d54c6cd06d003406031419178}} 
+\index{wd::SceneManager@{wd::SceneManager}!````~SceneManager@{$\sim$SceneManager}}
+\index{````~SceneManager@{$\sim$SceneManager}!wd::SceneManager@{wd::SceneManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$SceneManager()}{~SceneManager()}}
+{\footnotesize\ttfamily wd\+::\+Scene\+Manager\+::$\sim$\+Scene\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classwd_1_1SceneManager_a6572d95b319b8a70d5b0e384652e3574}\label{classwd_1_1SceneManager_a6572d95b319b8a70d5b0e384652e3574}} 
+\index{wd::SceneManager@{wd::SceneManager}!sceneSwap@{sceneSwap}}
+\index{sceneSwap@{sceneSwap}!wd::SceneManager@{wd::SceneManager}}
+\doxysubsubsection{\texorpdfstring{sceneSwap()}{sceneSwap()}}
+{\footnotesize\ttfamily void wd\+::\+Scene\+Manager\+::scene\+Swap (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Switch active Scene 
+
+Implements \mbox{\hyperlink{classwd_1_1ISceneManager_a710b406e47032ae191643a8a391a80b0}{wd\+::\+I\+Scene\+Manager}}.
+
+\mbox{\Hypertarget{classwd_1_1SceneManager_acae95d1e982473f4d97c223ed885b0f3}\label{classwd_1_1SceneManager_acae95d1e982473f4d97c223ed885b0f3}} 
+\index{wd::SceneManager@{wd::SceneManager}!addScene@{addScene}}
+\index{addScene@{addScene}!wd::SceneManager@{wd::SceneManager}}
+\doxysubsubsection{\texorpdfstring{addScene()}{addScene()}}
+{\footnotesize\ttfamily void wd\+::\+Scene\+Manager\+::add\+Scene (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1IScene}{wd\+::\+I\+Scene}} $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Add a Scene to the list of Scenes 
+
+Implements \mbox{\hyperlink{classwd_1_1ISceneManager_a96db9415ca92d28f8df2345d4188c46a}{wd\+::\+I\+Scene\+Manager}}.
+
+\mbox{\Hypertarget{classwd_1_1SceneManager_a0b03cdd9bf48c969cf86c85ce2b3e55e}\label{classwd_1_1SceneManager_a0b03cdd9bf48c969cf86c85ce2b3e55e}} 
+\index{wd::SceneManager@{wd::SceneManager}!removeScene@{removeScene}}
+\index{removeScene@{removeScene}!wd::SceneManager@{wd::SceneManager}}
+\doxysubsubsection{\texorpdfstring{removeScene()}{removeScene()}}
+{\footnotesize\ttfamily void wd\+::\+Scene\+Manager\+::remove\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Remove a Scene from the list of Scenes 
+
+Implements \mbox{\hyperlink{classwd_1_1ISceneManager_a428372feae2e4ee1fc04055e711a24d1}{wd\+::\+I\+Scene\+Manager}}.
+
+\mbox{\Hypertarget{classwd_1_1SceneManager_acc82795c94dc1b0d8149f336eacb4ecd}\label{classwd_1_1SceneManager_acc82795c94dc1b0d8149f336eacb4ecd}} 
+\index{wd::SceneManager@{wd::SceneManager}!getActiveScene@{getActiveScene}}
+\index{getActiveScene@{getActiveScene}!wd::SceneManager@{wd::SceneManager}}
+\doxysubsubsection{\texorpdfstring{getActiveScene()}{getActiveScene()}}
+{\footnotesize\ttfamily const std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classwd_1_1IScene}{wd\+::\+I\+Scene}}$>$\& wd\+::\+Scene\+Manager\+::get\+Active\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Return the Scene currently used 
+
+Implements \mbox{\hyperlink{classwd_1_1ISceneManager_a86cae1b61d5d1e3ef924c2aa12a0a5da}{wd\+::\+I\+Scene\+Manager}}.
+
+\mbox{\Hypertarget{classwd_1_1SceneManager_aa5437958565ff7aeaffe3e4fabbbbd25}\label{classwd_1_1SceneManager_aa5437958565ff7aeaffe3e4fabbbbd25}} 
+\index{wd::SceneManager@{wd::SceneManager}!switchScene@{switchScene}}
+\index{switchScene@{switchScene}!wd::SceneManager@{wd::SceneManager}}
+\doxysubsubsection{\texorpdfstring{switchScene()}{switchScene()}}
+{\footnotesize\ttfamily void wd\+::\+Scene\+Manager\+::switch\+Scene (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Switch to next or previous Scene, depending of value ataken as parameter 
+
+Implements \mbox{\hyperlink{classwd_1_1ISceneManager_ad40f73e5ea4b0151fa8eb6ec87d0d4ee}{wd\+::\+I\+Scene\+Manager}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/engine/data/\mbox{\hyperlink{SceneManager_8hpp}{Scene\+Manager.\+hpp}}\end{DoxyCompactItemize}

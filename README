@@ -1,0 +1,18 @@
+Chef du groupe avec qui nous avons collaboré:
+cameron.bordenave-gassedat@epitech.eu
+
+SHORTCUTS:
+UP      :   Previous Graphic Library
+DOWN    :   Next Graphic Library
+LEFT    :   Previous Game Library
+RIGHT   :   Next Game Library
+
+RETURN  :   Restart the Game
+TAB     :   Go back to the Menu
+ESCAPE  :   Exit
+
+1       :   Launch SolarFox
+2       :   Launch Nibbler
+3       :   Launch Centipede
+4       :   Launch Pacman
+5       :   Launch Qix
