@@ -1,6 +1,20 @@
-*.o*
-*.a*
-*.pdf
-arcade
+# Backup files #
+################
+*~
+*#*
+
+# Illegal/useless  files #
+#########################
+.vscode
+vgcore*
+.notifier
+*.o
 *.so
-*vgcore*
+*.a
+*.out
+*.pdf
+
+# GDB files #
+#############
+*peda*
+*gdb*
