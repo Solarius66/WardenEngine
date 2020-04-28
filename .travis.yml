@@ -1,0 +1,30 @@
+language: cpp
+
+compiler:
+    - clang++
+
+os:
+    - osx
+
+git:
+    depth: false
+
+services:
+    - docker
+
+before_install:
+    - docker pull epitechcontent/epitest-docker
+
+notifications:
+  email:
+    recipients:
+        - joseph.vidal@epitech.eu
+        - alexandre.seignol@epitech.eu
+        - marc-antoine.thenard@epitech.eu
+        - bastien.joubert@epitech.eu
+    on_success: never
+    on_failure: always
+
+script:
+    - docker run -v $PWD:/project epitechcontent/epitest-docker bash -c "cd project && make re"
+    - make re

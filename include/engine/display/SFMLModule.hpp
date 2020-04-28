@@ -34,7 +34,7 @@ namespace wd
                                                                                 ///<
 
     private:
-        const std::string &                 _title;
+        const std::string                   _title;
         std::unique_ptr<sf::RenderWindow>   _window;
         sf::Font                            _font;
         sf::Clock                           _inputClock;

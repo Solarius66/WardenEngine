@@ -20,7 +20,7 @@ namespace wd
     public:
         IGraphicalModule() = default;           ///<Constructor
                                                 ///<
-        ~IGraphicalModule() = default;  ///<Destructor
+        virtual ~IGraphicalModule() = default;  ///<Destructor
                                                 ///<
 
         virtual const std::string & getTitle() const = 0;                               ///<Return the Name of the Module
