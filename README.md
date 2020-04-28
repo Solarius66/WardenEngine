@@ -1,7 +1,7 @@
+[![Build Status](https://travis-ci.com/Solarius66/WardenEngine.svg?branch=master)](https://travis-ci.com/Solarius66/WardenEngine)
 <p  align="center">
     <img  src=".icon/256x256.png"/>
 </p>
-
 
 An engine using SFML to create 2D Games.
 This project is based on SFML library.
