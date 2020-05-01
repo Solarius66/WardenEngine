@@ -29,13 +29,7 @@ SRC	        =   src/engine/GameEngine.cpp           \
 			    src/engine/data/Transform.cpp       \
 			    src/engine/core/Core.cpp            \
 			    src/engine/display/Display.cpp      \
-			    src/engine/display/SFMLModule.cpp   \
-			    src/Menu/MenuEntity.cpp             \
-			    src/Menu/MenuScene.cpp              \
-			    src/Menu/MoveMenuEntity.cpp         \
-			    src/Menu/TextBox.cpp                \
-			    src/Menu/FillNameField.cpp          \
-			    src/Menu/ScoreManager.cpp
+			    src/engine/display/SFMLModule.cpp
 
 OBJ	        =   $(SRC:.cpp=.o)
 
@@ -45,7 +39,7 @@ LDFLAGS     =   -shared
 
 LDLIBS	    =   -ldl -lstdc++fs -lsfml-system -lsfml-graphics -lsfml-window -lsfml-system
 
-CXXFLAGS    =   -W -Wall -Wextra -pedantic -std=gnu++14 -I /usr/local/include/ -I include/engine -I include/engine/data -I include/engine/core -I include/engine/display -I include/engine/error -I include/Menu -fPIC
+CXXFLAGS    =   -W -Wall -Wextra -pedantic -std=gnu++14 -I /usr/local/include/ -I include/engine -I include/engine/data -I include/engine/core -I include/engine/display -I include/engine/error -fPIC
 
 all: $(NAME)
 	@printf "["$(GREEN)"INFO"$(DEFAULT)"] Compiler: $(CXX)"$(END)
