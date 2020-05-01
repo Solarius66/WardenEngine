@@ -1,4 +1,9 @@
 ##
+## EPITECH PROJECT, 2018
+## Makefile
+## File description:
+##
+####
 ## EPITECH PROJECT, 2020
 ## OOP_arcade_2019
 ## File description:
@@ -33,7 +38,7 @@ SRC	        =   src/engine/GameEngine.cpp           \
 
 OBJ	        =   $(SRC:.cpp=.o)
 
-NAME        =   libwarden.so
+NAME        =   ../libwarden.so
 
 LDFLAGS     =   -shared
 
