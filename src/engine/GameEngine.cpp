@@ -39,6 +39,7 @@ void wd::GameEngine::loop()
             continue;
         if (_events.front() == wd::CLOSED_WINDOW)
             break;
+        _coreModule->update(_dataModule->getActiveScene(), _events.front());
         _events.pop();
     }
 }
