@@ -74,13 +74,22 @@ $(function() {
 <div class="title">wd::IGraphicalModule Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="dynheader">
+Inheritance diagram for wd::IGraphicalModule:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classwd_1_1IGraphicalModule.png" usemap="#wd::IGraphicalModule_map" alt=""/>
+  <map id="wd::IGraphicalModule_map" name="wd::IGraphicalModule_map">
+<area href="classwd_1_1SFMLModule.html" alt="wd::SFMLModule" shape="rect" coords="0,56,134,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4e9a0000341cecf809476daae9102692"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwd_1_1IGraphicalModule.html#a4e9a0000341cecf809476daae9102692">IGraphicalModule</a> ()=default</td></tr>
 <tr class="separator:a4e9a0000341cecf809476daae9102692"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ac27d69aad688453d97b415389d14ef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwd_1_1IGraphicalModule.html#a2ac27d69aad688453d97b415389d14ef">~IGraphicalModule</a> ()=default</td></tr>
-<tr class="separator:a2ac27d69aad688453d97b415389d14ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b8cdb6c3b55bf8b80fe4093a4c49de0"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwd_1_1IGraphicalModule.html#a1b8cdb6c3b55bf8b80fe4093a4c49de0">~IGraphicalModule</a> ()=default</td></tr>
+<tr class="separator:a1b8cdb6c3b55bf8b80fe4093a4c49de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2cd7f1f8739de6c25a592fbdc78ad06"><td class="memItemLeft" align="right" valign="top">virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwd_1_1IGraphicalModule.html#ae2cd7f1f8739de6c25a592fbdc78ad06">getTitle</a> () const =0</td></tr>
 <tr class="separator:ae2cd7f1f8739de6c25a592fbdc78ad06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac60c998413d40e6206baa50cd2fd22ba"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwd_1_1IGraphicalModule.html#ac60c998413d40e6206baa50cd2fd22ba">draw</a> (const std::shared_ptr&lt; <a class="el" href="classwd_1_1AGameObject.html">wd::AGameObject</a> &gt; &amp;)=0</td></tr>
@@ -115,8 +124,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a2ac27d69aad688453d97b415389d14ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ac27d69aad688453d97b415389d14ef">&#9670;&nbsp;</a></span>~IGraphicalModule()</h2>
+<a id="a1b8cdb6c3b55bf8b80fe4093a4c49de0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b8cdb6c3b55bf8b80fe4093a4c49de0">&#9670;&nbsp;</a></span>~IGraphicalModule()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -125,7 +134,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">wd::IGraphicalModule::~IGraphicalModule </td>
+          <td class="memname">virtual wd::IGraphicalModule::~IGraphicalModule </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -133,7 +142,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -166,6 +175,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Return the Name of the Module </p>
 
+<p>Implemented in <a class="el" href="classwd_1_1SFMLModule.html#ad3978fcadb6d094d4583899a302c910f">wd::SFMLModule</a>.</p>
+
 </div>
 </div>
 <a id="ac60c998413d40e6206baa50cd2fd22ba"></a>
@@ -193,6 +204,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Draw the gameObject in the Window </p>
 
+<p>Implemented in <a class="el" href="classwd_1_1SFMLModule.html#a8fbf0a68b5e08492f39294a414488aa2">wd::SFMLModule</a>.</p>
+
 </div>
 </div>
 <a id="ae1b85b6ac6f423f16fb2af279f6d720f"></a>
@@ -219,6 +232,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Add Event in the queue if needed </p>
+
+<p>Implemented in <a class="el" href="classwd_1_1SFMLModule.html#a296ddfe5863cf44f0d3a28215492a996">wd::SFMLModule</a>.</p>
 
 </div>
 </div>

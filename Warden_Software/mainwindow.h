@@ -2,6 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QWidget>
+#include "custombutton.h"
+#include <QMap>
+#include <QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -14,6 +18,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    QMap<QString, CustomButton *> _buttonMap;
+    QVBoxLayout *_layout;
+    QWidget *_mainWidget;
 
 private:
     Ui::MainWindow *ui;

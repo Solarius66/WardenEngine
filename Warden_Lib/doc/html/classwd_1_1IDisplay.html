@@ -93,14 +93,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a10c78bfe4fe151ce0b80ff6d31ea5bc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c40b261a962d2273815d3851bf292eb"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwd_1_1IDisplay.html#a2c40b261a962d2273815d3851bf292eb">~IDisplay</a> ()=default</td></tr>
 <tr class="separator:a2c40b261a962d2273815d3851bf292eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab72190b2864c4e3f62e4b6666309a685"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwd_1_1IDisplay.html#ab72190b2864c4e3f62e4b6666309a685">setGraphicalLib</a> (void *)=0</td></tr>
-<tr class="separator:ab72190b2864c4e3f62e4b6666309a685"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34d4011be580afa786c9058d5ee8a248"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwd_1_1IDisplay.html#a34d4011be580afa786c9058d5ee8a248">draw</a> (const std::shared_ptr&lt; <a class="el" href="classwd_1_1IScene.html">wd::IScene</a> &gt; &amp;, std::queue&lt; wd::event &gt; &amp;)=0</td></tr>
 <tr class="separator:a34d4011be580afa786c9058d5ee8a248"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1a80e9220e7bf3fe4d383a91c07f920"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwd_1_1IDisplay.html#aa1a80e9220e7bf3fe4d383a91c07f920">drawGameObject</a> (const std::shared_ptr&lt; <a class="el" href="classwd_1_1AGameObject.html">wd::AGameObject</a> &gt;)=0</td></tr>
 <tr class="separator:aa1a80e9220e7bf3fe4d383a91c07f920"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4642cb8f38a6b718c6266208bedbba0b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classwd_1_1IDisplay.html#a4642cb8f38a6b718c6266208bedbba0b">destroyLib</a> ()=0</td></tr>
-<tr class="separator:a4642cb8f38a6b718c6266208bedbba0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -163,35 +159,6 @@ Protected Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab72190b2864c4e3f62e4b6666309a685"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab72190b2864c4e3f62e4b6666309a685">&#9670;&nbsp;</a></span>setGraphicalLib()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void wd::IDisplay::setGraphicalLib </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Set The graphicalLib </p>
-
-<p>Implemented in <a class="el" href="classwd_1_1Display.html#aca77a173035785b5e3a4dfc3baa8b5c4">wd::Display</a>.</p>
-
-</div>
-</div>
 <a id="a34d4011be580afa786c9058d5ee8a248"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a34d4011be580afa786c9058d5ee8a248">&#9670;&nbsp;</a></span>draw()</h2>
 
@@ -257,34 +224,6 @@ Protected Member Functions</h2></td></tr>
 <p><a class="el" href="classwd_1_1Display.html">Display</a> only 1 GameObject </p>
 
 <p>Implemented in <a class="el" href="classwd_1_1Display.html#a7de25d806a5413598318d1c0a2e99e8d">wd::Display</a>.</p>
-
-</div>
-</div>
-<a id="a4642cb8f38a6b718c6266208bedbba0b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4642cb8f38a6b718c6266208bedbba0b">&#9670;&nbsp;</a></span>destroyLib()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void wd::IDisplay::destroyLib </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Destroy Current Library used </p>
-
-<p>Implemented in <a class="el" href="classwd_1_1Display.html#aca32216f6939321e5ef0fdfbfdaa7beb">wd::Display</a>.</p>
 
 </div>
 </div>

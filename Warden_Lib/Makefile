@@ -38,7 +38,7 @@ SRC	        =   src/engine/GameEngine.cpp           \
 
 OBJ	        =   $(SRC:.cpp=.o)
 
-NAME        =   ../libwarden.so
+NAME        =   ./libwarden.so
 
 LDFLAGS     =   -shared
 
@@ -58,6 +58,7 @@ $(NAME):    $(OBJ)
 	@$(CXX) -o $(NAME) $(OBJ) $(CXXFLAGS) $(LDFLAGS) $(LDLIBS)
 	@printf "["$(GREEN)"OK"$(DEFAULT)"]"$(TEAL)" Done : "$@$(DEFAULT)$(END) || \
 	printf "["$(RED)"KO"$(DEFAULT)"]"$(BLINK)$(YELLOW)$(NAME)$(DEFAULT)$(END) 1>&2
+	cp $(NAME) ../Warden_Software/libs/
 
 clean:
 	@rm -rf $(OBJ)

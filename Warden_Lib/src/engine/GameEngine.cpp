@@ -18,7 +18,6 @@
 #include "SceneManager.hpp"
 #include "Core.hpp"
 #include "EngineError.hpp"
-#include "IGameModule.hpp"
 
 wd::GameEngine::GameEngine()
 {

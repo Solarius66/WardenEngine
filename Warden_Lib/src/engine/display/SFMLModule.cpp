@@ -117,8 +117,8 @@ void wd::SFMLModule::manageEvent(std::queue<wd::event> &event)
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::PageDown)) {event.push(wd::PAGEDOWN);}
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {event.push(wd::LEFT);}
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {event.push(wd::RIGHT);}
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {event.push(wd::UP);_window->close();}
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {event.push(wd::DOWN);_window->close();}
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {event.push(wd::UP);}
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {event.push(wd::DOWN);}
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::F1)) {event.push(wd::F1);}
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::F2)) {event.push(wd::F2);}
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::F3)) {event.push(wd::F3);}
