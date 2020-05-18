@@ -16,13 +16,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    custombutton.cpp \
+    buildbutton.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    savebutton.cpp
 
 HEADERS += \
-    custombutton.h \
-    mainwindow.h
+    buildbutton.h \
+    libs/Warden.hpp \
+    mainwindow.h \
+    savebutton.h
 
 FORMS += \
     mainwindow.ui
@@ -39,18 +42,5 @@ win32:CONFIG(release, debug|release): LIBS += -L$$PWD/libs/release/ -lwarden
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/libs/debug/ -lwarden
 else:unix: LIBS += -L$$PWD/libs/ -lwarden
 
-INCLUDEPATH += $$PWD/libs/Warden.hpp $$PWD/../Warden_Lib/include/engine $$PWD/../Warden_Lib/include/engine/data $$PWD/../Warden_Lib/include/engine/core $$PWD/../Warden_Lib/include/engine/display $$PWD/../Warden_Lib/include/engine/error
+INCLUDEPATH += $$PWD/libs/ $$PWD/../Warden_Lib/include/engine $$PWD/../Warden_Lib/include/engine/data $$PWD/../Warden_Lib/include/engine/core $$PWD/../Warden_Lib/include/engine/display $$PWD/../Warden_Lib/include/engine/error
 DEPENDPATH += $$PWD/libs
-
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/libs/release/ -ljsoncpp
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/libs/debug/ -ljsoncpp
-else:unix: LIBS += -L$$PWD/libs/ -ljsoncpp
-
-INCLUDEPATH += $$PWD/libs
-DEPENDPATH += $$PWD/libs
-
-win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/libs/release/libjsoncpp.a
-else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/libs/debug/libjsoncpp.a
-else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/libs/release/jsoncpp.lib
-else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/libs/debug/jsoncpp.lib
-else:unix: PRE_TARGETDEPS += $$PWD/libs/libjsoncpp.a

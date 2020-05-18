@@ -15,7 +15,7 @@ CXX           = g++
 DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++1y -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../Warden_Software -I. -I../Warden_Software/libs/Warden.hpp -I../Warden_Lib/include/engine -I../Warden_Lib/include/engine/data -I../Warden_Lib/include/engine/core -I../Warden_Lib/include/engine/display -I../Warden_Lib/include/engine/error -I../Warden_Software/libs -I../../../anaconda3/include/qt -I../../../anaconda3/include/qt/QtWidgets -I../../../anaconda3/include/qt/QtGui -I../../../anaconda3/include/qt/QtCore -I. -I. -I../../../anaconda3/mkspecs/linux-g++
+INCPATH       = -I../Warden_Software -I. -I../Warden_Software/libs -I../Warden_Lib/include/engine -I../Warden_Lib/include/engine/data -I../Warden_Lib/include/engine/core -I../Warden_Lib/include/engine/display -I../Warden_Lib/include/engine/error -I../../../anaconda3/include/qt -I../../../anaconda3/include/qt/QtWidgets -I../../../anaconda3/include/qt/QtGui -I../../../anaconda3/include/qt/QtCore -I. -I. -I../../../anaconda3/mkspecs/linux-g++
 QMAKE         = /home/Alexandre/anaconda3/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -36,7 +36,7 @@ DISTNAME      = Warden_Software1.0.0
 DISTDIR = /home/Alexandre/Projets_persos/WardenEngine/Build_Warden_Software/.tmp/Warden_Software1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/Alexandre/anaconda3/lib
-LIBS          = $(SUBLIBS) -L/home/Alexandre/Projets_persos/WardenEngine/Warden_Software/libs/ -lwarden -ljsoncpp -L/home/Alexandre/anaconda3/lib -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
+LIBS          = $(SUBLIBS) -L/home/Alexandre/Projets_persos/WardenEngine/Warden_Software/libs/ -lwarden -L/home/Alexandre/anaconda3/lib -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -48,15 +48,19 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../Warden_Software/custombutton.cpp \
+SOURCES       = ../Warden_Software/buildbutton.cpp \
 		../Warden_Software/main.cpp \
-		../Warden_Software/mainwindow.cpp moc_custombutton.cpp \
-		moc_mainwindow.cpp
-OBJECTS       = custombutton.o \
+		../Warden_Software/mainwindow.cpp \
+		../Warden_Software/savebutton.cpp moc_buildbutton.cpp \
+		moc_mainwindow.cpp \
+		moc_savebutton.cpp
+OBJECTS       = buildbutton.o \
 		main.o \
 		mainwindow.o \
-		moc_custombutton.o \
-		moc_mainwindow.o
+		savebutton.o \
+		moc_buildbutton.o \
+		moc_mainwindow.o \
+		moc_savebutton.o
 DIST          = ../../../anaconda3/mkspecs/features/spec_pre.prf \
 		../../../anaconda3/mkspecs/common/unix.conf \
 		../../../anaconda3/mkspecs/common/linux.conf \
@@ -159,10 +163,13 @@ DIST          = ../../../anaconda3/mkspecs/features/spec_pre.prf \
 		../../../anaconda3/mkspecs/features/exceptions.prf \
 		../../../anaconda3/mkspecs/features/yacc.prf \
 		../../../anaconda3/mkspecs/features/lex.prf \
-		../Warden_Software/Warden_Software.pro ../Warden_Software/custombutton.h \
-		../Warden_Software/mainwindow.h ../Warden_Software/custombutton.cpp \
+		../Warden_Software/Warden_Software.pro ../Warden_Software/buildbutton.h \
+		../Warden_Software/libs/Warden.hpp \
+		../Warden_Software/mainwindow.h \
+		../Warden_Software/savebutton.h ../Warden_Software/buildbutton.cpp \
 		../Warden_Software/main.cpp \
-		../Warden_Software/mainwindow.cpp
+		../Warden_Software/mainwindow.cpp \
+		../Warden_Software/savebutton.cpp
 QMAKE_TARGET  = Warden_Software
 DESTDIR       = 
 TARGET        = Warden_Software
@@ -171,7 +178,7 @@ TARGET        = Warden_Software
 first: all
 ####### Build rules
 
-$(TARGET): /home/Alexandre/Projets_persos/WardenEngine/Warden_Software/libs/libjsoncpp.a ui_mainwindow.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../Warden_Software/Warden_Software.pro ../../../anaconda3/mkspecs/linux-g++/qmake.conf ../../../anaconda3/mkspecs/features/spec_pre.prf \
@@ -401,8 +408,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../Warden_Software/custombutton.h ../Warden_Software/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Warden_Software/custombutton.cpp ../Warden_Software/main.cpp ../Warden_Software/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Warden_Software/buildbutton.h ../Warden_Software/libs/Warden.hpp ../Warden_Software/mainwindow.h ../Warden_Software/savebutton.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Warden_Software/buildbutton.cpp ../Warden_Software/main.cpp ../Warden_Software/mainwindow.cpp ../Warden_Software/savebutton.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Warden_Software/mainwindow.ui $(DISTDIR)/
 	$(COPY_FILE) --parents Warden_Software_fr_FR.ts $(DISTDIR)/
 
@@ -429,10 +436,10 @@ benchmark: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_custombutton.cpp moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_buildbutton.cpp moc_mainwindow.cpp moc_savebutton.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_custombutton.cpp moc_mainwindow.cpp
-moc_custombutton.cpp: ../../../anaconda3/include/qt/QtWidgets/QWidget \
+	-$(DEL_FILE) moc_buildbutton.cpp moc_mainwindow.cpp moc_savebutton.cpp
+moc_buildbutton.cpp: ../../../anaconda3/include/qt/QtWidgets/QWidget \
 		../../../anaconda3/include/qt/QtWidgets/qwidget.h \
 		../../../anaconda3/include/qt/QtGui/qwindowdefs.h \
 		../../../anaconda3/include/qt/QtCore/qglobal.h \
@@ -540,8 +547,8 @@ moc_custombutton.cpp: ../../../anaconda3/include/qt/QtWidgets/QWidget \
 		../../../anaconda3/include/qt/QtWidgets/qpushbutton.h \
 		../../../anaconda3/include/qt/QtWidgets/qabstractbutton.h \
 		../../../anaconda3/include/qt/QtGui/qicon.h \
-		../Warden_Software/custombutton.h
-	/home/Alexandre/anaconda3/bin/moc $(DEFINES) -I/home/Alexandre/anaconda3/mkspecs/linux-g++ -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Software -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Software/libs/Warden.hpp -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/data -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/core -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/display -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/error -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Software/libs -I/home/Alexandre/anaconda3/include/qt -I/home/Alexandre/anaconda3/include/qt/QtWidgets -I/home/Alexandre/anaconda3/include/qt/QtGui -I/home/Alexandre/anaconda3/include/qt/QtCore -I. -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include/c++/7.2.0 -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include/c++/7.2.0/x86_64-conda_cos6-linux-gnu -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include/c++/7.2.0/backward -I/home/Alexandre/anaconda3/lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/include -I/home/Alexandre/anaconda3/lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/include-fixed -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/sysroot/usr/include ../Warden_Software/custombutton.h -o moc_custombutton.cpp
+		../Warden_Software/buildbutton.h
+	/home/Alexandre/anaconda3/bin/moc $(DEFINES) -I/home/Alexandre/anaconda3/mkspecs/linux-g++ -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Software -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Software/libs -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/data -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/core -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/display -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/error -I/home/Alexandre/anaconda3/include/qt -I/home/Alexandre/anaconda3/include/qt/QtWidgets -I/home/Alexandre/anaconda3/include/qt/QtGui -I/home/Alexandre/anaconda3/include/qt/QtCore -I. -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include/c++/7.2.0 -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include/c++/7.2.0/x86_64-conda_cos6-linux-gnu -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include/c++/7.2.0/backward -I/home/Alexandre/anaconda3/lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/include -I/home/Alexandre/anaconda3/lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/include-fixed -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/sysroot/usr/include ../Warden_Software/buildbutton.h -o moc_buildbutton.cpp
 
 moc_mainwindow.cpp: ../../../anaconda3/include/qt/QtWidgets/QMainWindow \
 		../../../anaconda3/include/qt/QtWidgets/qmainwindow.h \
@@ -651,18 +658,161 @@ moc_mainwindow.cpp: ../../../anaconda3/include/qt/QtWidgets/QMainWindow \
 		../../../anaconda3/include/qt/QtWidgets/qtabwidget.h \
 		../../../anaconda3/include/qt/QtGui/qicon.h \
 		../../../anaconda3/include/qt/QtWidgets/QWidget \
-		../Warden_Software/custombutton.h \
-		../../../anaconda3/include/qt/QtWidgets/QPushButton \
-		../../../anaconda3/include/qt/QtWidgets/qpushbutton.h \
-		../../../anaconda3/include/qt/QtWidgets/qabstractbutton.h \
 		../../../anaconda3/include/qt/QtCore/QMap \
 		../../../anaconda3/include/qt/QtWidgets/QVBoxLayout \
 		../../../anaconda3/include/qt/QtWidgets/qboxlayout.h \
 		../../../anaconda3/include/qt/QtWidgets/qlayout.h \
 		../../../anaconda3/include/qt/QtWidgets/qlayoutitem.h \
 		../../../anaconda3/include/qt/QtWidgets/qgridlayout.h \
+		../../../anaconda3/include/qt/QtWidgets/QPushButton \
+		../../../anaconda3/include/qt/QtWidgets/qpushbutton.h \
+		../../../anaconda3/include/qt/QtWidgets/qabstractbutton.h \
 		../Warden_Software/mainwindow.h
-	/home/Alexandre/anaconda3/bin/moc $(DEFINES) -I/home/Alexandre/anaconda3/mkspecs/linux-g++ -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Software -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Software/libs/Warden.hpp -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/data -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/core -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/display -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/error -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Software/libs -I/home/Alexandre/anaconda3/include/qt -I/home/Alexandre/anaconda3/include/qt/QtWidgets -I/home/Alexandre/anaconda3/include/qt/QtGui -I/home/Alexandre/anaconda3/include/qt/QtCore -I. -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include/c++/7.2.0 -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include/c++/7.2.0/x86_64-conda_cos6-linux-gnu -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include/c++/7.2.0/backward -I/home/Alexandre/anaconda3/lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/include -I/home/Alexandre/anaconda3/lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/include-fixed -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/sysroot/usr/include ../Warden_Software/mainwindow.h -o moc_mainwindow.cpp
+	/home/Alexandre/anaconda3/bin/moc $(DEFINES) -I/home/Alexandre/anaconda3/mkspecs/linux-g++ -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Software -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Software/libs -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/data -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/core -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/display -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/error -I/home/Alexandre/anaconda3/include/qt -I/home/Alexandre/anaconda3/include/qt/QtWidgets -I/home/Alexandre/anaconda3/include/qt/QtGui -I/home/Alexandre/anaconda3/include/qt/QtCore -I. -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include/c++/7.2.0 -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include/c++/7.2.0/x86_64-conda_cos6-linux-gnu -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include/c++/7.2.0/backward -I/home/Alexandre/anaconda3/lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/include -I/home/Alexandre/anaconda3/lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/include-fixed -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/sysroot/usr/include ../Warden_Software/mainwindow.h -o moc_mainwindow.cpp
+
+moc_savebutton.cpp: ../../../anaconda3/include/qt/QtWidgets/QPushButton \
+		../../../anaconda3/include/qt/QtWidgets/qpushbutton.h \
+		../../../anaconda3/include/qt/QtWidgets/qabstractbutton.h \
+		../../../anaconda3/include/qt/QtGui/qicon.h \
+		../../../anaconda3/include/qt/QtCore/qglobal.h \
+		../../../anaconda3/include/qt/QtCore/qconfig.h \
+		../../../anaconda3/include/qt/QtCore/qfeatures.h \
+		../../../anaconda3/include/qt/QtCore/qsystemdetection.h \
+		../../../anaconda3/include/qt/QtCore/qprocessordetection.h \
+		../../../anaconda3/include/qt/QtCore/qcompilerdetection.h \
+		../../../anaconda3/include/qt/QtCore/qtypeinfo.h \
+		../../../anaconda3/include/qt/QtCore/qtypetraits.h \
+		../../../anaconda3/include/qt/QtCore/qisenum.h \
+		../../../anaconda3/include/qt/QtCore/qsysinfo.h \
+		../../../anaconda3/include/qt/QtCore/qlogging.h \
+		../../../anaconda3/include/qt/QtCore/qflags.h \
+		../../../anaconda3/include/qt/QtCore/qatomic.h \
+		../../../anaconda3/include/qt/QtCore/qbasicatomic.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_bootstrap.h \
+		../../../anaconda3/include/qt/QtCore/qgenericatomic.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_cxx11.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_gcc.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_msvc.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_armv7.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_armv6.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_armv5.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_ia64.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_x86.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_unix.h \
+		../../../anaconda3/include/qt/QtCore/qglobalstatic.h \
+		../../../anaconda3/include/qt/QtCore/qmutex.h \
+		../../../anaconda3/include/qt/QtCore/qnumeric.h \
+		../../../anaconda3/include/qt/QtCore/qversiontagging.h \
+		../../../anaconda3/include/qt/QtCore/qsize.h \
+		../../../anaconda3/include/qt/QtCore/qnamespace.h \
+		../../../anaconda3/include/qt/QtCore/qlist.h \
+		../../../anaconda3/include/qt/QtCore/qalgorithms.h \
+		../../../anaconda3/include/qt/QtCore/qiterator.h \
+		../../../anaconda3/include/qt/QtCore/qrefcount.h \
+		../../../anaconda3/include/qt/QtCore/qarraydata.h \
+		../../../anaconda3/include/qt/QtCore/qhashfunctions.h \
+		../../../anaconda3/include/qt/QtCore/qchar.h \
+		../../../anaconda3/include/qt/QtCore/qpair.h \
+		../../../anaconda3/include/qt/QtCore/qbytearraylist.h \
+		../../../anaconda3/include/qt/QtCore/qbytearray.h \
+		../../../anaconda3/include/qt/QtCore/qstring.h \
+		../../../anaconda3/include/qt/QtCore/qstringbuilder.h \
+		../../../anaconda3/include/qt/QtCore/qstringlist.h \
+		../../../anaconda3/include/qt/QtCore/qregexp.h \
+		../../../anaconda3/include/qt/QtCore/qstringmatcher.h \
+		../../../anaconda3/include/qt/QtGui/qpixmap.h \
+		../../../anaconda3/include/qt/QtGui/qpaintdevice.h \
+		../../../anaconda3/include/qt/QtGui/qwindowdefs.h \
+		../../../anaconda3/include/qt/QtCore/qobjectdefs.h \
+		../../../anaconda3/include/qt/QtCore/qobjectdefs_impl.h \
+		../../../anaconda3/include/qt/QtGui/qwindowdefs_win.h \
+		../../../anaconda3/include/qt/QtCore/qrect.h \
+		../../../anaconda3/include/qt/QtCore/qmargins.h \
+		../../../anaconda3/include/qt/QtCore/qpoint.h \
+		../../../anaconda3/include/qt/QtGui/qcolor.h \
+		../../../anaconda3/include/qt/QtGui/qrgb.h \
+		../../../anaconda3/include/qt/QtGui/qrgba64.h \
+		../../../anaconda3/include/qt/QtCore/qsharedpointer.h \
+		../../../anaconda3/include/qt/QtCore/qshareddata.h \
+		../../../anaconda3/include/qt/QtCore/qhash.h \
+		../../../anaconda3/include/qt/QtCore/qsharedpointer_impl.h \
+		../../../anaconda3/include/qt/QtCore/qobject.h \
+		../../../anaconda3/include/qt/QtCore/qcoreevent.h \
+		../../../anaconda3/include/qt/QtCore/qscopedpointer.h \
+		../../../anaconda3/include/qt/QtCore/qmetatype.h \
+		../../../anaconda3/include/qt/QtCore/qvarlengtharray.h \
+		../../../anaconda3/include/qt/QtCore/qcontainerfwd.h \
+		../../../anaconda3/include/qt/QtCore/qobject_impl.h \
+		../../../anaconda3/include/qt/QtGui/qimage.h \
+		../../../anaconda3/include/qt/QtGui/qpixelformat.h \
+		../../../anaconda3/include/qt/QtGui/qtransform.h \
+		../../../anaconda3/include/qt/QtGui/qmatrix.h \
+		../../../anaconda3/include/qt/QtGui/qpolygon.h \
+		../../../anaconda3/include/qt/QtCore/qvector.h \
+		../../../anaconda3/include/qt/QtGui/qregion.h \
+		../../../anaconda3/include/qt/QtCore/qdatastream.h \
+		../../../anaconda3/include/qt/QtCore/qiodevice.h \
+		../../../anaconda3/include/qt/QtCore/qline.h \
+		../../../anaconda3/include/qt/QtGui/qpainterpath.h \
+		../../../anaconda3/include/qt/QtGui/qkeysequence.h \
+		../../../anaconda3/include/qt/QtWidgets/qwidget.h \
+		../../../anaconda3/include/qt/QtGui/qpalette.h \
+		../../../anaconda3/include/qt/QtGui/qbrush.h \
+		../../../anaconda3/include/qt/QtGui/qfont.h \
+		../../../anaconda3/include/qt/QtGui/qfontmetrics.h \
+		../../../anaconda3/include/qt/QtGui/qfontinfo.h \
+		../../../anaconda3/include/qt/QtWidgets/qsizepolicy.h \
+		../../../anaconda3/include/qt/QtGui/qcursor.h \
+		../../../anaconda3/include/qt/QtGui/qevent.h \
+		../../../anaconda3/include/qt/QtCore/qvariant.h \
+		../../../anaconda3/include/qt/QtCore/qmap.h \
+		../../../anaconda3/include/qt/QtCore/qdebug.h \
+		../../../anaconda3/include/qt/QtCore/qtextstream.h \
+		../../../anaconda3/include/qt/QtCore/qlocale.h \
+		../../../anaconda3/include/qt/QtCore/qset.h \
+		../../../anaconda3/include/qt/QtCore/qcontiguouscache.h \
+		../../../anaconda3/include/qt/QtCore/qurl.h \
+		../../../anaconda3/include/qt/QtCore/qurlquery.h \
+		../../../anaconda3/include/qt/QtCore/qfile.h \
+		../../../anaconda3/include/qt/QtCore/qfiledevice.h \
+		../../../anaconda3/include/qt/QtGui/qvector2d.h \
+		../../../anaconda3/include/qt/QtGui/qtouchdevice.h \
+		../../../anaconda3/include/qt/QtWidgets/QWidget \
+		../Warden_Software/libs/Warden.hpp \
+		../Warden_Lib/include/engine/Event.hpp \
+		../Warden_Lib/include/engine/GameEngine.hpp \
+		../Warden_Lib/include/engine/data/ISceneManager.hpp \
+		../Warden_Lib/include/engine/data/IScene.hpp \
+		../Warden_Lib/include/engine/data/AGameObject.hpp \
+		../Warden_Lib/include/engine/data/AComponent.hpp \
+		../Warden_Lib/include/engine/data/SceneState.hpp \
+		../Warden_Lib/include/engine/error/GameObjectError.hpp \
+		../Warden_Lib/include/engine/error/SceneManagerError.hpp \
+		../Warden_Lib/include/engine/error/EngineError.hpp \
+		../Warden_Lib/include/engine/display/IDisplay.hpp \
+		../Warden_Lib/include/engine/core/ICore.hpp \
+		../Warden_Lib/include/engine/Macros.hpp \
+		../Warden_Lib/include/engine/Vector3float.hpp \
+		../Warden_Lib/include/engine/core/Core.hpp \
+		../Warden_Lib/include/engine/data/ACollider.hpp \
+		../Warden_Lib/include/engine/data/AScene.hpp \
+		../Warden_Lib/include/engine/data/IComponent.hpp \
+		../Warden_Lib/include/engine/data/MeshRenderer.hpp \
+		../Warden_Lib/include/engine/data/SceneManager.hpp \
+		../Warden_Lib/include/engine/data/TextRenderer.hpp \
+		../Warden_Lib/include/engine/data/Transform.hpp \
+		../Warden_Lib/include/engine/display/Display.hpp \
+		../Warden_Lib/include/engine/display/IGraphicalModule.hpp \
+		../Warden_Lib/include/engine/display/SFMLModule.hpp \
+		../Warden_Lib/include/engine/error/AColliderError.hpp \
+		../Warden_Lib/include/engine/error/ComponentError.hpp \
+		../Warden_Lib/include/engine/error/DisplayError.hpp \
+		../Warden_Lib/include/engine/error/GraphicalModuleError.hpp \
+		../Warden_Lib/include/engine/error/MeshRendererError.hpp \
+		../Warden_Lib/include/engine/error/SceneError.hpp \
+		../Warden_Lib/include/engine/error/TransformError.hpp \
+		../Warden_Software/savebutton.h
+	/home/Alexandre/anaconda3/bin/moc $(DEFINES) -I/home/Alexandre/anaconda3/mkspecs/linux-g++ -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Software -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Software/libs -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/data -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/core -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/display -I/home/Alexandre/Projets_persos/WardenEngine/Warden_Lib/include/engine/error -I/home/Alexandre/anaconda3/include/qt -I/home/Alexandre/anaconda3/include/qt/QtWidgets -I/home/Alexandre/anaconda3/include/qt/QtGui -I/home/Alexandre/anaconda3/include/qt/QtCore -I. -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include/c++/7.2.0 -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include/c++/7.2.0/x86_64-conda_cos6-linux-gnu -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include/c++/7.2.0/backward -I/home/Alexandre/anaconda3/lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/include -I/home/Alexandre/anaconda3/lib/gcc/x86_64-conda_cos6-linux-gnu/7.2.0/include-fixed -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/include -I/home/Alexandre/anaconda3/x86_64-conda_cos6-linux-gnu/sysroot/usr/include ../Warden_Software/savebutton.h -o moc_savebutton.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -682,7 +832,7 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 
 ####### Compile
 
-custombutton.o: ../Warden_Software/custombutton.cpp ../Warden_Software/custombutton.h \
+buildbutton.o: ../Warden_Software/buildbutton.cpp ../Warden_Software/buildbutton.h \
 		../../../anaconda3/include/qt/QtWidgets/QWidget \
 		../../../anaconda3/include/qt/QtWidgets/qwidget.h \
 		../../../anaconda3/include/qt/QtGui/qwindowdefs.h \
@@ -791,7 +941,7 @@ custombutton.o: ../Warden_Software/custombutton.cpp ../Warden_Software/custombut
 		../../../anaconda3/include/qt/QtWidgets/qpushbutton.h \
 		../../../anaconda3/include/qt/QtWidgets/qabstractbutton.h \
 		../../../anaconda3/include/qt/QtGui/qicon.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o custombutton.o ../Warden_Software/custombutton.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o buildbutton.o ../Warden_Software/buildbutton.cpp
 
 main.o: ../Warden_Software/main.cpp ../Warden_Software/mainwindow.h \
 		../../../anaconda3/include/qt/QtWidgets/QMainWindow \
@@ -902,16 +1052,15 @@ main.o: ../Warden_Software/main.cpp ../Warden_Software/mainwindow.h \
 		../../../anaconda3/include/qt/QtWidgets/qtabwidget.h \
 		../../../anaconda3/include/qt/QtGui/qicon.h \
 		../../../anaconda3/include/qt/QtWidgets/QWidget \
-		../Warden_Software/custombutton.h \
-		../../../anaconda3/include/qt/QtWidgets/QPushButton \
-		../../../anaconda3/include/qt/QtWidgets/qpushbutton.h \
-		../../../anaconda3/include/qt/QtWidgets/qabstractbutton.h \
 		../../../anaconda3/include/qt/QtCore/QMap \
 		../../../anaconda3/include/qt/QtWidgets/QVBoxLayout \
 		../../../anaconda3/include/qt/QtWidgets/qboxlayout.h \
 		../../../anaconda3/include/qt/QtWidgets/qlayout.h \
 		../../../anaconda3/include/qt/QtWidgets/qlayoutitem.h \
 		../../../anaconda3/include/qt/QtWidgets/qgridlayout.h \
+		../../../anaconda3/include/qt/QtWidgets/QPushButton \
+		../../../anaconda3/include/qt/QtWidgets/qpushbutton.h \
+		../../../anaconda3/include/qt/QtWidgets/qabstractbutton.h \
 		../../../anaconda3/include/qt/QtWidgets/QApplication \
 		../../../anaconda3/include/qt/QtWidgets/qapplication.h \
 		../../../anaconda3/include/qt/QtCore/qcoreapplication.h \
@@ -1065,16 +1214,15 @@ mainwindow.o: ../Warden_Software/mainwindow.cpp ../Warden_Software/mainwindow.h 
 		../../../anaconda3/include/qt/QtWidgets/qtabwidget.h \
 		../../../anaconda3/include/qt/QtGui/qicon.h \
 		../../../anaconda3/include/qt/QtWidgets/QWidget \
-		../Warden_Software/custombutton.h \
-		../../../anaconda3/include/qt/QtWidgets/QPushButton \
-		../../../anaconda3/include/qt/QtWidgets/qpushbutton.h \
-		../../../anaconda3/include/qt/QtWidgets/qabstractbutton.h \
 		../../../anaconda3/include/qt/QtCore/QMap \
 		../../../anaconda3/include/qt/QtWidgets/QVBoxLayout \
 		../../../anaconda3/include/qt/QtWidgets/qboxlayout.h \
 		../../../anaconda3/include/qt/QtWidgets/qlayout.h \
 		../../../anaconda3/include/qt/QtWidgets/qlayoutitem.h \
 		../../../anaconda3/include/qt/QtWidgets/qgridlayout.h \
+		../../../anaconda3/include/qt/QtWidgets/QPushButton \
+		../../../anaconda3/include/qt/QtWidgets/qpushbutton.h \
+		../../../anaconda3/include/qt/QtWidgets/qabstractbutton.h \
 		ui_mainwindow.h \
 		../../../anaconda3/include/qt/QtCore/QVariant \
 		../../../anaconda3/include/qt/QtWidgets/QAction \
@@ -1110,14 +1258,204 @@ mainwindow.o: ../Warden_Software/mainwindow.cpp ../Warden_Software/mainwindow.h 
 		../../../anaconda3/include/qt/QtWidgets/qmenubar.h \
 		../../../anaconda3/include/qt/QtWidgets/qmenu.h \
 		../../../anaconda3/include/qt/QtWidgets/QStatusBar \
-		../../../anaconda3/include/qt/QtWidgets/qstatusbar.h
+		../../../anaconda3/include/qt/QtWidgets/qstatusbar.h \
+		../Warden_Software/savebutton.h \
+		../Warden_Software/libs/Warden.hpp \
+		../Warden_Lib/include/engine/Event.hpp \
+		../Warden_Lib/include/engine/GameEngine.hpp \
+		../Warden_Lib/include/engine/data/ISceneManager.hpp \
+		../Warden_Lib/include/engine/data/IScene.hpp \
+		../Warden_Lib/include/engine/data/AGameObject.hpp \
+		../Warden_Lib/include/engine/data/AComponent.hpp \
+		../Warden_Lib/include/engine/data/SceneState.hpp \
+		../Warden_Lib/include/engine/error/GameObjectError.hpp \
+		../Warden_Lib/include/engine/error/SceneManagerError.hpp \
+		../Warden_Lib/include/engine/error/EngineError.hpp \
+		../Warden_Lib/include/engine/display/IDisplay.hpp \
+		../Warden_Lib/include/engine/core/ICore.hpp \
+		../Warden_Lib/include/engine/Macros.hpp \
+		../Warden_Lib/include/engine/Vector3float.hpp \
+		../Warden_Lib/include/engine/core/Core.hpp \
+		../Warden_Lib/include/engine/data/ACollider.hpp \
+		../Warden_Lib/include/engine/data/AScene.hpp \
+		../Warden_Lib/include/engine/data/IComponent.hpp \
+		../Warden_Lib/include/engine/data/MeshRenderer.hpp \
+		../Warden_Lib/include/engine/data/SceneManager.hpp \
+		../Warden_Lib/include/engine/data/TextRenderer.hpp \
+		../Warden_Lib/include/engine/data/Transform.hpp \
+		../Warden_Lib/include/engine/display/Display.hpp \
+		../Warden_Lib/include/engine/display/IGraphicalModule.hpp \
+		../Warden_Lib/include/engine/display/SFMLModule.hpp \
+		../Warden_Lib/include/engine/error/AColliderError.hpp \
+		../Warden_Lib/include/engine/error/ComponentError.hpp \
+		../Warden_Lib/include/engine/error/DisplayError.hpp \
+		../Warden_Lib/include/engine/error/GraphicalModuleError.hpp \
+		../Warden_Lib/include/engine/error/MeshRendererError.hpp \
+		../Warden_Lib/include/engine/error/SceneError.hpp \
+		../Warden_Lib/include/engine/error/TransformError.hpp \
+		../Warden_Software/buildbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Warden_Software/mainwindow.cpp
 
-moc_custombutton.o: moc_custombutton.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_custombutton.o moc_custombutton.cpp
+savebutton.o: ../Warden_Software/savebutton.cpp ../Warden_Software/savebutton.h \
+		../../../anaconda3/include/qt/QtWidgets/QPushButton \
+		../../../anaconda3/include/qt/QtWidgets/qpushbutton.h \
+		../../../anaconda3/include/qt/QtWidgets/qabstractbutton.h \
+		../../../anaconda3/include/qt/QtGui/qicon.h \
+		../../../anaconda3/include/qt/QtCore/qglobal.h \
+		../../../anaconda3/include/qt/QtCore/qconfig.h \
+		../../../anaconda3/include/qt/QtCore/qfeatures.h \
+		../../../anaconda3/include/qt/QtCore/qsystemdetection.h \
+		../../../anaconda3/include/qt/QtCore/qprocessordetection.h \
+		../../../anaconda3/include/qt/QtCore/qcompilerdetection.h \
+		../../../anaconda3/include/qt/QtCore/qtypeinfo.h \
+		../../../anaconda3/include/qt/QtCore/qtypetraits.h \
+		../../../anaconda3/include/qt/QtCore/qisenum.h \
+		../../../anaconda3/include/qt/QtCore/qsysinfo.h \
+		../../../anaconda3/include/qt/QtCore/qlogging.h \
+		../../../anaconda3/include/qt/QtCore/qflags.h \
+		../../../anaconda3/include/qt/QtCore/qatomic.h \
+		../../../anaconda3/include/qt/QtCore/qbasicatomic.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_bootstrap.h \
+		../../../anaconda3/include/qt/QtCore/qgenericatomic.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_cxx11.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_gcc.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_msvc.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_armv7.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_armv6.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_armv5.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_ia64.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_x86.h \
+		../../../anaconda3/include/qt/QtCore/qatomic_unix.h \
+		../../../anaconda3/include/qt/QtCore/qglobalstatic.h \
+		../../../anaconda3/include/qt/QtCore/qmutex.h \
+		../../../anaconda3/include/qt/QtCore/qnumeric.h \
+		../../../anaconda3/include/qt/QtCore/qversiontagging.h \
+		../../../anaconda3/include/qt/QtCore/qsize.h \
+		../../../anaconda3/include/qt/QtCore/qnamespace.h \
+		../../../anaconda3/include/qt/QtCore/qlist.h \
+		../../../anaconda3/include/qt/QtCore/qalgorithms.h \
+		../../../anaconda3/include/qt/QtCore/qiterator.h \
+		../../../anaconda3/include/qt/QtCore/qrefcount.h \
+		../../../anaconda3/include/qt/QtCore/qarraydata.h \
+		../../../anaconda3/include/qt/QtCore/qhashfunctions.h \
+		../../../anaconda3/include/qt/QtCore/qchar.h \
+		../../../anaconda3/include/qt/QtCore/qpair.h \
+		../../../anaconda3/include/qt/QtCore/qbytearraylist.h \
+		../../../anaconda3/include/qt/QtCore/qbytearray.h \
+		../../../anaconda3/include/qt/QtCore/qstring.h \
+		../../../anaconda3/include/qt/QtCore/qstringbuilder.h \
+		../../../anaconda3/include/qt/QtCore/qstringlist.h \
+		../../../anaconda3/include/qt/QtCore/qregexp.h \
+		../../../anaconda3/include/qt/QtCore/qstringmatcher.h \
+		../../../anaconda3/include/qt/QtGui/qpixmap.h \
+		../../../anaconda3/include/qt/QtGui/qpaintdevice.h \
+		../../../anaconda3/include/qt/QtGui/qwindowdefs.h \
+		../../../anaconda3/include/qt/QtCore/qobjectdefs.h \
+		../../../anaconda3/include/qt/QtCore/qobjectdefs_impl.h \
+		../../../anaconda3/include/qt/QtGui/qwindowdefs_win.h \
+		../../../anaconda3/include/qt/QtCore/qrect.h \
+		../../../anaconda3/include/qt/QtCore/qmargins.h \
+		../../../anaconda3/include/qt/QtCore/qpoint.h \
+		../../../anaconda3/include/qt/QtGui/qcolor.h \
+		../../../anaconda3/include/qt/QtGui/qrgb.h \
+		../../../anaconda3/include/qt/QtGui/qrgba64.h \
+		../../../anaconda3/include/qt/QtCore/qsharedpointer.h \
+		../../../anaconda3/include/qt/QtCore/qshareddata.h \
+		../../../anaconda3/include/qt/QtCore/qhash.h \
+		../../../anaconda3/include/qt/QtCore/qsharedpointer_impl.h \
+		../../../anaconda3/include/qt/QtCore/qobject.h \
+		../../../anaconda3/include/qt/QtCore/qcoreevent.h \
+		../../../anaconda3/include/qt/QtCore/qscopedpointer.h \
+		../../../anaconda3/include/qt/QtCore/qmetatype.h \
+		../../../anaconda3/include/qt/QtCore/qvarlengtharray.h \
+		../../../anaconda3/include/qt/QtCore/qcontainerfwd.h \
+		../../../anaconda3/include/qt/QtCore/qobject_impl.h \
+		../../../anaconda3/include/qt/QtGui/qimage.h \
+		../../../anaconda3/include/qt/QtGui/qpixelformat.h \
+		../../../anaconda3/include/qt/QtGui/qtransform.h \
+		../../../anaconda3/include/qt/QtGui/qmatrix.h \
+		../../../anaconda3/include/qt/QtGui/qpolygon.h \
+		../../../anaconda3/include/qt/QtCore/qvector.h \
+		../../../anaconda3/include/qt/QtGui/qregion.h \
+		../../../anaconda3/include/qt/QtCore/qdatastream.h \
+		../../../anaconda3/include/qt/QtCore/qiodevice.h \
+		../../../anaconda3/include/qt/QtCore/qline.h \
+		../../../anaconda3/include/qt/QtGui/qpainterpath.h \
+		../../../anaconda3/include/qt/QtGui/qkeysequence.h \
+		../../../anaconda3/include/qt/QtWidgets/qwidget.h \
+		../../../anaconda3/include/qt/QtGui/qpalette.h \
+		../../../anaconda3/include/qt/QtGui/qbrush.h \
+		../../../anaconda3/include/qt/QtGui/qfont.h \
+		../../../anaconda3/include/qt/QtGui/qfontmetrics.h \
+		../../../anaconda3/include/qt/QtGui/qfontinfo.h \
+		../../../anaconda3/include/qt/QtWidgets/qsizepolicy.h \
+		../../../anaconda3/include/qt/QtGui/qcursor.h \
+		../../../anaconda3/include/qt/QtGui/qevent.h \
+		../../../anaconda3/include/qt/QtCore/qvariant.h \
+		../../../anaconda3/include/qt/QtCore/qmap.h \
+		../../../anaconda3/include/qt/QtCore/qdebug.h \
+		../../../anaconda3/include/qt/QtCore/qtextstream.h \
+		../../../anaconda3/include/qt/QtCore/qlocale.h \
+		../../../anaconda3/include/qt/QtCore/qset.h \
+		../../../anaconda3/include/qt/QtCore/qcontiguouscache.h \
+		../../../anaconda3/include/qt/QtCore/qurl.h \
+		../../../anaconda3/include/qt/QtCore/qurlquery.h \
+		../../../anaconda3/include/qt/QtCore/qfile.h \
+		../../../anaconda3/include/qt/QtCore/qfiledevice.h \
+		../../../anaconda3/include/qt/QtGui/qvector2d.h \
+		../../../anaconda3/include/qt/QtGui/qtouchdevice.h \
+		../../../anaconda3/include/qt/QtWidgets/QWidget \
+		../Warden_Software/libs/Warden.hpp \
+		../Warden_Lib/include/engine/Event.hpp \
+		../Warden_Lib/include/engine/GameEngine.hpp \
+		../Warden_Lib/include/engine/data/ISceneManager.hpp \
+		../Warden_Lib/include/engine/data/IScene.hpp \
+		../Warden_Lib/include/engine/data/AGameObject.hpp \
+		../Warden_Lib/include/engine/data/AComponent.hpp \
+		../Warden_Lib/include/engine/data/SceneState.hpp \
+		../Warden_Lib/include/engine/error/GameObjectError.hpp \
+		../Warden_Lib/include/engine/error/SceneManagerError.hpp \
+		../Warden_Lib/include/engine/error/EngineError.hpp \
+		../Warden_Lib/include/engine/display/IDisplay.hpp \
+		../Warden_Lib/include/engine/core/ICore.hpp \
+		../Warden_Lib/include/engine/Macros.hpp \
+		../Warden_Lib/include/engine/Vector3float.hpp \
+		../Warden_Lib/include/engine/core/Core.hpp \
+		../Warden_Lib/include/engine/data/ACollider.hpp \
+		../Warden_Lib/include/engine/data/AScene.hpp \
+		../Warden_Lib/include/engine/data/IComponent.hpp \
+		../Warden_Lib/include/engine/data/MeshRenderer.hpp \
+		../Warden_Lib/include/engine/data/SceneManager.hpp \
+		../Warden_Lib/include/engine/data/TextRenderer.hpp \
+		../Warden_Lib/include/engine/data/Transform.hpp \
+		../Warden_Lib/include/engine/display/Display.hpp \
+		../Warden_Lib/include/engine/display/IGraphicalModule.hpp \
+		../Warden_Lib/include/engine/display/SFMLModule.hpp \
+		../Warden_Lib/include/engine/error/AColliderError.hpp \
+		../Warden_Lib/include/engine/error/ComponentError.hpp \
+		../Warden_Lib/include/engine/error/DisplayError.hpp \
+		../Warden_Lib/include/engine/error/GraphicalModuleError.hpp \
+		../Warden_Lib/include/engine/error/MeshRendererError.hpp \
+		../Warden_Lib/include/engine/error/SceneError.hpp \
+		../Warden_Lib/include/engine/error/TransformError.hpp \
+		../../../anaconda3/include/qt/QtCore/QJsonArray \
+		../../../anaconda3/include/qt/QtCore/qjsonarray.h \
+		../../../anaconda3/include/qt/QtCore/qjsonvalue.h \
+		../../../anaconda3/include/qt/QtCore/QJsonObject \
+		../../../anaconda3/include/qt/QtCore/qjsonobject.h \
+		../../../anaconda3/include/qt/QtCore/QJsonDocument \
+		../../../anaconda3/include/qt/QtCore/qjsondocument.h \
+		../../../anaconda3/include/qt/QtCore/QFile
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o savebutton.o ../Warden_Software/savebutton.cpp
+
+moc_buildbutton.o: moc_buildbutton.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_buildbutton.o moc_buildbutton.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+
+moc_savebutton.o: moc_savebutton.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_savebutton.o moc_savebutton.cpp
 
 ####### Install
 

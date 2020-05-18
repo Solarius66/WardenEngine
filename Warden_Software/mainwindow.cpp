@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "custombutton.h"
+#include "savebutton.h"
+#include "buildbutton.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -8,8 +9,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     _layout  = new QVBoxLayout(this);
-    _buttonMap.insert("Build", new CustomButton("Build", this));
-    _buttonMap.insert("Save", new CustomButton("Save", this));
+    _buttonMap.insert("Build", new BuildButton(this));
+    _buttonMap.insert("Save", new SaveButton(this));
     _layout->addWidget(_buttonMap["Build"]);
     _layout->addWidget(_buttonMap["Save"]);
     _mainWidget = new QWidget(this);
