@@ -17,13 +17,17 @@
 ///
 class GraphicalModuleError : public DisplayError {
     public:
-        GraphicalModuleError(const QString &message, const QString &type = "Graphical Module") : DisplayError(message, type) {} ///<Constructor, take 2 strings as parameters, first used as error message, second used as error type
-        ~GraphicalModuleError() = default;
+        ///<Constructor, take 2 strings as parameters, first used as error message, second used as error type
+        GraphicalModuleError(const QString &message, const QString &type = "Graphical Module") : DisplayError(message, type) {} ///<
 
-        const QString &getMsg() const {return _message;}                    ///<Return the error Message
-                                                                                ///<
-        const QString &getType() const {return _type;}                      ///<Return the error Type
-                                                                                ///<
+        ///<Destructor
+        ~GraphicalModuleError() = default; ///<
+
+        ///<Return the error Message
+        const QString &getMsg() const {return _message;} ///<
+
+        ///<Return the error Type
+        const QString &getType() const {return _type;} ///<
 
     protected:
         QString _message;

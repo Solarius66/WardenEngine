@@ -18,10 +18,12 @@
 class GameObjectError : public SceneManagerError
 {
 public:
-    GameObjectError(const QString &message, const QString &type = "GameObject")     ///<Constructor, take 2 strings as parameters, first used as error message, second used as error type
-    :SceneManagerError(message, type) {}                                              ///<
-    ~GameObjectError() = default;                                                     ///<Destructor
-                                                                                ///<
+    ///<Constructor, take 2 strings as parameters, first used as error message, second used as error type
+    GameObjectError(const QString &message, const QString &type = "GameObject")
+    :SceneManagerError(message, type) {} ///<
+
+    ///<Destructor
+    ~GameObjectError() = default; ///<
 };
 
 #endif /* end of include guard: GAMEOBJECTERROR_HPP_ */

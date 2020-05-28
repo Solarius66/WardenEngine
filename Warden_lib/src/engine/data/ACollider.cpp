@@ -50,6 +50,18 @@ void ACollider::update(event _event)
     }
 }
 
+void ACollider::read(const QJsonObject &json)
+{
+
+}
+
+void ACollider::write(QJsonObject &json) const
+{
+    json["collide"] = false;
+    json["this"] = _this->getName();
+    json["scene"] = _scene->getName();
+}
+
 void ACollider::onTriggerEnter(QSharedPointer<AGameObject> other)
 {
     qDebug() << "Trigger Enter with " << other->getName() << '\n';

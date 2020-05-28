@@ -5,6 +5,8 @@
 ** GameEngine Class Implementation
 */
 
+#include <QQueue>
+
 #include "include/engine/GameEngine.hpp"
 #include "include/engine/display/Display.hpp"
 #include "include/engine/data/SceneManager.hpp"

@@ -143,6 +143,28 @@ void Transform::setSize(float x, float y, float z)
     _size.z = z;
 }
 
+void Transform::read(const QJsonObject &json)
+{
+
+}
+
+void Transform::write(QJsonObject &json) const
+{
+    json["name"] = _name;
+    json["position_x"] = _position.x;
+    json["position_y"] = _position.y;
+    json["position_z"] = _position.z;
+    json["rotation_x"] = _rotation.x;
+    json["rotation_y"] = _rotation.y;
+    json["rotation_z"] = _rotation.z;
+    json["scale_x"] = _scale.x;
+    json["scale_y"] = _scale.y;
+    json["scale_z"] = _scale.z;
+    json["size_x"] = _size.x;
+    json["size_y"] = _size.y;
+    json["size_z"] = _size.z;
+}
+
 void Transform::update(event event)
 {
     static_cast<void>(event);

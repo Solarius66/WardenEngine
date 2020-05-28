@@ -20,10 +20,13 @@
 class SceneError : public SceneManagerError
 {
 public:
-    SceneError(const QString &message, const QString &type = "Scene")   ///<Constructor, take 2 strings as parameters, first used as error message, second used as error type
-    :SceneManagerError(message, type) {}                                              ///<
-    ~SceneError() = default;                                                    ///<Destructor
-                                                                                ///<
+    ///<Constructor, take 2 strings as parameters, first used as error message, second used as error type
+    SceneError(const QString &message, const QString &type = "Scene")
+    :SceneManagerError(message, type) {} ///<
+
+    ///<Destructor
+    ~SceneError() = default; ///<
+
 };
 
 #endif /* end of include guard: SCENEERROR_HPP_ */

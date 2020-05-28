@@ -20,14 +20,16 @@ class EngineError : public QException
 public:
     ///<Constructor, take 2 strings as parameters, first used as error message, second used as error type
     EngineError(const QString &message, const QString &type = "Engine")
-    { _message = message; _type = type;}                                        ///<
-    ~EngineError() = default;                                                   ///<Destructor
-                                                                                ///<
+    { _message = message; _type = type;} ///<
 
-    const QString &getMsg() const {return _message;}                        ///<Return the error Message
-                                                                                ///<
-    const QString &getType() const {return _type;}                          ///<Return the error Type
-                                                                                ///<
+     ///<Destructor
+    ~EngineError() = default; ///<
+
+    ///<Return the error Message
+    const QString &getMsg() const {return _message;} ///<
+
+    ///<Return the error Type
+    const QString &getType() const {return _type;} ///<
 
 protected:
     QString _message;

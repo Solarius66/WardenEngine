@@ -7,6 +7,8 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 
+#include "warden_lib.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE

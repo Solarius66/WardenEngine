@@ -21,28 +21,35 @@
 ///
 class AGameObject {
     public:
-        AGameObject(const QString &name, int id, int layer);            ///<Constructor
-                                                                            ///<
-        AGameObject(AGameObject &);                                     ///<Copy Constructor
-                                                                            ///<
-        ~AGameObject() = default;                                           ///<Destructor
-                                                                            ///<
+        ///<Constructor
+        AGameObject(const QString &name, int id, int layer); ///<
 
-        int                 getID() const {return _id;}                     ///<Return an int as a macro corresponding to the GameObject's ID
-                                                                            ///<
-        const QString   &getName() const {return _name;}                ///<Return a reference on a QString corresponding to the GameObject's name
-                                                                            ///<
-        int                 getLayer() const {return _layer;}               ///<Return an int as a macro corresponding to the GameObject's Layer
+        ///<Copy Constructor
+        AGameObject(AGameObject &); ///<
 
+        ///<Destructor
+        ~AGameObject() = default; ///<
+
+        ///<Return an int as a macro corresponding to the GameObject's ID
+        int                 getID() const {return _id;} ///<
+
+        ///<Return a reference on a QString corresponding to the GameObject's name
+        const QString   &getName() const {return _name;} ///<
+
+        ///<Return an int as a macro corresponding to the GameObject's Layer
+        int                 getLayer() const {return _layer;} ///<
+
+        ///<Add the unique_ptr on AComponent passed as parameter to the map member named _component
         template <class Type, typename... Args>
-        void addComponent(const QString &name, Args&&... params)        ///<Add the unique_ptr on AComponent passed as parameter to the map member named _component
-        {                                                                   ///<
+        void addComponent(const QString &name, Args&&... params) ///<
+        {
             _component[name] = QSharedPointer<Type>(new Type (std::forward<Args>(params)...));
         }
 
+        ///<Return a unique_ptr on type passed as template corresponding to the GameObject's component
         template <class Type>
-        Type &getComponent(const QString &name)                         ///<Return a unique_ptr on type passed as template corresponding to the GameObject's component
-        {                                                                   ///<
+        Type &getComponent(const QString &name) ///<
+        {
             for ( auto && component : _component ) {
                 if ( component->getName() == name)
                     return *static_cast<Type *>(component.data());
@@ -51,14 +58,20 @@ class AGameObject {
             return *QSharedPointer<Type>(nullptr);
         }
 
-        const QMap<QString, QSharedPointer<AComponent>> &getComponentList() const {return _component;}     ///<Return Component List
-                                                                                                                        ///<
-        void debug();                                                                                                   ///<Display the name of all components available
-                                                                                                                        ///<
+        ///<Return Component List
+        const QMap<QString, QSharedPointer<AComponent>> &getComponentList() const {return _component;} ///<
 
-                                                                            ///<
-        void                update(event);                              ///<Call the update function of all IComponent in the _component map
-                                                                            ///<
+        ///<Load a gameobject from a .json object
+        void read(const QJsonObject &json); ///<
+
+        ///<Save a gameobject in a .json object
+        void write(QJsonObject &json) const; ///<
+
+        ///<Display the name of all components available
+        void debug(); ///<
+
+        ///<Call the update function of all IComponent in the _component map
+        void update(event); ///<
 
     protected:
         QMap<QString, QSharedPointer<AComponent>>  _component;

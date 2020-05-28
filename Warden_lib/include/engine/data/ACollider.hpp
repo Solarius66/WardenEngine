@@ -23,22 +23,31 @@
 class ACollider : public AComponent
 {
 public:
-    ACollider(QSharedPointer<AGameObject>, const QSharedPointer<IScene> &); ///<Constructor, take a shared_ptr to AGameObject and a vector as Parameter, corresponding at 'This' & the AGameObject vector of the Scene
-                                                                                    ///<
-    ~ACollider();                                                                   ///<Destructor
-                                                                                    ///<
+    ///<Constructor, take a shared_ptr to AGameObject and a vector as Parameter, corresponding at 'This' & the AGameObject vector of the Scene
+    ACollider(QSharedPointer<AGameObject>, const QSharedPointer<IScene> &); ///<
 
-    void update(event) final;                                       ///<Call the update function
-                                                                        ///<
+    ///<Destructor
+    ~ACollider(); ///<
 
+    ///<Call the update function
+    void update(event) final; ///<
+
+    ///<Load a component from a .json object
+    void read(const QJsonObject &json); ///<
+
+    ///<Save a component in a .json object
+    void write(QJsonObject &json) const; ///<
 
 protected:
-    virtual void onTriggerEnter(QSharedPointer<AGameObject>);  ///<Called when a AGameObject Collide the AGameObject containing this component
-                                                                    ///<
-    virtual void onTriggerStay(QSharedPointer<AGameObject>);   ///<Called when a AGameObject is Colliding the AGameObject containing this component
-                                                                    ///<
-    virtual void onTriggerExit(QSharedPointer<AGameObject>);   ///<Called when a AGameObject stop to Collide the AGameObject containing this component
-                                                                    ///<
+    ///<Called when a AGameObject Collide the AGameObject containing this component
+    virtual void onTriggerEnter(QSharedPointer<AGameObject>); ///<
+
+    ///<Called when a AGameObject is Colliding the AGameObject containing this component
+    virtual void onTriggerStay(QSharedPointer<AGameObject>); ///<
+
+    ///<Called when a AGameObject stop to Collide the AGameObject containing this component
+    virtual void onTriggerExit(QSharedPointer<AGameObject>); ///<
+
     QSharedPointer<AGameObject>                _this;
     QSharedPointer<IScene>                     _scene;
 

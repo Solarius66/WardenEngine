@@ -22,19 +22,22 @@
 class IDisplay
 {
 public:
-    IDisplay() = default;               ///<Constructor
-                                        ///<
-    virtual ~IDisplay() = default;      ///<Destructor
-                                        ///<
+    ///<Constructor
+    IDisplay() = default; ///<
 
-    virtual void draw(const QSharedPointer<IScene> &, QQueue<event> &) = 0;        ///<Display every GameObject of a scene and get each input of the player
-                                                                                            ///<
-    virtual void drawGameObject(const QSharedPointer<AGameObject>) = 0;                ///<Display only 1 GameObject
-                                                                                            ///<
+    ///<Destructor
+    virtual ~IDisplay() = default; ///<
+
+    ///<Display every GameObject of a scene and get each input of the player
+    virtual void draw(const QSharedPointer<IScene> &, QQueue<event> &) = 0; ///<
+
+    ///<Display only 1 GameObject
+    virtual void drawGameObject(const QSharedPointer<AGameObject>) = 0; ///<
 
 protected:
-    virtual void drawLayer(const QVector<QSharedPointer<AGameObject>> &) const = 0;    ///<Display every GameObject of a Layer of a Scene
-                                                                                                ///<
+    ///<Display every GameObject of a Layer of a Scene
+    virtual void drawLayer(const QVector<QSharedPointer<AGameObject>> &) const = 0; ///<
+
 };
 
 #endif /* end of include guard: IDISPLAY_HPP_ */

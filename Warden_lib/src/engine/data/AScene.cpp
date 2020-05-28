@@ -6,6 +6,7 @@
 */
 
 #include <QDebug>
+#include <QJsonArray>
 
 #include "include/engine/data/AScene.hpp"
 #include "include/engine/data/SceneState.hpp"
@@ -85,6 +86,25 @@ void AScene::destroyGameObjectFromName(const QString &name)
 void AScene::destroyGameObject()
 {
     _objects.clear();
+}
+
+void AScene::read(const QJsonObject &json)
+{
+
+}
+
+void AScene::write(QJsonObject &json) const
+{
+    json["name"] = _name;
+    json["score"] = _score;
+    json["state"] = _state;
+    QJsonArray objectArray;
+    for (int x = 0; x < _objects.size(); x++) {
+        QJsonObject gameObject;
+        _objects[x]->write(gameObject);
+        objectArray.append(gameObject);
+    }
+    json["object"] = objectArray;
 }
 
 void AScene::debug()

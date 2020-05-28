@@ -7,7 +7,8 @@
 
 #include <QString>
 #include <QDebug>
-#include <iostream>
+#include <QJsonObject>
+#include <QJsonArray>
 
 #include "include/engine/data/AGameObject.hpp"
 #include "include/engine/data/Transform.hpp"
@@ -19,6 +20,25 @@ AGameObject::AGameObject(const QString &name, int id, int layer) : _name(name), 
 
 AGameObject::AGameObject(AGameObject &obj) : _name(obj.getName()), _id(obj.getID()), _layer(obj.getLayer())
 {
+}
+
+void AGameObject::read(const QJsonObject &json)
+{
+
+}
+
+void AGameObject::write(QJsonObject &json) const
+{
+    json["name"] = _name;
+    json["id"] = _id;
+    json["layer"] = _layer;
+    QJsonArray objectArray;
+    for (auto const& x : _component) {
+        QJsonObject gameObject;
+        x->write(gameObject);
+        objectArray.append(gameObject);
+    }
+    json["component"] = objectArray;
 }
 
 void AGameObject::debug()

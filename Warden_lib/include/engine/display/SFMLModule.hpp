@@ -11,23 +11,29 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/Network.hpp>
 
 #include "IGraphicalModule.hpp"
 
 class SFMLModule : public IGraphicalModule
 {
 public:
-    SFMLModule();               ///<Constructor
-                                ///<
-    ~SFMLModule() = default;    ///<Destructor
-                                ///<
+    ///<Constructor
+    SFMLModule(); ///<
 
-    const QString & getTitle() const {return _title;}                   ///<Return the title of the Window
-                                                                            ///<
-    void                draw(const QSharedPointer<AGameObject> &);     ///<Draw the GameObject passed as parameter in the window
-                                                                            ///<
-    void                manageEvent(QQueue<event> &);               ///<Add an event to the queue when a key is pressed
-                                                                            ///<
+    ///<Destructor
+    ~SFMLModule() = default; ///<
+
+    ///<Return the title of the Window
+    const QString & getTitle() const {return _title;} ///<
+
+    ///<Draw the GameObject passed as parameter in the window
+    void                draw(const QSharedPointer<AGameObject> &); ///<
+
+    ///<Add an event to the queue when a key is pressed
+    void                manageEvent(QQueue<event> &); ///<
+
 
 private:
     const QString                       _title;

@@ -18,9 +18,12 @@
 class MeshRendererError : public ComponentError
 {
 public:
-    MeshRendererError(const QString &message, const QString &type = "MeshRenderer")     ///<Constructor, take 2 strings as parameters, first used as error message, second used as error type
-    :ComponentError(message, type) {}                                              ///<
-    ~MeshRendererError() = default;                                                     ///<Destructor
-                                                                                ///<
+    ///<Constructor, take 2 strings as parameters, first used as error message, second used as error type
+    MeshRendererError(const QString &message, const QString &type = "MeshRenderer")
+    :ComponentError(message, type) {} ///<
+
+    ///<Destructor
+    ~MeshRendererError() = default; ///<
+
 };
 #endif /* end of include guard: MESHRENDERERERROR_HPP_ */

@@ -20,10 +20,12 @@
 class ComponentError : public SceneManagerError
 {
 public:
-    ComponentError(const QString &message, const QString &type = "Component")     ///<Constructor, take 2 strings as parameters, first used as error message, second used as error type
-    :SceneManagerError(message, type) {}                                              ///<
-    ~ComponentError() = default;                                                     ///<Destructor
-                                                                                ///<
+    ///<Constructor, take 2 strings as parameters, first used as error message, second used as error type
+    ComponentError(const QString &message, const QString &type = "Component")
+    :SceneManagerError(message, type) {} ///<
+
+    ///<Destructor
+    ~ComponentError() = default; ///<
 };
 
 #endif /* end of include guard: COMPONENTERROR_HPP_ */

@@ -18,10 +18,12 @@
 class TransformError : public ComponentError
 {
 public:
-    TransformError(const QString &message, const QString &type = "Transform")     ///<Constructor, take 2 strings as parameters, first used as error message, second used as error type
-    :ComponentError(message, type) {}                                              ///<
-    ~TransformError() = default;                                                     ///<Destructor
-                                                                                ///<
+    ///<Constructor, take 2 strings as parameters, first used as error message, second used as error type
+    TransformError(const QString &message, const QString &type = "Transform")
+    :ComponentError(message, type) {} ///<
+
+    ///<Destructor
+    ~TransformError() = default; ///<
 };
 
 #endif /* end of include guard: TRANSFORMERROR_HPP_ */

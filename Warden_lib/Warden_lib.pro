@@ -65,6 +65,14 @@ HEADERS += \
     include/engine/error/TransformError.hpp \
     warden_lib.h
 
+LIBS += -L"../SFML-master/lib/"
+
+CONFIG(release, debug|release): LIBS += -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
+CONFIG(debug, debug|release): LIBS += -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
+
+INCLUDEPATH += "../SFML-master/include"
+DEPENDPATH += "../SFML-master/include"
+
 # Default rules for deployment.
 unix {
     target.path = /usr/lib
@@ -106,10 +114,6 @@ DISTFILES += \
     doc/html/GameObjectError_8hpp_source.html \
     doc/html/GraphicalModuleError_8hpp.html \
     doc/html/GraphicalModuleError_8hpp_source.html \
-    doc/html/IComponent_8hpp.html \
-    doc/html/IComponent_8hpp_source.html \
-    doc/html/ICore_8hpp.html \
-    doc/html/ICore_8hpp_source.html \
     doc/html/IData_8hpp.html \
     doc/html/IData_8hpp_source.html \
     doc/html/IDisplay_8hpp.html \
@@ -185,9 +189,6 @@ DISTFILES += \
     doc/html/classwd_1_1FillNameField.png \
     doc/html/classwd_1_1GameEngine-members.html \
     doc/html/classwd_1_1GameEngine.html \
-    doc/html/classwd_1_1IComponent-members.html \
-    doc/html/classwd_1_1IComponent.html \
-    doc/html/classwd_1_1IComponent.png \
     doc/html/classwd_1_1ICore-members.html \
     doc/html/classwd_1_1ICore.html \
     doc/html/classwd_1_1ICore.png \
@@ -510,7 +511,6 @@ DISTFILES += \
     doc/latex/GameEngine_8hpp.tex \
     doc/latex/GameObjectError_8hpp.tex \
     doc/latex/GraphicalModuleError_8hpp.tex \
-    doc/latex/IComponent_8hpp.tex \
     doc/latex/ICore_8hpp.tex \
     doc/latex/IData_8hpp.tex \
     doc/latex/IDisplay_8hpp.tex \
@@ -549,8 +549,6 @@ DISTFILES += \
     doc/latex/classwd_1_1FillNameField.eps \
     doc/latex/classwd_1_1FillNameField.tex \
     doc/latex/classwd_1_1GameEngine.tex \
-    doc/latex/classwd_1_1IComponent.eps \
-    doc/latex/classwd_1_1IComponent.tex \
     doc/latex/classwd_1_1ICore.eps \
     doc/latex/classwd_1_1ICore.tex \
     doc/latex/classwd_1_1IData.eps \

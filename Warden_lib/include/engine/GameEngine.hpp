@@ -24,23 +24,27 @@
 class GameEngine
 {
 public:
-    GameEngine();   ///<Constructor
-                    ///<
-    ~GameEngine();  ///<Destructor
-                    ///<
+    ///<Constructor
+    GameEngine(); ///<
 
-    void loop();    ///<Engine Loop
-                    ///<
+    ///<Destructor
+    ~GameEngine(); ///<
+
+    ///<Engine Loop
+    void loop(); ///<
 
 private:
-    QSharedPointer<IDisplay>        _displayModule; ///<Display Module Pointer
-                                                    ///<
-    QSharedPointer<ISceneManager>   _dataModule;    ///<SceneManager Module Pointer
-                                                    ///<
-    QSharedPointer<ICore>           _coreModule;    ///<Core Module Pointer
-                                                    ///<
-    QQueue<event>                   _events;        ///<Event Queue
-                                                    ///<
+    ///<Display Module Pointer
+    QSharedPointer<IDisplay> _displayModule; ///<
+
+    ///<SceneManager Module Pointer
+    QSharedPointer<ISceneManager> _dataModule; ///<
+
+    ///<Core Module Pointer
+    QSharedPointer<ICore> _coreModule; ///<
+
+    ///<Event Queue
+    QQueue<event> _events; ///<
 };
 
 #endif /* end of include guard: GAMEENGINE_HPP_ */

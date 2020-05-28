@@ -17,13 +17,17 @@
 ///
 class DisplayError : public QException {
     public:
-        DisplayError(const QString &message, const QString &type = "Display") : _message(message), _type(type) {} ///<Constructor, take 2 strings as parameters, first used as error message, second used as error type
-        ~DisplayError() = default;
+        ///<Constructor, take 2 strings as parameters, first used as error message, second used as error type
+        DisplayError(const QString &message, const QString &type = "Display") : _message(message), _type(type) {} ///<
 
-        const QString &getMsg() const {return _message;}                    ///<Return the error Message
-                                                                                ///<
-        const QString &getType() const {return _type;}                      ///<Return the error Type
-                                                                                ///<
+        ///Destructor
+        ~DisplayError() = default; ///<
+
+        ///<Return the error Message
+        const QString &getMsg() const {return _message;} ///<
+
+        ///<Return the error Type
+        const QString &getType() const {return _type;} ///<
 
     protected:
         QString _message;

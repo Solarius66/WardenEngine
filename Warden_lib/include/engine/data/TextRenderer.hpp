@@ -10,7 +10,10 @@
 
 /// @file include/engine/data/TextRenderer.hpp
 
-#include "warden_lib.h"
+#include <QString>
+#include <QJsonObject>
+
+#include "include/engine/data/AComponent.hpp"
 
 ///
 /// TextRenderer Class, contain path for Textual, 2d & 3d textures
@@ -18,22 +21,32 @@
 class TextRenderer : public AComponent
 {
 public:
-    TextRenderer(const QString & str = "");             ///<Constructor, take 1 string as parameter
-                                                            ///<
-    ~TextRenderer();                                        ///<Destructor
-                                                            ///<
+    ///<Constructor, take 1 string as parameter
+    TextRenderer(const QString & str = ""); ///<
 
-    void update(event) final {}                         ///<Update member Function
-                                                            ///<
+    ///<Destructor
+    ~TextRenderer(); ///<
 
-    const QString & getText() const {return _str;}      ///<Return the Text Texture Path
-                                                            ///<
-    void setText(const QString &);                      ///<Set _str value
-                                                            ///<
-    void addText(const QString &);                      ///<Set _str value
-                                                            ///<
-    void removeText(int);                                   ///<Remove number of characters at the end of _str, equal to value taken as parameter
-                                                            ///<
+    ///<Update member Function
+    void update(event) final {} ///<
+
+    ///<Return the Text Texture Path
+    const QString & getText() const {return _str;} ///<
+
+    ///<Set _str value
+    void setText(const QString &); ///<
+
+    ///<Set _str value
+    void addText(const QString &); ///<
+
+    ///<Remove number of characters at the end of _str, equal to value taken as parameter
+    void removeText(int); ///<
+
+    ///<Load a TextRenderer from a .json object
+    void read(const QJsonObject &json); ///<
+
+    ///<Save a TextRenderer in a .json object
+    void write(QJsonObject &json) const; ///<
 
 private:
     QString _str;

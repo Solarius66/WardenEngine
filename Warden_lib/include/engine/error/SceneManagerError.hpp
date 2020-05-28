@@ -18,10 +18,12 @@
 class SceneManagerError : public EngineError
 {
 public:
-    SceneManagerError(const QString &message, const QString &type = "SceneManager")     ///<Constructor, take 2 strings as parameters, first used as error message, second used as error type
-    :EngineError(message, type) {}                                              ///<
-    ~SceneManagerError() = default;                                                     ///<Destructor
-                                                                                ///<
+    ///<Constructor, take 2 strings as parameters, first used as error message, second used as error type
+    SceneManagerError(const QString &message, const QString &type = "SceneManager")
+    :EngineError(message, type) {} ///<
+
+    ///<Destructor
+    ~SceneManagerError() = default; ///<
 };
 
 #endif /* end of include guard: SCENEMANAGERERROR_HPP_ */

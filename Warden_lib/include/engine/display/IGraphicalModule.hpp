@@ -15,17 +15,20 @@
 class IGraphicalModule
 {
 public:
-    IGraphicalModule() = default;           ///<Constructor
-                                            ///<
-    virtual ~IGraphicalModule() = default;  ///<Destructor
-                                            ///<
+    ///<Constructor
+    IGraphicalModule() = default; ///<
 
-    virtual const QString & getTitle() const = 0;                               ///<Return the Name of the Module
-                                                                                    ///<
-    virtual void                draw(const QSharedPointer<AGameObject> &) = 0; ///<Draw the gameObject in the Window
-                                                                                    ///<
-    virtual void                manageEvent(QQueue<event> &) = 0;             ///<Add Event in the queue if needed
-                                                                                    ///<
+    ///<Destructor
+    virtual ~IGraphicalModule() = default; ///<
+
+    ///<Return the Name of the Module
+    virtual const QString & getTitle() const = 0; ///<
+
+    ///<Draw the gameObject in the Window
+    virtual void                draw(const QSharedPointer<AGameObject> &) = 0; ///<
+
+    ///<Add Event in the queue if needed
+    virtual void                manageEvent(QQueue<event> &) = 0; ///<
 };
 
 #endif /* end of include guard: IGRAPHICALMODULE_HPP_ */

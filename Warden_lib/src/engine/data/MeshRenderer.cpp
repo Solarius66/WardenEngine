@@ -16,3 +16,18 @@ MeshRenderer::~MeshRenderer()
 {
 
 }
+
+void MeshRenderer::read(const QJsonObject &json)
+{
+
+}
+
+void MeshRenderer::write(QJsonObject &json) const
+{
+    json["name"] = _name;
+    json["text"] = _text;
+    json["graph2d"] = _graph2d;
+    json["graph3d"] = _graph3d;
+}
+
+//class serialization json cpp

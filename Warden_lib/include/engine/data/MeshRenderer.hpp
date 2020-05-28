@@ -18,20 +18,29 @@
 class MeshRenderer : public AComponent
 {
 public:
-    MeshRenderer(const QString & text, const QString &graph2d, const QString &graph3d);                 ///<Constructor, take 3 strings as parameter, as Text Texture path, 2D Texture path & 3D Texture path.
-                                                                                                        ///<
-    ~MeshRenderer();                                                                                    ///<Destructor
-                                                                                                        ///<
+    ///<Constructor, take 3 strings as parameter, as Text Texture path, 2D Texture path & 3D Texture path.
+    MeshRenderer(const QString & text, const QString &graph2d, const QString &graph3d); ///<
 
-    void update(event) final {}                                                                     ///<Update member Function
-                                                                                                        ///<
+    ///<Destructor
+    ~MeshRenderer(); ///<
 
-    const QString & getText() const {return _text;}                                                     ///<Return the Text Texture Path
-                                                                                                        ///<
-    const QString & get2dGraph() const {return _graph2d;}                                               ///<Return the 2D Texture Path
-                                                                                                        ///<
-    const QString & get3dGraph() const {return _graph3d;}                                               ///<Return the 3D Texture Path
-                                                                                                        ///<
+    ///<Update member Function
+    void update(event) final {} ///<
+
+    ///<Return the Text Texture Path
+    const QString & getText() const {return _text;} ///<
+
+    ///<Return the 2D Texture Path
+    const QString & get2dGraph() const {return _graph2d;} ///<
+
+    ///<Return the 3D Texture Path
+    const QString & get3dGraph() const {return _graph3d;} ///<
+
+    ///<Load a MeshRenderer from a .json object
+    void read(const QJsonObject &json); ///<
+
+    ///<Save a MeshRenderer in a .json object
+    void write(QJsonObject &json) const; ///<
 
 private:
     const QString _text;

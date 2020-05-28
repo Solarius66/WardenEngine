@@ -20,25 +20,29 @@
 class SceneManager : public ISceneManager
 {
 public:
-    SceneManager();     ///<Constructor
-                        ///<
-    ~SceneManager();    ///<Destructor
-                        ///<
+    ///<Constructor
+    SceneManager(); ///<
+    ///<Destructor
+    ~SceneManager(); ///<
 
-    void                            sceneSwap(const QString &);                     ///<Switch active Scene
-                                                                                    ///<
-    void                            addScene(const QSharedPointer<IScene> &);   ///<Add a Scene to the list of Scenes
-                                                                                    ///<
-    void                            removeScene(const QString &);                   ///<Remove a Scene from the list of Scenes
-                                                                                    ///<
-    const QSharedPointer<IScene> &   getActiveScene();                               ///<Return the Scene currently used
-                                                                                    ///<
+    ///<Switch active Scene
+    void sceneSwap(const QString &); ///<
+
+    ///<Add a Scene to the list of Scenes
+    void addScene(const QSharedPointer<IScene> &); ///<
+
+    ///<Remove a Scene from the list of Scenes
+    void removeScene(const QString &); ///<
+
+    ///<Return the Scene currently used
+    const QSharedPointer<IScene> &getActiveScene(); ///<
 
 private:
-    QMap<QString, QSharedPointer<IScene>>       _scenes;        ///<Map of the IScene
-                                                                    ///<
-    QString                                         _activeScene;   ///<Key corresponding to the active Scene
-                                                                    ///<
+    ///<Map of the IScene
+    QMap<QString, QSharedPointer<IScene>> _scenes; ///<
+
+    ///<Key corresponding to the active Scene
+    QString _activeScene; ///<
 };
 
 #endif /* end of include guard: SCENEMANAGER_HPP_ */

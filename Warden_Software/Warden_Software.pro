@@ -38,9 +38,13 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/libs/release/ -lwarden
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/libs/debug/ -lwarden
-else:unix: LIBS += -L$$PWD/libs/ -lwarden
+LIBS += -L../build-Warden_lib/ -lWarden_lib
+INCLUDEPATH = ../Warden_lib/
 
-INCLUDEPATH += $$PWD/libs/ $$PWD/../Warden_Lib/include/engine $$PWD/../Warden_Lib/include/engine/data $$PWD/../Warden_Lib/include/engine/core $$PWD/../Warden_Lib/include/engine/display $$PWD/../Warden_Lib/include/engine/error
-DEPENDPATH += $$PWD/libs
+LIBS += -L"../SFML-master/lib/"
+
+CONFIG(release, debug|release): LIBS += -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
+CONFIG(debug, debug|release): LIBS += -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
+
+INCLUDEPATH += "../SFML-master/include"
+DEPENDPATH += "../SFML-master/include"

@@ -18,15 +18,18 @@
 class Core : public ICore
 {
 public:
-    Core();     ///<Constructor
-                ///<
-    ~Core();    ///<Destructor
-                ///<
+    ///<Constructor
+    Core(); ///<
 
-    bool update(const QSharedPointer<IScene> &, event);     ///<Call the Update() of the active Scene
-                                                                    ///<
-    void stop();                                                    ///<Stop the program loop
-                                                                    ///<
+    ///<Destructor
+    ~Core(); ///<
+
+    ///<Call the Update() of the active Scene
+    bool update(const QSharedPointer<IScene> &, event); ///<
+
+    ///<Stop the program loop
+    void stop(); ///<
+
 };
 
 #endif /* end of include guard: CORE_HPP_ */

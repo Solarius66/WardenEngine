@@ -34,3 +34,14 @@ void TextRenderer::removeText(int value)
         if (_str.size() > 0)
             _str.remove(_str.length() - 1);
 }
+
+void TextRenderer::read(const QJsonObject &json)
+{
+
+}
+
+void TextRenderer::write(QJsonObject &json) const
+{
+    json["name"] = _name;
+    json["text"] = _str;
+}

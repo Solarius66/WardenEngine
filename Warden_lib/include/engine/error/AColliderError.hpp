@@ -20,10 +20,12 @@
 class AColliderError : public ComponentError
 {
 public:
-    AColliderError(const QString &message, const QString &type = "ACollider")     ///<Constructor, take 2 strings as parameters, first used as error message, second used as error type
-    :ComponentError(message, type) {}                                              ///<
-    ~AColliderError() = default;                                                     ///<Destructor
-                                                                                ///<
+    ///<Constructor, take 2 strings as parameters, first used as error message, second used as error type
+    AColliderError(const QString &message, const QString &type = "ACollider")
+    :ComponentError(message, type) {} ///<
+
+    ///<Destructor
+    ~AColliderError() = default; ///<
 };
 
 #endif /* end of include guard: ACOLLIDERERROR_HPP_ */

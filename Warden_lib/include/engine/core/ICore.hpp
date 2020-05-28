@@ -20,15 +20,17 @@
 class ICore
 {
 public:
-    ICore() = default;              ///<Constructor
-                                    ///<
-    virtual ~ICore() = default;     ///<Destructor
-                                    ///<
+    ///<Constructor
+    ICore() = default; ///<
 
-    virtual bool update(const QSharedPointer<IScene> &, event) = 0;     ///<Call the Update() of the active Scene
-                                                                                ///<
-    virtual void stop() = 0;                                                    ///<Stop the program loop
-                                                                                ///<
+    ///<Destructor
+    virtual ~ICore() = default; ///<
+
+    ///<Call the Update() of the active Scene
+    virtual bool update(const QSharedPointer<IScene> &, event) = 0; ///<
+
+    ///<Stop the program loop
+    virtual void stop() = 0; ///<
 };
 
 #endif /* end of include guard: ICORE_HPP_ */

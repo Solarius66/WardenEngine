@@ -13,7 +13,6 @@
 #include "include/engine/data/AComponent.hpp"
 #include "include/engine/data/AGameObject.hpp"
 #include "include/engine/data/AScene.hpp"
-#include "include/engine/data/IComponent.hpp"
 #include "include/engine/data/IScene.hpp"
 #include "include/engine/data/ISceneManager.hpp"
 #include "include/engine/data/MeshRenderer.hpp"

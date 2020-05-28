@@ -22,18 +22,22 @@
 class Display : public IDisplay
 {
 public:
-    Display();      ///<Constructor
-                    ///<
-    ~Display();     ///<Destructor
-                    ///<
+    ///<Constructor
+    Display(); ///<
 
-    void draw(const QSharedPointer<IScene> &, QQueue<event> &);      ///<Display every GameObject of a scene and get each input of the player
-                                                                                ///<
-    void drawGameObject(const QSharedPointer<AGameObject>);                ///<Display only 1 GameObject
-                                                                                ///<
+    ///<Destructor
+    ~Display(); ///<
+
+    ///<Display every GameObject of a scene and get each input of the player
+    void draw(const QSharedPointer<IScene> &, QQueue<event> &); ///<
+
+    ///<Display only 1 GameObject
+    void drawGameObject(const QSharedPointer<AGameObject>); ///<
+
 private:
-    void drawLayer(const QVector<QSharedPointer<AGameObject>> &) const;    ///<Display every GameObject of a Layer of a Scene
-                                                                                    ///<
+    ///<Display every GameObject of a Layer of a Scene
+    void drawLayer(const QVector<QSharedPointer<AGameObject>> &) const; ///<
+
     QSharedPointer<IGraphicalModule> _graphicalLib;
 };
 

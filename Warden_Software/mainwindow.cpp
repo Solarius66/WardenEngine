@@ -16,6 +16,8 @@ MainWindow::MainWindow(QWidget *parent)
     _mainWidget = new QWidget(this);
     _mainWidget->setLayout(_layout);
     setCentralWidget(_mainWidget);
+    connect(_buttonMap["Save"], SIGNAL (released()), this, SLOT (handleButton()));
+    connect(_buttonMap["Build"], SIGNAL (released()), this, SLOT (handleButton()));
 }
 
 MainWindow::~MainWindow()

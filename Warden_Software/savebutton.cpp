@@ -3,30 +3,25 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QFile>
+#include <QtDebug>
+
+#include "warden_lib.h"
 
 SaveButton::SaveButton(QWidget *parent) : QPushButton(parent)
 {
     setText("Save");
 }
 
-void SaveButton::clicked(std::shared_ptr<wd::IScene> scene, bool checked)
-{
-    QJsonObject file;
+//void SaveButton::handleButton(QSharedPointer<IScene> scene)
+//{
+//    QJsonObject file;
 
-    QFile saveFile(QStringLiteral("save.json"));
-    if (!saveFile.open(QIODevice::WriteOnly)) {
-        qWarning("Couldn't open save file.");
-    }
-
-    file["Scene"] = QString::fromUtf8(scene->getName().c_str());
-
-    QJsonArray objArray;
-    foreach (std::shared_ptr<wd::AGameObject> obj, scene->getObjects()) {
-        QJsonObject objJson;
-        //obj.write(objJson);
-        objArray.append(objJson);
-    }
-    file["GameObject"] = objArray;
-    QJsonDocument saveDoc(objArray);
-    saveFile.write(saveDoc.toJson());
-}
+//    qDebug() << "SAVE!" << '\n';
+//    QFile saveFile(QStringLiteral("save.json"));
+//    if (!saveFile.open(QIODevice::WriteOnly)) {
+//        qWarning("Couldn't open save file.");
+//    }
+//    scene->write(file);
+//    QJsonDocument saveDoc(file);
+//    saveFile.write(saveDoc.toJson());
+//}

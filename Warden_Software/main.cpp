@@ -1,20 +1,34 @@
 #include "mainwindow.h"
 
 #include <QApplication>
-#include "Warden.hpp"
-#include <memory>
 #include <QDebug>
 #include <QString>
+#include <QFile>
+#include <QJsonDocument>
+
+#include "warden_lib.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-    wd::IScene *scene = new wd::AScene("Test");
-    std::shared_ptr<wd::AGameObject> obj= std::make_shared<wd::AGameObject>("obj", wd::PLAYER, wd::FOREGROUND);
-    obj->addComponent<wd::MeshRenderer>("MeshRenderer", "./texture", "./texture", "./texture");
+    IScene *scene = new AScene("Test");
+    QSharedPointer<AGameObject> obj= QSharedPointer<AGameObject>(new AGameObject ("obj", PLAYER, FOREGROUND));
+    obj->addComponent<MeshRenderer>("MeshRenderer", "./texture", "./texture", "./texture");
     scene->addObject(obj);
-    qDebug(scene->getFromName("obj")->getComponent<wd::MeshRenderer>("MeshRenderer").getText().c_str());
+    qDebug() << scene->getFromName("obj")->getComponent<MeshRenderer>("MeshRenderer").getText() << '\n';
     w.show();
+
+    QJsonObject file;
+
+    qDebug() << "SAVE!" << '\n';
+    QFile saveFile(QStringLiteral("save.json"));
+    if (!saveFile.open(QIODevice::WriteOnly)) {
+        qWarning("Couldn't open save file.");
+    }
+    scene->write(file);
+    QJsonDocument saveDoc(file);
+    saveFile.write(saveDoc.toJson());
+
     return a.exec();
 }

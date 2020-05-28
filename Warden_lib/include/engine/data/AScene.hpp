@@ -12,6 +12,7 @@
 
 #include <QSharedPointer>
 #include <QVector>
+#include <QJsonObject>
 
 #include "include/engine/data/AGameObject.hpp"
 #include "include/engine/data/IScene.hpp"
@@ -22,50 +23,70 @@
 class AScene : public IScene
 {
 public:
-    AScene(const QString &);    ///<Constructor
-                                    ///<
-    ~AScene();                      ///<Destructor
-                                    ///<
+    ///<Constructor
+    AScene(const QString &); ///<
 
-    QVector<QSharedPointer<AGameObject>>   getFromLayer(int);                      ///<Return a vector containing all AGameObjects from a Layer specified as parameter
-                                                                                            ///<
-    QVector<QSharedPointer<AGameObject>>   getFromID(int);                         ///<Return a vector containing all AGameObjects from an ID specified as parameter
-                                                                                            ///<
-    QSharedPointer<AGameObject> &              getFromName(const QString &);       ///<Return a Shared_ptr pointing to a AGameObject which name is specified as parameter
-                                                                                            ///<
-    QVector<QSharedPointer<AGameObject>>   getObjects() {return _objects;}         ///<Return the vector of AGameObject
-                                                                                            ///<
-    const QString &                             getName() const;                        ///<Return the name of the AScene
-                                                                                            ///<
-    virtual int                                     getScore() {return _score;}             ///<Return the Score of the Scene
-                                                                                            ///<
-    virtual void                                    setScore(int score) {_score = score;}   ///<Return the Score of the Scene
-                                                                                            ///<
+    ///<Destructor
+    ~AScene(); ///<
 
-    bool    update(event);                                                          ///<Call update() of every AGameObject contained in the IAScene
-                                                                                        ///<
-    void    addObject(const QSharedPointer<AGameObject> &);                        ///<Add a AGameObject to the vector of the AScene
-                                                                                        ///<
-    void    destroyGameObjectFromName(const QString &);                             ///<Remove a AGameObject from the vector, which name is specified as parameter
-                                                                                        ///<
-    void    destroyGameObject();                                                        ///<Remove a AGameObject from the vector, which name is specified as parameter
-                                                                                        ///<
-    virtual void reset() {}                                                             ///<Reset the scene as made in the constructor
-                                                                                        ///<
+    ///<Return a vector containing all AGameObjects from a Layer specified as parameter
+    QVector<QSharedPointer<AGameObject>> getFromLayer(int); ///<
 
-    void    debug();    ///<Display Name of every AGameObject contained in the AScene (Used for debugging)
-                        ///<
+    ///<Return a vector containing all AGameObjects from an ID specified as parameter
+    QVector<QSharedPointer<AGameObject>> getFromID(int); ///<
+
+    ///<Return a Shared_ptr pointing to a AGameObject which name is specified as parameter
+    QSharedPointer<AGameObject> &getFromName(const QString &); ///<
+
+    ///<Return the vector of AGameObject
+    QVector<QSharedPointer<AGameObject>> getObjects() {return _objects;} ///<
+
+    ///<Return the name of the AScene
+    const QString &getName() const; ///<
+
+    ///<Return the Score of the Scene
+    virtual int getScore() {return _score;} ///<
+
+    ///<Return the Score of the Scene
+    virtual void setScore(int score) {_score = score;} ///<
+
+    ///<Call update() of every AGameObject contained in the IAScene
+    bool    update(event); ///<
+
+    ///<Add a AGameObject to the vector of the AScene
+    void    addObject(const QSharedPointer<AGameObject> &); ///<
+
+    ///<Remove a AGameObject from the vector, which name is specified as parameter
+    void    destroyGameObjectFromName(const QString &); ///<
+
+    ///<Remove a AGameObject from the vector, which name is specified as parameter
+    void    destroyGameObject(); ///<
+
+    ///<Reset the scene as made in the constructor
+    virtual void reset() {} ///<
+
+    ///<Load a scene from a .json object
+    void read(const QJsonObject &json); ///<
+
+    ///<Save a scene in a .json object
+    void write(QJsonObject &json) const; ///<
+
+    ///<Display Name of every AGameObject contained in the AScene (Used for debugging)
+    void    debug(); ///<
 
 protected:
-    QVector<QSharedPointer<AGameObject>>        _objects;   ///<Vector of the AGameObject
-                                                                ///<
-    bool                                            _state;     ///<Is the scene running
-                                                                ///<
+    ///<Vector of the AGameObject
+    QVector<QSharedPointer<AGameObject>> _objects; ///<
+
+    ///<Is the scene running
+    bool _state; ///<
+
 private:
-    const QString                                   _name;      ///<Name of the AScene
-                                                                ///<
-    int                                             _score = 0; ///<Score of the Scene
-                                                                ///<
+    ///<Name of the AScene
+    const QString _name; ///<
+
+    ///<Score of the Scene
+    int _score = 0; ///<
 };
 
 #endif /* end of include guard: ASCENE_HPP_ */
