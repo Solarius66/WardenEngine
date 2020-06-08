@@ -27,7 +27,9 @@ SOURCES += \
     src/engine/data/TextRenderer.cpp \
     src/engine/data/Transform.cpp \
     src/engine/display/Display.cpp \
-    src/engine/display/SFMLModule.cpp
+    src/engine/display/SFMLModule.cpp \
+    src/engine/sound/Sound.cpp \
+    src/engine/sound/SoundComponent.cpp
 
 HEADERS += \
     Warden_lib_global.h \
@@ -63,9 +65,12 @@ HEADERS += \
     include/engine/error/SceneError.hpp \
     include/engine/error/SceneManagerError.hpp \
     include/engine/error/TransformError.hpp \
+    include/engine/sound/ISound.hpp \
+    include/engine/sound/Sound.hpp \
+    include/engine/sound/SoundComponent.hpp \
     warden_lib.h
 
-LIBS += -L"../SFML-master/lib/"
+LIBS += -L "../SFML-master/lib/"
 
 CONFIG(release, debug|release): LIBS += -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
 CONFIG(debug, debug|release): LIBS += -lsfml-audio -lsfml-graphics -lsfml-network -lsfml-window -lsfml-system
