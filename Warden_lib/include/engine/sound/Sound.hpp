@@ -9,19 +9,16 @@
 #define SOUND_H
 
 #include "include/engine/sound/ISound.hpp"
-#include "include/engine/sound/SoundComponent.hpp"
+#include "include/engine/sound/SoundObject.hpp"
 #include <QVector>
 
 class Sound : public ISound
 {
     public:
-        Sound(void);
-        ~Sound(void);
+        Sound();
+        ~Sound();
 
-        void getSound(const QSharedPointer<IScene> &) override;
-
-    private:
-        QVector <SoundComponent> list;
+        QVector <QSharedPointer<SoundObject>> getSound(const QSharedPointer<IScene> &) override;
 };
 
 #endif // SOUND_H

@@ -29,7 +29,8 @@ SOURCES += \
     src/engine/display/Display.cpp \
     src/engine/display/SFMLModule.cpp \
     src/engine/sound/Sound.cpp \
-    src/engine/sound/SoundComponent.cpp
+    src/engine/sound/SoundComponent.cpp \
+    src/engine/sound/SoundObject.cpp
 
 HEADERS += \
     Warden_lib_global.h \
@@ -68,6 +69,7 @@ HEADERS += \
     include/engine/sound/ISound.hpp \
     include/engine/sound/Sound.hpp \
     include/engine/sound/SoundComponent.hpp \
+    include/engine/sound/SoundObject.hpp \
     warden_lib.h
 
 LIBS += -L "../SFML-master/lib/"

@@ -1,26 +1,24 @@
-#ifndef SOUNDOBJECT_HPP
-#define SOUNDOBJECT_HPP
+#ifndef SOUNDCOMPONENT_HPP
+#define SOUNDCOMPONENT_HPP
 
-#include <QString>
+#include <QVector>
+#include <QSharedPointer>
 
-class SoundComponent
+#include "include/engine/data/AComponent.hpp"
+#include "include/engine/sound/SoundObject.hpp"
+#include "include/engine/Event.hpp"
+
+class SoundComponent : public AComponent
 {
     public:
-        SoundComponent(const QString &);
-        ~SoundComponent(void);
+        SoundComponent();
 
-        const QString   &getPath(void) {return (path);}
-        int             getVolume(void) {return (volume);}
-        bool            getLoop(void) {return (loop);}
-
-        void            setPath(const QString &value) {path = value;}
-        void            setVolue(int value) {volume = value;}
-        void            setLoop(bool value) {loop = value;}
+        virtual void update(enum event) {};
+        QVector<QSharedPointer<SoundObject>> toPlay();
 
     private:
-        QString         path;
-        int             volume;
-        bool            loop;
+        QVector<QSharedPointer<SoundObject>> _list;
+
 };
 
-#endif // SOUNDOBJECT_HPP
+#endif // SOUNDCOMPONENT_HPP

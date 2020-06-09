@@ -64,6 +64,7 @@ SOURCES       = ../Warden_lib/src/engine/GameEngine.cpp \
 		../Warden_lib/src/engine/display/Display.cpp \
 		../Warden_lib/src/engine/display/SFMLModule.cpp \
 		../Warden_lib/src/engine/sound/Sound.cpp \
+		../Warden_lib/src/engine/sound/SoundComponent.cpp \
 		../Warden_lib/src/engine/sound/SoundObject.cpp 
 OBJECTS       = GameEngine.o \
 		Core.o \
@@ -77,6 +78,7 @@ OBJECTS       = GameEngine.o \
 		Display.o \
 		SFMLModule.o \
 		Sound.o \
+		SoundComponent.o \
 		SoundObject.o
 DIST          = ../Warden_lib/assets/font.ttf \
 		../Warden_lib/doc/html/AColliderError_8hpp.html \
@@ -709,10 +711,6 @@ DIST          = ../Warden_lib/assets/font.ttf \
 		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_openglextensions.pri \
 		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_openglextensions_private.pri \
 		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_packetprotocol_private.pri \
-		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_pdf.pri \
-		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_pdf_private.pri \
-		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_pdfwidgets.pri \
-		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_pdfwidgets_private.pri \
 		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_platformcompositor_support_private.pri \
 		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_positioning.pri \
 		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_positioning_private.pri \
@@ -871,6 +869,7 @@ DIST          = ../Warden_lib/assets/font.ttf \
 		../Warden_lib/include/engine/sound/ISound.hpp \
 		../Warden_lib/include/engine/sound/Sound.hpp \
 		../Warden_lib/include/engine/sound/SoundComponent.hpp \
+		../Warden_lib/include/engine/sound/SoundObject.hpp \
 		../Warden_lib/warden_lib.h ../Warden_lib/src/engine/GameEngine.cpp \
 		../Warden_lib/src/engine/core/Core.cpp \
 		../Warden_lib/src/engine/data/ACollider.cpp \
@@ -883,6 +882,7 @@ DIST          = ../Warden_lib/assets/font.ttf \
 		../Warden_lib/src/engine/display/Display.cpp \
 		../Warden_lib/src/engine/display/SFMLModule.cpp \
 		../Warden_lib/src/engine/sound/Sound.cpp \
+		../Warden_lib/src/engine/sound/SoundComponent.cpp \
 		../Warden_lib/src/engine/sound/SoundObject.cpp
 QMAKE_TARGET  = Warden_lib
 DESTDIR       = 
@@ -999,10 +999,6 @@ Makefile: ../Warden_lib/Warden_lib.pro ../../../Qt/5.15.0/gcc_64/mkspecs/linux-g
 		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_openglextensions.pri \
 		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_openglextensions_private.pri \
 		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_packetprotocol_private.pri \
-		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_pdf.pri \
-		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_pdf_private.pri \
-		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_pdfwidgets.pri \
-		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_pdfwidgets_private.pri \
 		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_platformcompositor_support_private.pri \
 		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_positioning.pri \
 		../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_positioning_private.pri \
@@ -1214,10 +1210,6 @@ Makefile: ../Warden_lib/Warden_lib.pro ../../../Qt/5.15.0/gcc_64/mkspecs/linux-g
 ../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_openglextensions.pri:
 ../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_openglextensions_private.pri:
 ../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_packetprotocol_private.pri:
-../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_pdf.pri:
-../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_pdf_private.pri:
-../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_pdfwidgets.pri:
-../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_pdfwidgets_private.pri:
 ../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_platformcompositor_support_private.pri:
 ../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_positioning.pri:
 ../../../Qt/5.15.0/gcc_64/mkspecs/modules/qt_lib_positioning_private.pri:
@@ -1356,8 +1348,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/5.15.0/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Warden_lib/Warden_lib_global.h ../Warden_lib/include/engine/Event.hpp ../Warden_lib/include/engine/GameEngine.hpp ../Warden_lib/include/engine/Macros.hpp ../Warden_lib/include/engine/Vector3float.hpp ../Warden_lib/include/engine/core/Core.hpp ../Warden_lib/include/engine/core/ICore.hpp ../Warden_lib/include/engine/data/ACollider.hpp ../Warden_lib/include/engine/data/AComponent.hpp ../Warden_lib/include/engine/data/AGameObject.hpp ../Warden_lib/include/engine/data/AScene.hpp ../Warden_lib/include/engine/data/IComponent.hpp ../Warden_lib/include/engine/data/IScene.hpp ../Warden_lib/include/engine/data/ISceneManager.hpp ../Warden_lib/include/engine/data/MeshRenderer.hpp ../Warden_lib/include/engine/data/SceneManager.hpp ../Warden_lib/include/engine/data/SceneState.hpp ../Warden_lib/include/engine/data/TextRenderer.hpp ../Warden_lib/include/engine/data/Transform.hpp ../Warden_lib/include/engine/display/Display.hpp ../Warden_lib/include/engine/display/IDisplay.hpp ../Warden_lib/include/engine/display/IGraphicalModule.hpp ../Warden_lib/include/engine/display/SFMLModule.hpp ../Warden_lib/include/engine/error/AColliderError.hpp ../Warden_lib/include/engine/error/ComponentError.hpp ../Warden_lib/include/engine/error/DisplayError.hpp ../Warden_lib/include/engine/error/EngineError.hpp ../Warden_lib/include/engine/error/GameObjectError.hpp ../Warden_lib/include/engine/error/GraphicalModuleError.hpp ../Warden_lib/include/engine/error/MeshRendererError.hpp ../Warden_lib/include/engine/error/SceneError.hpp ../Warden_lib/include/engine/error/SceneManagerError.hpp ../Warden_lib/include/engine/error/TransformError.hpp ../Warden_lib/include/engine/sound/ISound.hpp ../Warden_lib/include/engine/sound/Sound.hpp ../Warden_lib/include/engine/sound/SoundComponent.hpp ../Warden_lib/warden_lib.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Warden_lib/src/engine/GameEngine.cpp ../Warden_lib/src/engine/core/Core.cpp ../Warden_lib/src/engine/data/ACollider.cpp ../Warden_lib/src/engine/data/AGameObject.cpp ../Warden_lib/src/engine/data/AScene.cpp ../Warden_lib/src/engine/data/MeshRenderer.cpp ../Warden_lib/src/engine/data/SceneManager.cpp ../Warden_lib/src/engine/data/TextRenderer.cpp ../Warden_lib/src/engine/data/Transform.cpp ../Warden_lib/src/engine/display/Display.cpp ../Warden_lib/src/engine/display/SFMLModule.cpp ../Warden_lib/src/engine/sound/Sound.cpp ../Warden_lib/src/engine/sound/SoundObject.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Warden_lib/Warden_lib_global.h ../Warden_lib/include/engine/Event.hpp ../Warden_lib/include/engine/GameEngine.hpp ../Warden_lib/include/engine/Macros.hpp ../Warden_lib/include/engine/Vector3float.hpp ../Warden_lib/include/engine/core/Core.hpp ../Warden_lib/include/engine/core/ICore.hpp ../Warden_lib/include/engine/data/ACollider.hpp ../Warden_lib/include/engine/data/AComponent.hpp ../Warden_lib/include/engine/data/AGameObject.hpp ../Warden_lib/include/engine/data/AScene.hpp ../Warden_lib/include/engine/data/IComponent.hpp ../Warden_lib/include/engine/data/IScene.hpp ../Warden_lib/include/engine/data/ISceneManager.hpp ../Warden_lib/include/engine/data/MeshRenderer.hpp ../Warden_lib/include/engine/data/SceneManager.hpp ../Warden_lib/include/engine/data/SceneState.hpp ../Warden_lib/include/engine/data/TextRenderer.hpp ../Warden_lib/include/engine/data/Transform.hpp ../Warden_lib/include/engine/display/Display.hpp ../Warden_lib/include/engine/display/IDisplay.hpp ../Warden_lib/include/engine/display/IGraphicalModule.hpp ../Warden_lib/include/engine/display/SFMLModule.hpp ../Warden_lib/include/engine/error/AColliderError.hpp ../Warden_lib/include/engine/error/ComponentError.hpp ../Warden_lib/include/engine/error/DisplayError.hpp ../Warden_lib/include/engine/error/EngineError.hpp ../Warden_lib/include/engine/error/GameObjectError.hpp ../Warden_lib/include/engine/error/GraphicalModuleError.hpp ../Warden_lib/include/engine/error/MeshRendererError.hpp ../Warden_lib/include/engine/error/SceneError.hpp ../Warden_lib/include/engine/error/SceneManagerError.hpp ../Warden_lib/include/engine/error/TransformError.hpp ../Warden_lib/include/engine/sound/ISound.hpp ../Warden_lib/include/engine/sound/Sound.hpp ../Warden_lib/include/engine/sound/SoundComponent.hpp ../Warden_lib/include/engine/sound/SoundObject.hpp ../Warden_lib/warden_lib.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Warden_lib/src/engine/GameEngine.cpp ../Warden_lib/src/engine/core/Core.cpp ../Warden_lib/src/engine/data/ACollider.cpp ../Warden_lib/src/engine/data/AGameObject.cpp ../Warden_lib/src/engine/data/AScene.cpp ../Warden_lib/src/engine/data/MeshRenderer.cpp ../Warden_lib/src/engine/data/SceneManager.cpp ../Warden_lib/src/engine/data/TextRenderer.cpp ../Warden_lib/src/engine/data/Transform.cpp ../Warden_lib/src/engine/display/Display.cpp ../Warden_lib/src/engine/display/SFMLModule.cpp ../Warden_lib/src/engine/sound/Sound.cpp ../Warden_lib/src/engine/sound/SoundComponent.cpp ../Warden_lib/src/engine/sound/SoundObject.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -3267,10 +3259,45 @@ Sound.o: ../Warden_lib/src/engine/sound/Sound.cpp ../Warden_lib/include/engine/s
 		../Warden_lib/include/engine/data/AComponent.hpp \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QString \
 		../Warden_lib/include/engine/Event.hpp \
-		../Warden_lib/include/engine/sound/SoundComponent.hpp
+		../Warden_lib/include/engine/sound/SoundObject.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Sound.o ../Warden_lib/src/engine/sound/Sound.cpp
 
-SoundObject.o: ../Warden_lib/src/engine/sound/SoundObject.cpp 
+SoundComponent.o: ../Warden_lib/src/engine/sound/SoundComponent.cpp ../Warden_lib/include/engine/sound/SoundComponent.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SoundComponent.o ../Warden_lib/src/engine/sound/SoundComponent.cpp
+
+SoundObject.o: ../Warden_lib/src/engine/sound/SoundObject.cpp ../Warden_lib/include/engine/sound/SoundObject.hpp \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/QString \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qstring.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qchar.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qglobal.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qconfig.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qtcore-config.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qsysinfo.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qlogging.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qflags.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qmutex.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qnumeric.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qversiontagging.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qbytearray.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qrefcount.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qnamespace.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qarraydata.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringliteral.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringview.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringbuilder.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SoundObject.o ../Warden_lib/src/engine/sound/SoundObject.cpp
 
 ####### Install
