@@ -10,10 +10,10 @@
 
 int main(int argc, char* argv[])
 {
-    FenClient my_client();
+    FenClient my_client;
 
     my_client.onConnexion("127.0.0.1", 4242);
-    void sendMessage("yo");
+    my_client.sendMessage("yo");
 
-    return app.exec();
+    return 0;
 }

@@ -8,8 +8,8 @@
 #ifndef FENCLIENT_H_
 #define FENCLIENT_H_
 
-#include <QtWidgets>
 #include <QtNetwork>
+#include <QWidget>
 
 class FenClient : public QWidget
 {

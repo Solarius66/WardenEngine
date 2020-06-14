@@ -5,7 +5,7 @@
 ** FenClient
 */
 
-#include "FenClient.hpp"
+#include "FenClient.h"
 
 
 FenClient::FenClient()

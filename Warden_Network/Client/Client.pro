@@ -8,4 +8,5 @@ HEADERS += \
     FenClient.h
 
 SOURCES += \
-    FenClient.cpp
+    FenClient.cpp \
+    MainClient.cpp
