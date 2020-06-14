@@ -28,28 +28,6 @@
             "id": 1,
             "layer": 8,
             "objectname": "GameObject"
-        },
-        {
-            "component": [
-                {
-                    "name": "Transform",
-                    "position_x": 0,
-                    "position_y": 0,
-                    "position_z": 0,
-                    "rotation_x": 0,
-                    "rotation_y": 0,
-                    "rotation_z": 0,
-                    "scale_x": 1,
-                    "scale_y": 1,
-                    "scale_z": 1,
-                    "size_x": 1,
-                    "size_y": 1,
-                    "size_z": 1
-                }
-            ],
-            "id": 1,
-            "layer": 8,
-            "objectname": "Game"
         }
     ],
     "score": 0,

@@ -77,7 +77,6 @@ void MainWindow::contextMenuEvent(QContextMenuEvent *event)
 
 void MainWindow::newFile()
 {
-    infoLabel->setText(tr("Invoked <b>File|New</b>"));
 }
 
 void MainWindow::open()
@@ -97,85 +96,66 @@ void MainWindow::save()
 
 void MainWindow::print()
 {
-    infoLabel->setText(tr("Invoked <b>File|Print</b>"));
 }
 
 void MainWindow::undo()
 {
-    infoLabel->setText(tr("Invoked <b>Edit|Undo</b>"));
 }
 
 void MainWindow::redo()
 {
-    infoLabel->setText(tr("Invoked <b>Edit|Redo</b>"));
 }
 
 void MainWindow::cut()
 {
-    infoLabel->setText(tr("Invoked <b>Edit|Cut</b>"));
 }
 
 void MainWindow::copy()
 {
-    infoLabel->setText(tr("Invoked <b>Edit|Copy</b>"));
 }
 
 void MainWindow::paste()
 {
-    infoLabel->setText(tr("Invoked <b>Edit|Paste</b>"));
 }
 
 void MainWindow::bold()
 {
-    infoLabel->setText(tr("Invoked <b>Edit|Format|Bold</b>"));
 }
 
 void MainWindow::italic()
 {
-    infoLabel->setText(tr("Invoked <b>Edit|Format|Italic</b>"));
 }
 
 void MainWindow::leftAlign()
 {
-    infoLabel->setText(tr("Invoked <b>Edit|Format|Left Align</b>"));
 }
 
 void MainWindow::rightAlign()
 {
-    infoLabel->setText(tr("Invoked <b>Edit|Format|Right Align</b>"));
 }
 
 void MainWindow::justify()
 {
-    infoLabel->setText(tr("Invoked <b>Edit|Format|Justify</b>"));
 }
 
 void MainWindow::center()
 {
-    infoLabel->setText(tr("Invoked <b>Edit|Format|Center</b>"));
 }
 
 void MainWindow::setLineSpacing()
 {
-    infoLabel->setText(tr("Invoked <b>Edit|Format|Set Line Spacing</b>"));
 }
 
 void MainWindow::setParagraphSpacing()
 {
-    infoLabel->setText(tr("Invoked <b>Edit|Format|Set Paragraph Spacing</b>"));
 }
 
 void MainWindow::about()
 {
-    infoLabel->setText(tr("Invoked <b>Help|About</b>"));
-    QMessageBox::about(this, tr("About Menu"),
-            tr("The <b>Menu</b> example shows how to create "
-               "menu-bar menus and context menus."));
 }
 
 void MainWindow::aboutQt()
 {
-    infoLabel->setText(tr("Invoked <b>Help|About Qt</b>"));
 }
 
 void MainWindow::createActions()

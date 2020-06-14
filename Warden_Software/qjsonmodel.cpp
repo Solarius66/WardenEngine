@@ -98,6 +98,7 @@ QJsonTreeItem* QJsonTreeItem::load(const QJsonValue& value, QJsonTreeItem* paren
             if (key == "object") {
                 QJsonValue v = value.toObject().value(key);
                 QJsonTreeItem * child = load(v,rootItem);
+                child->setObject(new QJsonObject(value.toObject()));
                 child->setKey(value.toObject().value("name").toString());
                 child->setType(v.type());
                 rootItem->appendChild(child);
@@ -108,6 +109,7 @@ QJsonTreeItem* QJsonTreeItem::load(const QJsonValue& value, QJsonTreeItem* paren
     {
         for (QJsonValue v : value.toArray()){
             QJsonTreeItem * child = load(v,rootItem);
+            child->setObject(new QJsonObject(v.toObject()));
             child->setKey(v.toObject().value("objectname").toString());
             child->setType(v.type());
             rootItem->appendChild(child);
