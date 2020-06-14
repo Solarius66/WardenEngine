@@ -11,7 +11,7 @@ class ISound
         ISound() = default;
         virtual ~ISound() = default;
 
-        virtual QVector <QSharedPointer<SoundObject>> getSound(const QSharedPointer<IScene> &);
+        virtual const QVector <QSharedPointer<SoundObject>> &getSound(const QSharedPointer<IScene> &);
 };
 
 #endif // ISOUND_HPP

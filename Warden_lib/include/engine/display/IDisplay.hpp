@@ -13,6 +13,7 @@
 #include <QSharedPointer>
 #include <QQueue>
 
+#include "include/engine/sound/SoundObject.hpp"
 #include "include/engine/data/IScene.hpp"
 #include "include/engine/data/AGameObject.hpp"
 
@@ -33,6 +34,9 @@ public:
 
     ///<Display only 1 GameObject
     virtual void drawGameObject(const QSharedPointer<AGameObject>) = 0; ///<
+
+    ///<PLay the sound of every objects
+    virtual void play(const QVector<QSharedPointer<SoundObject>> &) = 0; ///<
 
 protected:
     ///<Display every GameObject of a Layer of a Scene

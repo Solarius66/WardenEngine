@@ -34,6 +34,9 @@ public:
     ///<Display only 1 GameObject
     void drawGameObject(const QSharedPointer<AGameObject>); ///<
 
+    ///<PLay the sound of every objects
+    void play(const QVector<QSharedPointer<SoundObject>> &); ///<
+
 private:
     ///<Display every GameObject of a Layer of a Scene
     void drawLayer(const QVector<QSharedPointer<AGameObject>> &) const; ///<

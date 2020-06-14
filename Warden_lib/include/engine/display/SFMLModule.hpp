@@ -34,6 +34,8 @@ public:
     ///<Add an event to the queue when a key is pressed
     void                manageEvent(QQueue<event> &); ///<
 
+    ///<Play the soud of each objects
+    void                playSound(const QVector<QSharedPointer<SoundObject>> &); ///<
 
 private:
     const QString                       _title;

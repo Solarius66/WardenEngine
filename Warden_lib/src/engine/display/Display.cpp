@@ -38,3 +38,12 @@ void Display::drawLayer(const QVector<QSharedPointer<AGameObject>> &gameObjectLi
         _graphicalLib->draw(gameObjectList[x]);
     }
 }
+
+void Display::play(const QVector<QSharedPointer<SoundObject>> &vec)
+{
+    for (auto it : vec) {
+        if (it->getPLay()) {
+            _graphicalLib->playSound(vec);
+        }
+    }
+}

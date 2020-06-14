@@ -1,16 +1,16 @@
 /*
 ** EPITECH PROJECT, 2019
-** SoundComponent.hpp
+** SoundObject.hpp
 ** File description:
-** SoundComponent Class Declaration
+** SoundObject Class
 */
 
 #include "include/engine/sound/SoundObject.hpp"
 
-SoundObject::SoundObject(const QString &_path, int _volume = 50, bool _loop = false, bool _play = false)
+SoundObject::SoundObject(const QString &path, int volume = 50, bool loop = false, bool play = false)
 {
-    path = _path;
-    volume = _volume;
-    loop = _loop;
-    play = _play;
+    _path = path;
+    _volume = volume;
+    _loop = loop;
+    _play = play;
 }

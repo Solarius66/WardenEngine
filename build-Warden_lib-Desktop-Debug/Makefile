@@ -1443,7 +1443,8 @@ GameEngine.o: ../Warden_lib/src/engine/GameEngine.cpp ../../../Qt/5.15.0/gcc_64/
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringlist.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qregexp.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringmatcher.h \
-		../Warden_lib/include/engine/GameEngine.hpp \
+		../Warden_lib/include/engine/sound/Sound.hpp \
+		../Warden_lib/include/engine/sound/ISound.hpp \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QSharedPointer \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qshareddata.h \
@@ -1458,7 +1459,6 @@ GameEngine.o: ../Warden_lib/src/engine/GameEngine.cpp ../../../Qt/5.15.0/gcc_64/
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qvarlengtharray.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qcontainerfwd.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qobject_impl.h \
-		../Warden_lib/include/engine/display/IDisplay.hpp \
 		../Warden_lib/include/engine/data/IScene.hpp \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QVector \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QJsonObject \
@@ -1489,6 +1489,9 @@ GameEngine.o: ../Warden_lib/src/engine/GameEngine.cpp ../../../Qt/5.15.0/gcc_64/
 		../Warden_lib/include/engine/data/AComponent.hpp \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QString \
 		../Warden_lib/include/engine/Event.hpp \
+		../Warden_lib/include/engine/sound/SoundObject.hpp \
+		../Warden_lib/include/engine/GameEngine.hpp \
+		../Warden_lib/include/engine/display/IDisplay.hpp \
 		../Warden_lib/include/engine/core/ICore.hpp \
 		../Warden_lib/include/engine/data/ISceneManager.hpp \
 		../Warden_lib/include/engine/display/Display.hpp \
@@ -1683,6 +1686,8 @@ ACollider.o: ../Warden_lib/src/engine/data/ACollider.cpp ../../../Qt/5.15.0/gcc_
 		../Warden_lib/include/engine/GameEngine.hpp \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QQueue \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qqueue.h \
+		../Warden_lib/include/engine/sound/ISound.hpp \
+		../Warden_lib/include/engine/sound/SoundObject.hpp \
 		../Warden_lib/include/engine/display/IDisplay.hpp \
 		../Warden_lib/include/engine/core/ICore.hpp \
 		../Warden_lib/include/engine/data/ISceneManager.hpp \
@@ -1808,7 +1813,9 @@ ACollider.o: ../Warden_lib/src/engine/data/ACollider.cpp ../../../Qt/5.15.0/gcc_
 		../Warden_lib/include/engine/error/GraphicalModuleError.hpp \
 		../Warden_lib/include/engine/error/MeshRendererError.hpp \
 		../Warden_lib/include/engine/error/SceneError.hpp \
-		../Warden_lib/include/engine/error/TransformError.hpp
+		../Warden_lib/include/engine/error/TransformError.hpp \
+		../Warden_lib/include/engine/sound/Sound.hpp \
+		../Warden_lib/include/engine/sound/SoundComponent.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ACollider.o ../Warden_lib/src/engine/data/ACollider.cpp
 
 AGameObject.o: ../Warden_lib/src/engine/data/AGameObject.cpp ../../../Qt/5.15.0/gcc_64/include/QtCore/QString \
@@ -1905,9 +1912,11 @@ AGameObject.o: ../Warden_lib/src/engine/data/AGameObject.cpp ../../../Qt/5.15.0/
 		../Warden_lib/include/engine/GameEngine.hpp \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QQueue \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qqueue.h \
-		../Warden_lib/include/engine/display/IDisplay.hpp \
+		../Warden_lib/include/engine/sound/ISound.hpp \
 		../Warden_lib/include/engine/data/IScene.hpp \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QVector \
+		../Warden_lib/include/engine/sound/SoundObject.hpp \
+		../Warden_lib/include/engine/display/IDisplay.hpp \
 		../Warden_lib/include/engine/core/ICore.hpp \
 		../Warden_lib/include/engine/data/ISceneManager.hpp \
 		../Warden_lib/include/engine/Macros.hpp \
@@ -2033,7 +2042,9 @@ AGameObject.o: ../Warden_lib/src/engine/data/AGameObject.cpp ../../../Qt/5.15.0/
 		../Warden_lib/include/engine/error/GraphicalModuleError.hpp \
 		../Warden_lib/include/engine/error/MeshRendererError.hpp \
 		../Warden_lib/include/engine/error/SceneError.hpp \
-		../Warden_lib/include/engine/error/TransformError.hpp
+		../Warden_lib/include/engine/error/TransformError.hpp \
+		../Warden_lib/include/engine/sound/Sound.hpp \
+		../Warden_lib/include/engine/sound/SoundComponent.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AGameObject.o ../Warden_lib/src/engine/data/AGameObject.cpp
 
 AScene.o: ../Warden_lib/src/engine/data/AScene.cpp ../../../Qt/5.15.0/gcc_64/include/QtCore/QDebug \
@@ -2195,7 +2206,7 @@ MeshRenderer.o: ../Warden_lib/src/engine/data/MeshRenderer.cpp ../Warden_lib/inc
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qobject_impl.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QQueue \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qqueue.h \
-		../Warden_lib/include/engine/display/IDisplay.hpp \
+		../Warden_lib/include/engine/sound/ISound.hpp \
 		../Warden_lib/include/engine/data/IScene.hpp \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QVector \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QJsonObject \
@@ -2225,6 +2236,8 @@ MeshRenderer.o: ../Warden_lib/src/engine/data/MeshRenderer.cpp ../Warden_lib/inc
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qexception.h \
 		../Warden_lib/include/engine/data/AComponent.hpp \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QString \
+		../Warden_lib/include/engine/sound/SoundObject.hpp \
+		../Warden_lib/include/engine/display/IDisplay.hpp \
 		../Warden_lib/include/engine/core/ICore.hpp \
 		../Warden_lib/include/engine/data/ISceneManager.hpp \
 		../Warden_lib/include/engine/Macros.hpp \
@@ -2350,7 +2363,9 @@ MeshRenderer.o: ../Warden_lib/src/engine/data/MeshRenderer.cpp ../Warden_lib/inc
 		../Warden_lib/include/engine/error/GraphicalModuleError.hpp \
 		../Warden_lib/include/engine/error/MeshRendererError.hpp \
 		../Warden_lib/include/engine/error/SceneError.hpp \
-		../Warden_lib/include/engine/error/TransformError.hpp
+		../Warden_lib/include/engine/error/TransformError.hpp \
+		../Warden_lib/include/engine/sound/Sound.hpp \
+		../Warden_lib/include/engine/sound/SoundComponent.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MeshRenderer.o ../Warden_lib/src/engine/data/MeshRenderer.cpp
 
 SceneManager.o: ../Warden_lib/src/engine/data/SceneManager.cpp ../../../Qt/5.15.0/gcc_64/include/QtCore/QMapIterator \
@@ -2589,7 +2604,7 @@ Transform.o: ../Warden_lib/src/engine/data/Transform.cpp ../Warden_lib/include/e
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qobject_impl.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QQueue \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qqueue.h \
-		../Warden_lib/include/engine/display/IDisplay.hpp \
+		../Warden_lib/include/engine/sound/ISound.hpp \
 		../Warden_lib/include/engine/data/IScene.hpp \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QVector \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QJsonObject \
@@ -2619,6 +2634,8 @@ Transform.o: ../Warden_lib/src/engine/data/Transform.cpp ../Warden_lib/include/e
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qexception.h \
 		../Warden_lib/include/engine/data/AComponent.hpp \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QString \
+		../Warden_lib/include/engine/sound/SoundObject.hpp \
+		../Warden_lib/include/engine/display/IDisplay.hpp \
 		../Warden_lib/include/engine/core/ICore.hpp \
 		../Warden_lib/include/engine/data/ISceneManager.hpp \
 		../Warden_lib/include/engine/Macros.hpp \
@@ -2744,7 +2761,9 @@ Transform.o: ../Warden_lib/src/engine/data/Transform.cpp ../Warden_lib/include/e
 		../Warden_lib/include/engine/error/GraphicalModuleError.hpp \
 		../Warden_lib/include/engine/error/MeshRendererError.hpp \
 		../Warden_lib/include/engine/error/SceneError.hpp \
-		../Warden_lib/include/engine/error/TransformError.hpp
+		../Warden_lib/include/engine/error/TransformError.hpp \
+		../Warden_lib/include/engine/sound/Sound.hpp \
+		../Warden_lib/include/engine/sound/SoundComponent.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Transform.o ../Warden_lib/src/engine/data/Transform.cpp
 
 Display.o: ../Warden_lib/src/engine/display/Display.cpp ../Warden_lib/include/engine/display/Display.hpp \
@@ -2834,6 +2853,7 @@ Display.o: ../Warden_lib/src/engine/display/Display.cpp ../Warden_lib/include/en
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qurlquery.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/quuid.h \
 		../Warden_lib/include/engine/Event.hpp \
+		../Warden_lib/include/engine/sound/SoundObject.hpp \
 		../Warden_lib/include/engine/display/IDisplay.hpp \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QQueue \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qqueue.h \
@@ -3140,15 +3160,17 @@ SFMLModule.o: ../Warden_lib/src/engine/display/SFMLModule.cpp ../Warden_lib/incl
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qurlquery.h \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/quuid.h \
 		../Warden_lib/include/engine/Event.hpp \
+		../Warden_lib/include/engine/sound/SoundObject.hpp \
 		../Warden_lib/include/engine/data/MeshRenderer.hpp \
 		../Warden_lib/warden_lib.h \
 		../Warden_lib/Warden_lib_global.h \
 		../Warden_lib/include/engine/GameEngine.hpp \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QQueue \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/qqueue.h \
-		../Warden_lib/include/engine/display/IDisplay.hpp \
+		../Warden_lib/include/engine/sound/ISound.hpp \
 		../Warden_lib/include/engine/data/IScene.hpp \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QVector \
+		../Warden_lib/include/engine/display/IDisplay.hpp \
 		../Warden_lib/include/engine/core/ICore.hpp \
 		../Warden_lib/include/engine/data/ISceneManager.hpp \
 		../Warden_lib/include/engine/Macros.hpp \
@@ -3167,7 +3189,9 @@ SFMLModule.o: ../Warden_lib/src/engine/display/SFMLModule.cpp ../Warden_lib/incl
 		../Warden_lib/include/engine/error/GraphicalModuleError.hpp \
 		../Warden_lib/include/engine/error/MeshRendererError.hpp \
 		../Warden_lib/include/engine/error/SceneError.hpp \
-		../Warden_lib/include/engine/error/TransformError.hpp
+		../Warden_lib/include/engine/error/TransformError.hpp \
+		../Warden_lib/include/engine/sound/Sound.hpp \
+		../Warden_lib/include/engine/sound/SoundComponent.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SFMLModule.o ../Warden_lib/src/engine/display/SFMLModule.cpp
 
 Sound.o: ../Warden_lib/src/engine/sound/Sound.cpp ../Warden_lib/include/engine/sound/Sound.hpp \
@@ -3259,10 +3283,91 @@ Sound.o: ../Warden_lib/src/engine/sound/Sound.cpp ../Warden_lib/include/engine/s
 		../Warden_lib/include/engine/data/AComponent.hpp \
 		../../../Qt/5.15.0/gcc_64/include/QtCore/QString \
 		../Warden_lib/include/engine/Event.hpp \
-		../Warden_lib/include/engine/sound/SoundObject.hpp
+		../Warden_lib/include/engine/sound/SoundObject.hpp \
+		../Warden_lib/include/engine/sound/SoundComponent.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Sound.o ../Warden_lib/src/engine/sound/Sound.cpp
 
-SoundComponent.o: ../Warden_lib/src/engine/sound/SoundComponent.cpp ../Warden_lib/include/engine/sound/SoundComponent.hpp
+SoundComponent.o: ../Warden_lib/src/engine/sound/SoundComponent.cpp ../Warden_lib/include/engine/sound/SoundComponent.hpp \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/QVector \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qvector.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qalgorithms.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qglobal.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qconfig.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qtcore-config.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qsysinfo.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qlogging.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qflags.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qmutex.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qnumeric.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qversiontagging.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qiterator.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qrefcount.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qarraydata.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qhashfunctions.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qstring.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qchar.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qbytearray.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qnamespace.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringliteral.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringview.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringbuilder.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qpair.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qcontainertools_impl.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qpoint.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/QSharedPointer \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qshareddata.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qhash.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qlist.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qbytearraylist.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringlist.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qregexp.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qstringmatcher.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qobject.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qcoreevent.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qmetatype.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qobject_impl.h \
+		../Warden_lib/include/engine/data/AComponent.hpp \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/QString \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/QJsonObject \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qjsonobject.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qjsonvalue.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qcborvalue.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qdatetime.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qcborcommon.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qdebug.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qmap.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qtextstream.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qiodevice.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qlocale.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qvariant.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qset.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qregularexpression.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qurl.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/qurlquery.h \
+		../../../Qt/5.15.0/gcc_64/include/QtCore/quuid.h \
+		../Warden_lib/include/engine/Event.hpp \
+		../Warden_lib/include/engine/sound/SoundObject.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SoundComponent.o ../Warden_lib/src/engine/sound/SoundComponent.cpp
 
 SoundObject.o: ../Warden_lib/src/engine/sound/SoundObject.cpp ../Warden_lib/include/engine/sound/SoundObject.hpp \

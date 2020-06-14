@@ -7,6 +7,7 @@
 
 #include <QQueue>
 
+#include "include/engine/sound/Sound.hpp"
 #include "include/engine/GameEngine.hpp"
 #include "include/engine/display/Display.hpp"
 #include "include/engine/data/SceneManager.hpp"
@@ -17,6 +18,7 @@ GameEngine::GameEngine()
     _displayModule = QSharedPointer<Display>(new Display);
     _dataModule = QSharedPointer<SceneManager>(new SceneManager);
     _coreModule = QSharedPointer<Core>(new Core);
+    _soundModule = QSharedPointer<Sound>(new Sound);
 }
 
 GameEngine::~GameEngine()
@@ -32,6 +34,7 @@ void GameEngine::loop()
         if (_events.front() == CLOSED_WINDOW)
             break;
         _coreModule->update(_dataModule->getActiveScene(), _events.front());
+        _displayModule->play(_soundModule->getSound(_dataModule->getActiveScene()));
         _events.dequeue();
     }
 }

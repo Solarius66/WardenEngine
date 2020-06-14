@@ -34,5 +34,9 @@
 #include "include/engine/error/SceneError.hpp"
 #include "include/engine/error/SceneManagerError.hpp"
 #include "include/engine/error/TransformError.hpp"
+#include "include/engine/sound/ISound.hpp"
+#include "include/engine/sound/Sound.hpp"
+#include "include/engine/sound/SoundComponent.hpp"
+#include "include/engine/sound/SoundObject.hpp"
 
 #endif // WARDEN_LIB_H

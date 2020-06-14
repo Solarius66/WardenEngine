@@ -12,7 +12,7 @@
 Sound::Sound()
 {}
 
-QVector <QSharedPointer<SoundObject>> Sound::getSound(const QSharedPointer<IScene> &scene)
+const QVector <QSharedPointer<SoundObject>> &Sound::getSound(const QSharedPointer<IScene> &scene)
 {
     QVector <QSharedPointer<SoundObject>> tmp;
 

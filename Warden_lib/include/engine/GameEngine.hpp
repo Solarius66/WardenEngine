@@ -13,6 +13,7 @@
 #include <QSharedPointer>
 #include <QQueue>
 
+#include "include/engine/sound/ISound.hpp"
 #include "include/engine/display/IDisplay.hpp"
 #include "include/engine/core/ICore.hpp"
 #include "include/engine/data/ISceneManager.hpp"
@@ -45,6 +46,9 @@ private:
 
     ///<Event Queue
     QQueue<event> _events; ///<
+
+    ///<Sound Module Pointer
+    QSharedPointer<ISound> _soundModule; ///<
 };
 
 #endif /* end of include guard: GAMEENGINE_HPP_ */

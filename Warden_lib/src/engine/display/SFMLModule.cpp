@@ -133,3 +133,16 @@ void SFMLModule::manageEvent(QQueue<event> &event)
     event.enqueue(UNKNOWN);
     _inputClock.restart();
 }
+
+void SFMLModule::playSound(const QVector<QSharedPointer<SoundObject>> &vec)
+{
+    sf::Music music;
+
+    for (auto && it : vec) {
+        music.setVolume(it->getVolume());
+        music.setLoop(it->getLoop());
+        if (!music.openFromFile(it->getPath().toStdString()))
+            std::cerr << it->getPath().toStdString() << ": No such file or directory." << std::endl;
+        music.play();
+    }
+}

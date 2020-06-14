@@ -11,6 +11,7 @@
 /// @file include/engine/display/IGraphicalModule.hpp
 
 #include "include/engine/data/AGameObject.hpp"
+#include "include/engine/sound/SoundObject.hpp"
 
 class IGraphicalModule
 {
@@ -29,6 +30,9 @@ public:
 
     ///<Add Event in the queue if needed
     virtual void                manageEvent(QQueue<event> &) = 0; ///<
+
+    ///<Play the soud of each objects
+    virtual void                playSound(const QVector<QSharedPointer<SoundObject>> &) = 0; ///<
 };
 
 #endif /* end of include guard: IGRAPHICALMODULE_HPP_ */

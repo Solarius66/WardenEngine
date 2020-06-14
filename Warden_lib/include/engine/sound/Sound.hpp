@@ -18,7 +18,7 @@ class Sound : public ISound
         Sound();
         ~Sound();
 
-        QVector <QSharedPointer<SoundObject>> getSound(const QSharedPointer<IScene> &) override;
+        const QVector <QSharedPointer<SoundObject>> &getSound(const QSharedPointer<IScene> &) override;
 };
 
 #endif // SOUND_H

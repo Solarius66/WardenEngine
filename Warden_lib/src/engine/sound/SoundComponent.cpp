@@ -1,3 +1,10 @@
+/*
+** EPITECH PROJECT, 2019
+** SoundComponent.hpp
+** File description:
+** SoundComponent class
+*/
+
 #include "include/engine/sound/SoundComponent.hpp"
 
 SoundComponent::SoundComponent(): AComponent("SoundComponent")
