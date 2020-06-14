@@ -20,7 +20,7 @@ class FenClient : public QWidget
 
         void onConnexion(const QString &hostName, quint16 port);
         void sendMessage(const QString &message);
-        QString dataReceve();
+        QString dataRecive();
 
     private:
         QTcpSocket *socket;

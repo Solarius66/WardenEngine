@@ -24,7 +24,7 @@ void FenClient::onConnexion(const QString &hostName, quint16 port)
     socket->connectToHost(hostName, port);
 }
 
-void FenClient::sendMessage(const QString &message);
+void FenClient::sendMessage(const QString &message)
 {
     QByteArray paquet;
     QDataStream out(&paquet, QIODevice::WriteOnly);
@@ -37,18 +37,18 @@ void FenClient::sendMessage(const QString &message);
     socket->write(paquet);
 }
 
-QString FenClient::dataReceve();
+QString FenClient::dataRecive()
 {
     QString newMessage;
     QDataStream in(socket);
 
     if (sizeMessage == 0) {
         if (socket->bytesAvailable() < (int)sizeof(quint16))
-             return;
+             return nullptr;
         in >> sizeMessage;
     }
     if (socket->bytesAvailable() < sizeMessage)
-        return;
+        return nullptr;
     in >> newMessage;
     sizeMessage = 0;
     return newMessage;
