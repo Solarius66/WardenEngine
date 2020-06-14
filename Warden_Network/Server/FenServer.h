@@ -24,7 +24,6 @@ class Fenserver : public QWidget
 
 public slots:
         QString dataReceve();
-    private slots:
         void myNewConnection();
         void clientLogout();
 

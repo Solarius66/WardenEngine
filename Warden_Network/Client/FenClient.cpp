@@ -12,6 +12,7 @@ FenClient::FenClient()
 {
     socket = new QTcpSocket(this);
     sizeMessage = 0;
+    connect(socket, SIGNAL(readyRead()), this, SLOT(dataRecive()));
 }
 
 FenClient::~FenClient()

@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_FenClient_t {
-    QByteArrayData data[1];
-    char stringdata0[10];
+    QByteArrayData data[3];
+    char stringdata0[22];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -29,10 +29,12 @@ struct qt_meta_stringdata_FenClient_t {
     )
 static const qt_meta_stringdata_FenClient_t qt_meta_stringdata_FenClient = {
     {
-QT_MOC_LITERAL(0, 0, 9) // "FenClient"
+QT_MOC_LITERAL(0, 0, 9), // "FenClient"
+QT_MOC_LITERAL(1, 10, 10), // "dataRecive"
+QT_MOC_LITERAL(2, 21, 0) // ""
 
     },
-    "FenClient"
+    "FenClient\0dataRecive\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -42,22 +44,33 @@ static const uint qt_meta_data_FenClient[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       1,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
 
+ // slots: name, argc, parameters, tag, flags
+       1,    0,   19,    2, 0x0a /* Public */,
+
+ // slots: parameters
+    QMetaType::QString,
+
        0        // eod
 };
 
 void FenClient::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    Q_UNUSED(_o);
-    Q_UNUSED(_id);
-    Q_UNUSED(_c);
-    Q_UNUSED(_a);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        FenClient *_t = static_cast<FenClient *>(_o);
+        Q_UNUSED(_t)
+        switch (_id) {
+        case 0: { QString _r = _t->dataRecive();
+            if (_a[0]) *reinterpret_cast< QString*>(_a[0]) = _r; }  break;
+        default: ;
+        }
+    }
 }
 
 const QMetaObject FenClient::staticMetaObject = {
@@ -84,6 +97,15 @@ int FenClient::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     _id = QObject::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 1)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 1;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 1)
+            *reinterpret_cast<int*>(_a[0]) = -1;
+        _id -= 1;
+    }
     return _id;
 }
 QT_END_MOC_NAMESPACE

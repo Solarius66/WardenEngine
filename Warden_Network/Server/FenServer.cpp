@@ -25,7 +25,7 @@ Fenserver::Fenserver(int port)
         serverState->setText(tr("Echec start server:<br />") + server->errorString());
     } else {
         serverState->setText(tr("Server start on <strong>") + QString::number(server->serverPort()) + tr("</strong>.<br />Clients can now connect."));
-        connect(server, SIGNAL(newConnection()), this, SLOT(this->myNewConnection()));
+        connect(server, SIGNAL(newConnection()), this, SLOT(myNewConnection()));
     }
     sizeMessage = 0;
 }

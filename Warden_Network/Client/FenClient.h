@@ -20,6 +20,8 @@ class FenClient : public QObject
 
         void onConnexion(const QString &hostName, quint16 port);
         void sendMessage(const QString &message);
+
+public slots:
         QString dataRecive();
 
     private:
