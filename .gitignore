@@ -10,7 +10,6 @@ vgcore*
 .notifier
 *.o
 *.so
-*.a
 *.out
 *.pdf
 

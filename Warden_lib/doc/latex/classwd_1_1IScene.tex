@@ -1,0 +1,201 @@
+\hypertarget{classwd_1_1IScene}{}\doxysection{wd\+::I\+Scene Class Reference}
+\label{classwd_1_1IScene}\index{wd::IScene@{wd::IScene}}
+
+
+{\ttfamily \#include $<$I\+Scene.\+hpp$>$}
+
+Inheritance diagram for wd\+::I\+Scene\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classwd_1_1IScene}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classwd_1_1IScene_ab2c4f9aa8b21842c5b3423a154e0a2f2}{I\+Scene}} ()=default
+\item 
+virtual \mbox{\hyperlink{classwd_1_1IScene_a0dad26b12acbc5c90fff75c91ca3cde7}{$\sim$\+I\+Scene}} ()=default
+\item 
+virtual std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}} $>$ $>$ \mbox{\hyperlink{classwd_1_1IScene_a7613316454f60c74ac36be9908373653}{get\+From\+Layer}} (int)=0
+\item 
+virtual std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}} $>$ $>$ \mbox{\hyperlink{classwd_1_1IScene_a3dcd395611dfdc2871168c967b9396d0}{get\+From\+ID}} (int)=0
+\item 
+virtual std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}} $>$ $>$ \mbox{\hyperlink{classwd_1_1IScene_ac3a6ba75d9bacc4db0f938bf3538128a}{get\+Objects}} ()=0
+\item 
+virtual std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}} $>$ \& \mbox{\hyperlink{classwd_1_1IScene_aafcf462280e2d1e4add783bbe76c6172}{get\+From\+Name}} (const std\+::string \&)=0
+\item 
+virtual const std\+::string \& \mbox{\hyperlink{classwd_1_1IScene_aadfca00c458ee399496d3bb3752f0700}{get\+Name}} () const =0
+\item 
+virtual int \mbox{\hyperlink{classwd_1_1IScene_aebd559f26abb6329c10cb3c6ed277777}{get\+Score}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classwd_1_1IScene_a1e7a78e490029c24b96a49bc36f327ea}{set\+Score}} (int)=0
+\item 
+virtual bool \mbox{\hyperlink{classwd_1_1IScene_a076f4d643ab3037f41ca4c9db9255378}{update}} (wd\+::event)=0
+\item 
+virtual void \mbox{\hyperlink{classwd_1_1IScene_aad4f0214ff502a2cfa43624d8e2c5e14}{add\+Object}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}} $>$ \&)=0
+\item 
+virtual void \mbox{\hyperlink{classwd_1_1IScene_a8f01f1bcf1397948a78cd59b3066086a}{destroy\+Game\+Object\+From\+Name}} (const std\+::string \&)=0
+\item 
+virtual void \mbox{\hyperlink{classwd_1_1IScene_a4923717f8d85af4e115e14afb13b7b70}{destroy\+Game\+Object}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classwd_1_1IScene_a14833a1f06bcac3e6e64864c9ee203a4}{reset}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classwd_1_1IScene_ab4b050723b948da869e14090092b981e}{debug}} ()=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Scene Interface Implementation 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classwd_1_1IScene_ab2c4f9aa8b21842c5b3423a154e0a2f2}\label{classwd_1_1IScene_ab2c4f9aa8b21842c5b3423a154e0a2f2}} 
+\index{wd::IScene@{wd::IScene}!IScene@{IScene}}
+\index{IScene@{IScene}!wd::IScene@{wd::IScene}}
+\doxysubsubsection{\texorpdfstring{IScene()}{IScene()}}
+{\footnotesize\ttfamily wd\+::\+I\+Scene\+::\+I\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Constructor \mbox{\Hypertarget{classwd_1_1IScene_a0dad26b12acbc5c90fff75c91ca3cde7}\label{classwd_1_1IScene_a0dad26b12acbc5c90fff75c91ca3cde7}} 
+\index{wd::IScene@{wd::IScene}!````~IScene@{$\sim$IScene}}
+\index{````~IScene@{$\sim$IScene}!wd::IScene@{wd::IScene}}
+\doxysubsubsection{\texorpdfstring{$\sim$IScene()}{~IScene()}}
+{\footnotesize\ttfamily virtual wd\+::\+I\+Scene\+::$\sim$\+I\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classwd_1_1IScene_a7613316454f60c74ac36be9908373653}\label{classwd_1_1IScene_a7613316454f60c74ac36be9908373653}} 
+\index{wd::IScene@{wd::IScene}!getFromLayer@{getFromLayer}}
+\index{getFromLayer@{getFromLayer}!wd::IScene@{wd::IScene}}
+\doxysubsubsection{\texorpdfstring{getFromLayer()}{getFromLayer()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}}$>$ $>$ wd\+::\+I\+Scene\+::get\+From\+Layer (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Return a vector containing all A\+Game\+Objects from a Layer specified as parameter 
+
+Implemented in \mbox{\hyperlink{classwd_1_1AScene_a55e8c68be15262b25d75f32e298c4630}{wd\+::\+A\+Scene}}.
+
+\mbox{\Hypertarget{classwd_1_1IScene_a3dcd395611dfdc2871168c967b9396d0}\label{classwd_1_1IScene_a3dcd395611dfdc2871168c967b9396d0}} 
+\index{wd::IScene@{wd::IScene}!getFromID@{getFromID}}
+\index{getFromID@{getFromID}!wd::IScene@{wd::IScene}}
+\doxysubsubsection{\texorpdfstring{getFromID()}{getFromID()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}}$>$ $>$ wd\+::\+I\+Scene\+::get\+From\+ID (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Return a vector containing all A\+Game\+Objects from an ID specified as parameter 
+
+Implemented in \mbox{\hyperlink{classwd_1_1AScene_a72b3f15216f78b140676acc682145765}{wd\+::\+A\+Scene}}.
+
+\mbox{\Hypertarget{classwd_1_1IScene_ac3a6ba75d9bacc4db0f938bf3538128a}\label{classwd_1_1IScene_ac3a6ba75d9bacc4db0f938bf3538128a}} 
+\index{wd::IScene@{wd::IScene}!getObjects@{getObjects}}
+\index{getObjects@{getObjects}!wd::IScene@{wd::IScene}}
+\doxysubsubsection{\texorpdfstring{getObjects()}{getObjects()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}}$>$ $>$ wd\+::\+I\+Scene\+::get\+Objects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Return the vector of \mbox{\hyperlink{classwd_1_1AGameObject}{A\+Game\+Object}} 
+
+Implemented in \mbox{\hyperlink{classwd_1_1AScene_a750e5a02f5276c2f1ce77f7d59f6a92d}{wd\+::\+A\+Scene}}.
+
+\mbox{\Hypertarget{classwd_1_1IScene_aafcf462280e2d1e4add783bbe76c6172}\label{classwd_1_1IScene_aafcf462280e2d1e4add783bbe76c6172}} 
+\index{wd::IScene@{wd::IScene}!getFromName@{getFromName}}
+\index{getFromName@{getFromName}!wd::IScene@{wd::IScene}}
+\doxysubsubsection{\texorpdfstring{getFromName()}{getFromName()}}
+{\footnotesize\ttfamily virtual std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}}$>$\& wd\+::\+I\+Scene\+::get\+From\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Return a Shared\+\_\+ptr pointing to a \mbox{\hyperlink{classwd_1_1AGameObject}{A\+Game\+Object}} which name is specified as parameter 
+
+Implemented in \mbox{\hyperlink{classwd_1_1AScene_a645fa66b011a5e5f6f0617163b51e275}{wd\+::\+A\+Scene}}.
+
+\mbox{\Hypertarget{classwd_1_1IScene_aadfca00c458ee399496d3bb3752f0700}\label{classwd_1_1IScene_aadfca00c458ee399496d3bb3752f0700}} 
+\index{wd::IScene@{wd::IScene}!getName@{getName}}
+\index{getName@{getName}!wd::IScene@{wd::IScene}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily virtual const std\+::string\& wd\+::\+I\+Scene\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Return the name of the Scene 
+
+Implemented in \mbox{\hyperlink{classwd_1_1AScene_a6a42d82ea39f004dc464b7d902309f43}{wd\+::\+A\+Scene}}.
+
+\mbox{\Hypertarget{classwd_1_1IScene_aebd559f26abb6329c10cb3c6ed277777}\label{classwd_1_1IScene_aebd559f26abb6329c10cb3c6ed277777}} 
+\index{wd::IScene@{wd::IScene}!getScore@{getScore}}
+\index{getScore@{getScore}!wd::IScene@{wd::IScene}}
+\doxysubsubsection{\texorpdfstring{getScore()}{getScore()}}
+{\footnotesize\ttfamily virtual int wd\+::\+I\+Scene\+::get\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Return the Score of the Scene 
+
+Implemented in \mbox{\hyperlink{classwd_1_1AScene_a105fa66029c45b4ce34ad93ed1dcb9ee}{wd\+::\+A\+Scene}}.
+
+\mbox{\Hypertarget{classwd_1_1IScene_a1e7a78e490029c24b96a49bc36f327ea}\label{classwd_1_1IScene_a1e7a78e490029c24b96a49bc36f327ea}} 
+\index{wd::IScene@{wd::IScene}!setScore@{setScore}}
+\index{setScore@{setScore}!wd::IScene@{wd::IScene}}
+\doxysubsubsection{\texorpdfstring{setScore()}{setScore()}}
+{\footnotesize\ttfamily virtual void wd\+::\+I\+Scene\+::set\+Score (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Return the Score of the Scene 
+
+Implemented in \mbox{\hyperlink{classwd_1_1AScene_a0a54fe978f6332b7771896e354709727}{wd\+::\+A\+Scene}}.
+
+\mbox{\Hypertarget{classwd_1_1IScene_a076f4d643ab3037f41ca4c9db9255378}\label{classwd_1_1IScene_a076f4d643ab3037f41ca4c9db9255378}} 
+\index{wd::IScene@{wd::IScene}!update@{update}}
+\index{update@{update}!wd::IScene@{wd::IScene}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual bool wd\+::\+I\+Scene\+::update (\begin{DoxyParamCaption}\item[{wd\+::event}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Call \mbox{\hyperlink{classwd_1_1IScene_a076f4d643ab3037f41ca4c9db9255378}{update()}} of every \mbox{\hyperlink{classwd_1_1AGameObject}{A\+Game\+Object}} contained in the \mbox{\hyperlink{classwd_1_1IScene}{I\+Scene}} 
+
+Implemented in \mbox{\hyperlink{classwd_1_1AScene_a5b47895873997482f093de6feecdb473}{wd\+::\+A\+Scene}}.
+
+\mbox{\Hypertarget{classwd_1_1IScene_aad4f0214ff502a2cfa43624d8e2c5e14}\label{classwd_1_1IScene_aad4f0214ff502a2cfa43624d8e2c5e14}} 
+\index{wd::IScene@{wd::IScene}!addObject@{addObject}}
+\index{addObject@{addObject}!wd::IScene@{wd::IScene}}
+\doxysubsubsection{\texorpdfstring{addObject()}{addObject()}}
+{\footnotesize\ttfamily virtual void wd\+::\+I\+Scene\+::add\+Object (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}} $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Add a \mbox{\hyperlink{classwd_1_1AGameObject}{A\+Game\+Object}} to the vector of the Scene 
+
+Implemented in \mbox{\hyperlink{classwd_1_1AScene_af06a37ce5a5b4b78abc35bb66c8ae3da}{wd\+::\+A\+Scene}}.
+
+\mbox{\Hypertarget{classwd_1_1IScene_a8f01f1bcf1397948a78cd59b3066086a}\label{classwd_1_1IScene_a8f01f1bcf1397948a78cd59b3066086a}} 
+\index{wd::IScene@{wd::IScene}!destroyGameObjectFromName@{destroyGameObjectFromName}}
+\index{destroyGameObjectFromName@{destroyGameObjectFromName}!wd::IScene@{wd::IScene}}
+\doxysubsubsection{\texorpdfstring{destroyGameObjectFromName()}{destroyGameObjectFromName()}}
+{\footnotesize\ttfamily virtual void wd\+::\+I\+Scene\+::destroy\+Game\+Object\+From\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Remove a \mbox{\hyperlink{classwd_1_1AGameObject}{A\+Game\+Object}} from the vector, which name is specified as parameter 
+
+Implemented in \mbox{\hyperlink{classwd_1_1AScene_a981a5ac3c23d917a8a8465450cace40f}{wd\+::\+A\+Scene}}.
+
+\mbox{\Hypertarget{classwd_1_1IScene_a4923717f8d85af4e115e14afb13b7b70}\label{classwd_1_1IScene_a4923717f8d85af4e115e14afb13b7b70}} 
+\index{wd::IScene@{wd::IScene}!destroyGameObject@{destroyGameObject}}
+\index{destroyGameObject@{destroyGameObject}!wd::IScene@{wd::IScene}}
+\doxysubsubsection{\texorpdfstring{destroyGameObject()}{destroyGameObject()}}
+{\footnotesize\ttfamily virtual void wd\+::\+I\+Scene\+::destroy\+Game\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Remove all \mbox{\hyperlink{classwd_1_1AGameObject}{A\+Game\+Object}} from the vector 
+
+Implemented in \mbox{\hyperlink{classwd_1_1AScene_af9fedc8e3de757dcd3c7e6e79b2ec331}{wd\+::\+A\+Scene}}.
+
+\mbox{\Hypertarget{classwd_1_1IScene_a14833a1f06bcac3e6e64864c9ee203a4}\label{classwd_1_1IScene_a14833a1f06bcac3e6e64864c9ee203a4}} 
+\index{wd::IScene@{wd::IScene}!reset@{reset}}
+\index{reset@{reset}!wd::IScene@{wd::IScene}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily virtual void wd\+::\+I\+Scene\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Reset the scene as made in the constructor 
+
+Implemented in \mbox{\hyperlink{classwd_1_1AScene_af51065955e9f0d58796a31061f418f97}{wd\+::\+A\+Scene}}.
+
+\mbox{\Hypertarget{classwd_1_1IScene_ab4b050723b948da869e14090092b981e}\label{classwd_1_1IScene_ab4b050723b948da869e14090092b981e}} 
+\index{wd::IScene@{wd::IScene}!debug@{debug}}
+\index{debug@{debug}!wd::IScene@{wd::IScene}}
+\doxysubsubsection{\texorpdfstring{debug()}{debug()}}
+{\footnotesize\ttfamily virtual void wd\+::\+I\+Scene\+::debug (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\hyperlink{classwd_1_1Display}{Display}} Name of every \mbox{\hyperlink{classwd_1_1AGameObject}{A\+Game\+Object}} contained in the Scene (Used for debugging) 
+
+Implemented in \mbox{\hyperlink{classwd_1_1AScene_a63f4ae32919c82a4c80a88cab7acd26d}{wd\+::\+A\+Scene}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/engine/data/\mbox{\hyperlink{IScene_8hpp}{I\+Scene.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,71 @@
+\hypertarget{classwd_1_1AComponent}{}\doxysection{wd\+::A\+Component Class Reference}
+\label{classwd_1_1AComponent}\index{wd::AComponent@{wd::AComponent}}
+
+
+{\ttfamily \#include $<$A\+Component.\+hpp$>$}
+
+Inheritance diagram for wd\+::A\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classwd_1_1AComponent}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classwd_1_1AComponent_a965ba9e1b10249cb4c0c0622c142a6f3}{A\+Component}} (const std\+::string \&name)
+\item 
+virtual \mbox{\hyperlink{classwd_1_1AComponent_a8791d622fa8fcf4c4e634688f9860c77}{$\sim$\+A\+Component}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classwd_1_1AComponent_af744de396710c214870b88e8ebe71b3e}{update}} (wd\+::event)
+\item 
+const std\+::string \& \mbox{\hyperlink{classwd_1_1AComponent_a43b46cf7a75e396eeb7ebe8d88feaff9}{get\+Name}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classwd_1_1AComponent_a99c968eeaa87f6748292e6db8df9d4ef}\label{classwd_1_1AComponent_a99c968eeaa87f6748292e6db8df9d4ef}} 
+const std\+::string {\bfseries \+\_\+name}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Component Abstract, used to generalize components 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classwd_1_1AComponent_a965ba9e1b10249cb4c0c0622c142a6f3}\label{classwd_1_1AComponent_a965ba9e1b10249cb4c0c0622c142a6f3}} 
+\index{wd::AComponent@{wd::AComponent}!AComponent@{AComponent}}
+\index{AComponent@{AComponent}!wd::AComponent@{wd::AComponent}}
+\doxysubsubsection{\texorpdfstring{AComponent()}{AComponent()}}
+{\footnotesize\ttfamily wd\+::\+A\+Component\+::\+A\+Component (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor, take a const string as parameter \mbox{\Hypertarget{classwd_1_1AComponent_a8791d622fa8fcf4c4e634688f9860c77}\label{classwd_1_1AComponent_a8791d622fa8fcf4c4e634688f9860c77}} 
+\index{wd::AComponent@{wd::AComponent}!````~AComponent@{$\sim$AComponent}}
+\index{````~AComponent@{$\sim$AComponent}!wd::AComponent@{wd::AComponent}}
+\doxysubsubsection{\texorpdfstring{$\sim$AComponent()}{~AComponent()}}
+{\footnotesize\ttfamily virtual wd\+::\+A\+Component\+::$\sim$\+A\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classwd_1_1AComponent_af744de396710c214870b88e8ebe71b3e}\label{classwd_1_1AComponent_af744de396710c214870b88e8ebe71b3e}} 
+\index{wd::AComponent@{wd::AComponent}!update@{update}}
+\index{update@{update}!wd::AComponent@{wd::AComponent}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void wd\+::\+A\+Component\+::update (\begin{DoxyParamCaption}\item[{wd\+::event}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Call the \mbox{\hyperlink{classwd_1_1AComponent_af744de396710c214870b88e8ebe71b3e}{update()}} of the component 
+
+Reimplemented in \mbox{\hyperlink{classwd_1_1Transform_aefa728c2b1017ac5ec85830da2cbb083}{wd\+::\+Transform}}, \mbox{\hyperlink{classwd_1_1ACollider_a7c2202b51675fc011e7928aa48d2c536}{wd\+::\+A\+Collider}}, \mbox{\hyperlink{classwd_1_1MeshRenderer_a48396c850b1f9cf87b4f515b1c51d167}{wd\+::\+Mesh\+Renderer}}, and \mbox{\hyperlink{classwd_1_1TextRenderer_a9c17b60b3014a56a0dd06f165c460cfb}{wd\+::\+Text\+Renderer}}.
+
+\mbox{\Hypertarget{classwd_1_1AComponent_a43b46cf7a75e396eeb7ebe8d88feaff9}\label{classwd_1_1AComponent_a43b46cf7a75e396eeb7ebe8d88feaff9}} 
+\index{wd::AComponent@{wd::AComponent}!getName@{getName}}
+\index{getName@{getName}!wd::AComponent@{wd::AComponent}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const std\+::string\& wd\+::\+A\+Component\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return \+\_\+name variable 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/engine/data/\mbox{\hyperlink{AComponent_8hpp}{A\+Component.\+hpp}}\end{DoxyCompactItemize}

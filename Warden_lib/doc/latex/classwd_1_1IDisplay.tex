@@ -1,0 +1,80 @@
+\hypertarget{classwd_1_1IDisplay}{}\doxysection{wd\+::I\+Display Class Reference}
+\label{classwd_1_1IDisplay}\index{wd::IDisplay@{wd::IDisplay}}
+
+
+{\ttfamily \#include $<$I\+Display.\+hpp$>$}
+
+Inheritance diagram for wd\+::I\+Display\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classwd_1_1IDisplay}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classwd_1_1IDisplay_a10c78bfe4fe151ce0b80ff6d31ea5bc9}{I\+Display}} ()=default
+\item 
+virtual \mbox{\hyperlink{classwd_1_1IDisplay_a2c40b261a962d2273815d3851bf292eb}{$\sim$\+I\+Display}} ()=default
+\item 
+virtual void \mbox{\hyperlink{classwd_1_1IDisplay_a34d4011be580afa786c9058d5ee8a248}{draw}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1IScene}{wd\+::\+I\+Scene}} $>$ \&, std\+::queue$<$ wd\+::event $>$ \&)=0
+\item 
+virtual void \mbox{\hyperlink{classwd_1_1IDisplay_aa1a80e9220e7bf3fe4d383a91c07f920}{draw\+Game\+Object}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}} $>$)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{classwd_1_1IDisplay_a1bf0c9c34e7035b9e25a662746bf9bb5}{draw\+Layer}} (const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}} $>$$>$ \&) const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classwd_1_1Display}{Display}} Interface Declaration 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classwd_1_1IDisplay_a10c78bfe4fe151ce0b80ff6d31ea5bc9}\label{classwd_1_1IDisplay_a10c78bfe4fe151ce0b80ff6d31ea5bc9}} 
+\index{wd::IDisplay@{wd::IDisplay}!IDisplay@{IDisplay}}
+\index{IDisplay@{IDisplay}!wd::IDisplay@{wd::IDisplay}}
+\doxysubsubsection{\texorpdfstring{IDisplay()}{IDisplay()}}
+{\footnotesize\ttfamily wd\+::\+I\+Display\+::\+I\+Display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Constructor \mbox{\Hypertarget{classwd_1_1IDisplay_a2c40b261a962d2273815d3851bf292eb}\label{classwd_1_1IDisplay_a2c40b261a962d2273815d3851bf292eb}} 
+\index{wd::IDisplay@{wd::IDisplay}!````~IDisplay@{$\sim$IDisplay}}
+\index{````~IDisplay@{$\sim$IDisplay}!wd::IDisplay@{wd::IDisplay}}
+\doxysubsubsection{\texorpdfstring{$\sim$IDisplay()}{~IDisplay()}}
+{\footnotesize\ttfamily virtual wd\+::\+I\+Display\+::$\sim$\+I\+Display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classwd_1_1IDisplay_a34d4011be580afa786c9058d5ee8a248}\label{classwd_1_1IDisplay_a34d4011be580afa786c9058d5ee8a248}} 
+\index{wd::IDisplay@{wd::IDisplay}!draw@{draw}}
+\index{draw@{draw}!wd::IDisplay@{wd::IDisplay}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily virtual void wd\+::\+I\+Display\+::draw (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1IScene}{wd\+::\+I\+Scene}} $>$ \&}]{,  }\item[{std\+::queue$<$ wd\+::event $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\hyperlink{classwd_1_1Display}{Display}} every Game\+Object of a scene and get each input of the player 
+
+Implemented in \mbox{\hyperlink{classwd_1_1Display_aba56c6ae4fadd7491ce114b1d019727c}{wd\+::\+Display}}.
+
+\mbox{\Hypertarget{classwd_1_1IDisplay_aa1a80e9220e7bf3fe4d383a91c07f920}\label{classwd_1_1IDisplay_aa1a80e9220e7bf3fe4d383a91c07f920}} 
+\index{wd::IDisplay@{wd::IDisplay}!drawGameObject@{drawGameObject}}
+\index{drawGameObject@{drawGameObject}!wd::IDisplay@{wd::IDisplay}}
+\doxysubsubsection{\texorpdfstring{drawGameObject()}{drawGameObject()}}
+{\footnotesize\ttfamily virtual void wd\+::\+I\+Display\+::draw\+Game\+Object (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}} $>$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\hyperlink{classwd_1_1Display}{Display}} only 1 Game\+Object 
+
+Implemented in \mbox{\hyperlink{classwd_1_1Display_a7de25d806a5413598318d1c0a2e99e8d}{wd\+::\+Display}}.
+
+\mbox{\Hypertarget{classwd_1_1IDisplay_a1bf0c9c34e7035b9e25a662746bf9bb5}\label{classwd_1_1IDisplay_a1bf0c9c34e7035b9e25a662746bf9bb5}} 
+\index{wd::IDisplay@{wd::IDisplay}!drawLayer@{drawLayer}}
+\index{drawLayer@{drawLayer}!wd::IDisplay@{wd::IDisplay}}
+\doxysubsubsection{\texorpdfstring{drawLayer()}{drawLayer()}}
+{\footnotesize\ttfamily virtual void wd\+::\+I\+Display\+::draw\+Layer (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classwd_1_1AGameObject}{wd\+::\+A\+Game\+Object}} $>$$>$ \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+\mbox{\hyperlink{classwd_1_1Display}{Display}} every Game\+Object of a Layer of a Scene 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/engine/display/\mbox{\hyperlink{IDisplay_8hpp}{I\+Display.\+hpp}}\end{DoxyCompactItemize}

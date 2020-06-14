@@ -6,15 +6,74 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>852</width>
     <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar"/>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="TreeView" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>120</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="Editor" native="true">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>10</y>
+      <width>541</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+   </widget>
+   <widget class="QWidget" name="Inspector" native="true">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>20</y>
+      <width>120</width>
+      <height>541</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QWidget" name="command" native="true">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>360</y>
+      <width>541</width>
+      <height>201</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>852</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
