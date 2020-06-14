@@ -15,7 +15,7 @@ class FenClient : public QWidget
 {
     Q_OBJECT
     public:
-        FenClient(int port);
+        FenClient();
         ~FenClient();
 
         void onConnexion(const QString &hostName, quint16 port);

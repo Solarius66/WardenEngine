@@ -10,7 +10,7 @@
 
 FenClient::FenClient()
 {
-    socket = new QTcpServer(this);
+    socket = new QTcpSocket(this);
     sizeMessage = 0;
 }
 
