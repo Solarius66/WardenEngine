@@ -5,8 +5,8 @@ INCLUDEPATH += .
 
 # Input
 HEADERS += \
-    FenServeur.h
+    FenServer.h
 
 SOURCES += \
-    FenServeur.cpp \
+    FenServer.cpp \
     mainServer.cpp
