@@ -14,12 +14,12 @@
 
 
 
-class FenServeur : public QWidget
+class Fenserver : public QWidget
 {
     Q_OBJECT
     public:
-        FenServeur(int port);
-        ~FenServeur();
+        Fenserver(int port);
+        ~Fenserver();
         void sendAll(const QString &message);
         QString dataReceve();
 

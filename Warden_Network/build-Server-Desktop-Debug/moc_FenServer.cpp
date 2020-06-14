@@ -18,28 +18,28 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-struct qt_meta_stringdata_FenServeur_t {
+struct qt_meta_stringdata_Fenserver_t {
     QByteArrayData data[4];
     char stringdata0[41];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_FenServeur_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_Fenserver_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_FenServeur_t qt_meta_stringdata_FenServeur = {
+static const qt_meta_stringdata_Fenserver_t qt_meta_stringdata_Fenserver = {
     {
-QT_MOC_LITERAL(0, 0, 10), // "FenServeur"
+QT_MOC_LITERAL(0, 0, 10), // "Fenserver"
 QT_MOC_LITERAL(1, 11, 15), // "myNewConnection"
 QT_MOC_LITERAL(2, 27, 0), // ""
 QT_MOC_LITERAL(3, 28, 12) // "clientLogout"
 
     },
-    "FenServeur\0myNewConnection\0\0clientLogout"
+    "Fenserver\0myNewConnection\0\0clientLogout"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_FenServeur[] = {
+static const uint qt_meta_data_Fenserver[] = {
 
  // content:
        7,       // revision
@@ -63,10 +63,10 @@ static const uint qt_meta_data_FenServeur[] = {
        0        // eod
 };
 
-void FenServeur::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void Fenserver::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        FenServeur *_t = static_cast<FenServeur *>(_o);
+        Fenserver *_t = static_cast<Fenserver *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->myNewConnection(); break;
@@ -77,26 +77,26 @@ void FenServeur::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     Q_UNUSED(_a);
 }
 
-const QMetaObject FenServeur::staticMetaObject = {
-    { &QWidget::staticMetaObject, qt_meta_stringdata_FenServeur.data,
-      qt_meta_data_FenServeur,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
+const QMetaObject Fenserver::staticMetaObject = {
+    { &QWidget::staticMetaObject, qt_meta_stringdata_Fenserver.data,
+      qt_meta_data_Fenserver,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
-const QMetaObject *FenServeur::metaObject() const
+const QMetaObject *Fenserver::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *FenServeur::qt_metacast(const char *_clname)
+void *Fenserver::qt_metacast(const char *_clname)
 {
     if (!_clname) return Q_NULLPTR;
-    if (!strcmp(_clname, qt_meta_stringdata_FenServeur.stringdata0))
-        return static_cast<void*>(const_cast< FenServeur*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_Fenserver.stringdata0))
+        return static_cast<void*>(const_cast< Fenserver*>(this));
     return QWidget::qt_metacast(_clname);
 }
 
-int FenServeur::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int Fenserver::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)

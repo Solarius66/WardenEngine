@@ -8,7 +8,7 @@
 #include "FenClient.hpp"
 
 
-FenServeur::FenClient()
+FenClient::FenClient()
 {
     socket = new QTcpServer(this);
     sizeMessage = 0;
