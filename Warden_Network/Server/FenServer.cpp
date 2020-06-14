@@ -7,7 +7,7 @@
 
 #include "FenServer.h"
 
-Fenserver::Fenserver(int port)
+FenServer::FenServer(int port)
 {
     serverState = new QLabel;
     exitButton = new QPushButton(tr("Exit"));
@@ -34,7 +34,7 @@ FenServer::~FenServer()
 {
 }
 
-void Fenserver::myNewConnection()
+void FenServer::myNewConnection()
 {
     sendAll(tr("<em>A new client has just connected</em>"));
 
@@ -45,7 +45,7 @@ void Fenserver::myNewConnection()
     connect(newClient, SIGNAL(disconnected()), this, SLOT(clientLogout()));
 }
 
-QString Fenserver::dataReceve()
+QString FenServer::dataReceve()
 {
     QString message;
     QTcpSocket *socket = qobject_cast<QTcpSocket *>(sender());
@@ -66,7 +66,7 @@ QString Fenserver::dataReceve()
 
 }
 
-void Fenserver::clientLogout()
+void FenServer::clientLogout()
 {
     sendAll(tr("<em>A Client logout</em>"));
 
@@ -77,7 +77,7 @@ void Fenserver::clientLogout()
     socket->deleteLater();
 }
 
-void Fenserver::sendAll(const QString &message)
+void FenServer::sendAll(const QString &message)
 {
     QByteArray paquet;
     QDataStream out(&paquet, QIODevice::WriteOnly);

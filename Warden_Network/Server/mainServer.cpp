@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
 {
     QApplication app(argc, argv);
 
-    Fenserver windows;
+    FenServer windows(4242);
     windows.show();
 
     return app.exec();
