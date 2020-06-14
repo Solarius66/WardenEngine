@@ -25,6 +25,10 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
+    QWidget *TreeView;
+    QWidget *Editor;
+    QWidget *Inspector;
+    QWidget *command;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -32,12 +36,27 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(800, 600);
+        MainWindow->resize(852, 600);
+        MainWindow->setStyleSheet(QStringLiteral("background-color: rgb(255, 255, 255);"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
+        TreeView = new QWidget(centralwidget);
+        TreeView->setObjectName(QStringLiteral("TreeView"));
+        TreeView->setGeometry(QRect(10, 10, 120, 551));
+        Editor = new QWidget(centralwidget);
+        Editor->setObjectName(QStringLiteral("Editor"));
+        Editor->setGeometry(QRect(140, 10, 541, 341));
+        Editor->setStyleSheet(QStringLiteral(""));
+        Inspector = new QWidget(centralwidget);
+        Inspector->setObjectName(QStringLiteral("Inspector"));
+        Inspector->setGeometry(QRect(710, 20, 120, 541));
+        command = new QWidget(centralwidget);
+        command->setObjectName(QStringLiteral("command"));
+        command->setGeometry(QRect(140, 360, 541, 201));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
+        menubar->setGeometry(QRect(0, 0, 852, 20));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QStringLiteral("statusbar"));
@@ -51,6 +70,9 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+#ifndef QT_NO_TOOLTIP
+        TreeView->setToolTip(QApplication::translate("MainWindow", "<html><head/><body><p><br/></p></body></html>", 0));
+#endif // QT_NO_TOOLTIP
     } // retranslateUi
 
 };

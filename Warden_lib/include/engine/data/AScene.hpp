@@ -83,7 +83,7 @@ protected:
 
 private:
     ///<Name of the AScene
-    const QString _name; ///<
+    QString _name; ///<
 
     ///<Score of the Scene
     int _score = 0; ///<

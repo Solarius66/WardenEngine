@@ -17,15 +17,25 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     buildbutton.cpp \
+    custombutton.cpp \
+    inspector.cpp \
+    inspectorelement.cpp \
     main.cpp \
     mainwindow.cpp \
-    savebutton.cpp
+    savebutton.cpp \
+    treeviewlayout.cpp \
+    qjsonmodel.cpp
 
 HEADERS += \
     buildbutton.h \
+    custombutton.h \
+    inspector.h \
+    inspectorelement.h \
     libs/Warden.hpp \
     mainwindow.h \
-    savebutton.h
+    savebutton.h \
+    treeviewlayout.h \
+    qjsonmodel.h
 
 FORMS += \
     mainwindow.ui

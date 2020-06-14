@@ -15,6 +15,7 @@
 
 #include "include/engine/error/GameObjectError.hpp"
 #include "include/engine/data/AComponent.hpp"
+#include "include/engine/Macros.hpp"
 
 ///
 /// GameObject Abstract class, declaration of a general GameObject
@@ -22,7 +23,7 @@
 class AGameObject {
     public:
         ///<Constructor
-        AGameObject(const QString &name, int id, int layer); ///<
+        AGameObject(const QString &name = "obj", int id = NOTHING, int layer = FOREGROUND); ///<
 
         ///<Copy Constructor
         AGameObject(AGameObject &); ///<
@@ -77,7 +78,7 @@ class AGameObject {
         QMap<QString, QSharedPointer<AComponent>>  _component;
 
     private:
-        const QString       _name;
+        QString       _name;
         int                 _id;
         int                 _layer;
 };

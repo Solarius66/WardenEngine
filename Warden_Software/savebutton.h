@@ -11,7 +11,6 @@ class SaveButton : public QPushButton
     Q_OBJECT
 public:
     explicit SaveButton(QWidget *parent = nullptr);
-
 };
 
 #endif // SAVEBUTTON_H

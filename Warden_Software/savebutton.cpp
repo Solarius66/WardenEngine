@@ -16,12 +16,10 @@ SaveButton::SaveButton(QWidget *parent) : QPushButton(parent)
 //{
 //    QJsonObject file;
 
-//    qDebug() << "SAVE!" << '\n';
 //    QFile saveFile(QStringLiteral("save.json"));
 //    if (!saveFile.open(QIODevice::WriteOnly)) {
 //        qWarning("Couldn't open save file.");
 //    }
-//    scene->write(file);
 //    QJsonDocument saveDoc(file);
 //    saveFile.write(saveDoc.toJson());
 //}

@@ -90,7 +90,23 @@ void AScene::destroyGameObject()
 
 void AScene::read(const QJsonObject &json)
 {
-
+    if (json.contains("name") && json["name"].isString())
+        _name = json["name"].toString();
+    if (json.contains("score") && json["score"].isString())
+        _score = json["score"].toInt();
+    if (json.contains("state") && json["state"].isString())
+        _state = json["state"].toBool();
+    if (json.contains("object") && json["object"].isArray()) {
+        QJsonArray objArray = json["object"].toArray();
+        _objects.clear();
+        _objects.reserve(objArray.size());
+        for (int objIndex = 0; objIndex < objArray.size(); ++objIndex) {
+            QJsonObject npcObject = objArray[objIndex].toObject();
+            QSharedPointer<AGameObject> obj;
+            obj->read(npcObject);
+            _objects.append(obj);
+        }
+    }
 }
 
 void AScene::write(QJsonObject &json) const

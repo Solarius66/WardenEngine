@@ -24,7 +24,22 @@ AGameObject::AGameObject(AGameObject &obj) : _name(obj.getName()), _id(obj.getID
 
 void AGameObject::read(const QJsonObject &json)
 {
-
+    if (json.contains("name") && json["name"].isString())
+        _name = json["name"].toString();
+    if (json.contains("id") && json["id"].isString())
+        _name = json["id"].toInt();
+    if (json.contains("layer") && json["layer"].isString())
+        _name = json["layer"].toInt();
+    if (json.contains("object") && json["object"].isArray()) {
+        QJsonArray objArray = json["object"].toArray();
+        _component.clear();
+        for (int compoIndex = 0; compoIndex < objArray.size(); ++compoIndex) {
+            QJsonObject compoObject = objArray[compoIndex].toObject();
+            QSharedPointer<AComponent> compo;
+            compo->read(compoObject);
+//            addComponent<AComponent>(compo->getName(), compo);
+        }
+    }
 }
 
 void AGameObject::write(QJsonObject &json) const
