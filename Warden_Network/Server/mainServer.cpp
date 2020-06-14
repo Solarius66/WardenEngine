@@ -7,6 +7,7 @@
 
 #include <QApplication>
 #include "FenServer.h"
+#include <QDebug>
 
 
 int main(int argc, char* argv[])
@@ -15,7 +16,8 @@ int main(int argc, char* argv[])
     QApplication app(argc, argv);
 
     Fenserver windows(4242);
-    windows.show();
 
+    while (1)
+        windows.dataReceve();
     return app.exec();
 }

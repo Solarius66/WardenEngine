@@ -21,8 +21,9 @@ class Fenserver : public QWidget
         Fenserver(int port);
         ~Fenserver();
         void sendAll(const QString &message);
-        QString dataReceve();
 
+public slots:
+        QString dataReceve();
     private slots:
         void myNewConnection();
         void clientLogout();

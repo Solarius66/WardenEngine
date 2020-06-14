@@ -8,12 +8,12 @@
 #include <QApplication>
 #include "FenClient.h"
 
-int main(int argc, char* argv[])
+int main()
 {
     FenClient my_client;
 
-    my_client.onConnexion("127.0.0.1", 4242);
-    my_client.sendMessage("yo");
+    my_client.onConnexion("localhost", 4242);
 
+    my_client.sendMessage("yo");
     return 0;
 }

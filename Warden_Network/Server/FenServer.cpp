@@ -21,11 +21,11 @@ Fenserver::Fenserver(int port)
     setWindowTitle(tr("WardenServer - server"));
 
     server = new QTcpServer(this);
-    if (!server->listen(QHostAddress::Any, port)) {
+    if (!server->listen(QHostAddress::LocalHost, port)) {
         serverState->setText(tr("Echec start server:<br />") + server->errorString());
     } else {
         serverState->setText(tr("Server start on <strong>") + QString::number(server->serverPort()) + tr("</strong>.<br />Clients can now connect."));
-        connect(server, SIGNAL(newConnection()), this, SLOT(myNewConnection()));
+        connect(server, SIGNAL(newConnection()), this, SLOT(this->myNewConnection()));
     }
     sizeMessage = 0;
 }
@@ -36,13 +36,12 @@ Fenserver::~Fenserver()
 
 void Fenserver::myNewConnection()
 {
-    sendAll(tr("<em>A new client has just connected</em>"));
-
     QTcpSocket *newClient = server->nextPendingConnection();
     clients << newClient;
 
     connect(newClient, SIGNAL(readyRead()), this, SLOT(dataReceve()));
     connect(newClient, SIGNAL(disconnected()), this, SLOT(clientLogout()));
+    qDebug() << "COnnection!";
 }
 
 QString Fenserver::dataReceve()
@@ -50,8 +49,9 @@ QString Fenserver::dataReceve()
     QString message;
     QTcpSocket *socket = qobject_cast<QTcpSocket *>(sender());
 
-    if (socket == 0)
+    if (socket == 0) {
         return nullptr;
+    }
     QDataStream in(socket);
     if (sizeMessage == 0) {
         if (socket->bytesAvailable() < (int)sizeof(quint16))
@@ -62,6 +62,7 @@ QString Fenserver::dataReceve()
         return nullptr;
     in >> message;
     sizeMessage = 0;
+    qDebug() << message;
     return message;
 
 }

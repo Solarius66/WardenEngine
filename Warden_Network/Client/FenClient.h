@@ -9,9 +9,9 @@
 #define FENCLIENT_H_
 
 #include <QtNetwork>
-#include <QWidget>
+#include <QObject>
 
-class FenClient : public QWidget
+class FenClient : public QObject
 {
     Q_OBJECT
     public:
